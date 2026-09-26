@@ -16,7 +16,8 @@ import {
   Save, 
   Search, 
   RefreshCw,
-  Eye
+  Eye,
+  Filter
 } from "lucide-react";
 import Logo from "@/components/global/logo";
 
@@ -42,6 +43,48 @@ interface Application {
   created_at: string;
 }
 
+interface SiteImageItem {
+  id: string;
+  title: string;
+  category: "Corporate" | "Solutions" | "Cybersecurity" | "Products";
+  page: string;
+  defaultUrl: string;
+}
+
+const SITE_IMAGES_CATALOG: SiteImageItem[] = [
+  // Corporate & Main
+  { id: "about_image_url", title: "About Us Corporate Office", category: "Corporate", page: "/about", defaultUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop" },
+  { id: "hero_image_url", title: "Home Hero Background Texture", category: "Corporate", page: "/", defaultUrl: "/images/home-get-started-bg.jpg" },
+
+  // Solutions & Core Banking
+  { id: "img_qodes_cbs", title: "Qodes Core Banking System (AI CBS)", category: "Solutions", page: "/qodes-core-banking-system", defaultUrl: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_sap_core_banking", title: "SAP Core Banking Modernization", category: "Solutions", page: "/sap-core-banking", defaultUrl: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2074&auto=format&fit=crop" },
+  { id: "img_temenos_t24", title: "Temenos T24 Upgrades & Migration", category: "Solutions", page: "/temenos-t24-core-banking", defaultUrl: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_software_testing", title: "Software Testing / Quality Engineering", category: "Solutions", page: "/software-testing-services", defaultUrl: "https://plus.unsplash.com/premium_photo-1661546394223-7d465b791444?q=80&w=1786&auto=format&fit=crop" },
+  { id: "img_staff_augmentation", title: "Staff Augmentation Services", category: "Solutions", page: "/staff-augmentation-services", defaultUrl: "https://images.unsplash.com/photo-1574073763042-9dbe6ae03853?q=80&w=1887&auto=format&fit=crop" },
+  { id: "img_app_development", title: "Application Development Practice", category: "Solutions", page: "/application-development", defaultUrl: "https://images.unsplash.com/photo-1617471346061-5d329ab9c574?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_sap_services", title: "SAP Enterprise Services", category: "Solutions", page: "/sap-services", defaultUrl: "https://plus.unsplash.com/premium_photo-1714618828448-abf8732500c6?q=80&w=1800&auto=format&fit=crop" },
+
+  // Cybersecurity & Assurance
+  { id: "img_penetration_testing", title: "Penetration Testing & Red Teaming", category: "Cybersecurity", page: "/penetration-testing", defaultUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_security_compliance", title: "APRA CPS 234 Security Compliance", category: "Cybersecurity", page: "/security-compliance", defaultUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_vulnerability_assessment", title: "Vulnerability Assessment", category: "Cybersecurity", page: "/vulnerability-assessment", defaultUrl: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_source_code_review", title: "Source Code Security Review", category: "Cybersecurity", page: "/source-code-review", defaultUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_app_security", title: "Application Security Testing", category: "Cybersecurity", page: "/application-security-testing", defaultUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_ict_audit", title: "ICT Environment Audit", category: "Cybersecurity", page: "/ict-environment-audit", defaultUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_security_assessment", title: "IT Security Assessment", category: "Cybersecurity", page: "/it-security-assessment", defaultUrl: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2070&auto=format&fit=crop" },
+
+  // Banking Products
+  { id: "img_banking_products", title: "Banking Products Suite Overview", category: "Products", page: "/banking-products", defaultUrl: "https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_core_banking", title: "Core Banking System Product", category: "Products", page: "/core-banking-system", defaultUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_internet_banking", title: "Internet Banking Platform", category: "Products", page: "/internet-banking-system", defaultUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_mobile_banking", title: "Mobile Banking Application", category: "Products", page: "/mobile-banking", defaultUrl: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_loan_software", title: "Loan & Credit Origination", category: "Products", page: "/loan-software", defaultUrl: "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_remittance", title: "Remittance Management System", category: "Products", page: "/remittance-management-system", defaultUrl: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop" },
+  { id: "img_hrms", title: "HRMS Enterprise Package", category: "Products", page: "/hrms-package", defaultUrl: "https://plus.unsplash.com/premium_photo-1714618828448-abf8732500c6?q=80&w=1800&auto=format&fit=crop" },
+  { id: "img_other_products", title: "Other Administrative Products", category: "Products", page: "/other-products", defaultUrl: "https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=2070&auto=format&fit=crop" },
+];
+
 export default function AdminDashboardPage() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<"enquiries" | "applications" | "content" | "media">("enquiries");
@@ -55,8 +98,12 @@ export default function AdminDashboardPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
 
+  // Media Tab Filtering
+  const [mediaCategory, setMediaCategory] = useState<string>("All");
+  const [mediaSearch, setMediaSearch] = useState("");
+
   // Content Editor Form State
-  const [content, setContent] = useState<Record<string, string>>({
+  const initialContent: Record<string, string> = {
     hero_headline: "Autonomous Core Banking & Critical Financial Infrastructure",
     hero_subtitle: "Envisioned and engineered by enterprise veterans with two decades of banking delivery. We deploy proprietary AI-driven CBS, modernize SAP Banking architectures, and deliver zero-downtime Temenos T24 upgrades with military-grade cybersecurity assurance.",
     hero_heritage_years: "20+",
@@ -66,9 +113,14 @@ export default function AdminDashboardPage() {
     contact_phone: "+61 457 170 962",
     contact_email: "info@qodessystems.com",
     careers_email: "careers@qodessystems.com",
-    about_image_url: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop",
-    hero_image_url: "/images/home-get-started-bg.jpg",
+  };
+
+  // Populate default image URLs
+  SITE_IMAGES_CATALOG.forEach((item) => {
+    initialContent[item.id] = item.defaultUrl;
   });
+
+  const [content, setContent] = useState<Record<string, string>>(initialContent);
 
   const fetchData = async () => {
     setLoading(true);
@@ -132,8 +184,8 @@ export default function AdminDashboardPage() {
     }
   };
 
-  const handleSaveContent = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSaveContent = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     setSaving(true);
     setStatusMessage({ type: "", text: "" });
 
@@ -146,7 +198,7 @@ export default function AdminDashboardPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        setStatusMessage({ type: "success", text: "Site content updated successfully!" });
+        setStatusMessage({ type: "success", text: "Configuration updated successfully!" });
       } else {
         setStatusMessage({ type: "error", text: data.error || "Failed to save content." });
       }
@@ -163,6 +215,14 @@ export default function AdminDashboardPage() {
       e.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (e.subject && e.subject.toLowerCase().includes(searchQuery.toLowerCase()))
   );
+
+  const filteredImages = SITE_IMAGES_CATALOG.filter((img) => {
+    const matchesCat = mediaCategory === "All" || img.category === mediaCategory;
+    const matchesSearch = mediaSearch === "" || 
+      img.title.toLowerCase().includes(mediaSearch.toLowerCase()) ||
+      img.page.toLowerCase().includes(mediaSearch.toLowerCase());
+    return matchesCat && matchesSearch;
+  });
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
@@ -247,7 +307,7 @@ export default function AdminDashboardPage() {
               }`}
             >
               <ImageIcon className="w-4 h-4" />
-              <span>Media &amp; Images</span>
+              <span>Media Library ({SITE_IMAGES_CATALOG.length})</span>
             </button>
           </div>
 
@@ -601,70 +661,126 @@ export default function AdminDashboardPage() {
           </form>
         )}
 
-        {/* TAB 4: MEDIA MANAGER */}
+        {/* TAB 4: MEDIA MANAGER (23 IMAGES CATALOG) */}
         {activeTab === "media" && (
           <div className="space-y-6">
             <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-6 sm:p-8 space-y-6">
-              <div className="border-b border-slate-800 pb-4">
-                <h3 className="text-lg font-bold text-white tracking-tight">Active Image Assets</h3>
-                <p className="text-xs text-slate-400 mt-1">
-                  Replace image URLs for banners, hero backgrounds, and corporate photos.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-4 rounded-xl border border-slate-800 bg-slate-950 space-y-3">
-                  <span className="text-xs font-mono text-sky-400 uppercase font-semibold">About Us Office Photo</span>
-                  <div className="relative aspect-[16/9] rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={content.about_image_url}
-                      alt="About Office"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1">Image URL</label>
-                    <input
-                      type="text"
-                      value={content.about_image_url}
-                      onChange={(e) => setContent({ ...content, about_image_url: e.target.value })}
-                      className="w-full px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-white focus:outline-none focus:border-sky-500 font-mono"
-                    />
-                  </div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+                <div>
+                  <h3 className="text-lg font-bold text-white tracking-tight">
+                    Active Media Library ({SITE_IMAGES_CATALOG.length} Images)
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Manage image assets across all 23 corporate pages, solutions, and banking products.
+                  </p>
                 </div>
 
-                <div className="p-4 rounded-xl border border-slate-800 bg-slate-950 space-y-3">
-                  <span className="text-xs font-mono text-sky-400 uppercase font-semibold">Hero Background Texture</span>
-                  <div className="relative aspect-[16/9] rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={content.hero_image_url}
-                      alt="Hero Texture"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-mono text-slate-400 uppercase mb-1">Image URL</label>
-                    <input
-                      type="text"
-                      value={content.hero_image_url}
-                      onChange={(e) => setContent({ ...content, hero_image_url: e.target.value })}
-                      className="w-full px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-white focus:outline-none focus:border-sky-500 font-mono"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-end pt-4">
                 <button
                   type="button"
-                  onClick={handleSaveContent}
+                  onClick={() => handleSaveContent()}
+                  disabled={saving}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs transition-all shadow-md self-start sm:self-auto"
+                >
+                  <Save className="w-3.5 h-3.5" />
+                  <span>{saving ? "Saving All..." : "Save All Media Changes"}</span>
+                </button>
+              </div>
+
+              {/* Filters & Search Bar */}
+              <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+                {/* Category Pills */}
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {["All", "Solutions", "Cybersecurity", "Products", "Corporate"].map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setMediaCategory(cat)}
+                      className={`px-3 py-1 rounded-md text-xs font-mono transition-colors ${
+                        mediaCategory === cat
+                          ? "bg-sky-600 text-white font-semibold"
+                          : "bg-slate-950 border border-slate-800 text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      {cat} {cat === "All" ? `(${SITE_IMAGES_CATALOG.length})` : ""}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Search */}
+                <div className="relative max-w-xs w-full">
+                  <Search className="w-3.5 h-3.5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    placeholder="Search images by title or page..."
+                    value={mediaSearch}
+                    onChange={(e) => setMediaSearch(e.target.value)}
+                    className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-sky-500"
+                  />
+                </div>
+              </div>
+
+              {/* Grid of Images */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+                {filteredImages.map((img) => (
+                  <div
+                    key={img.id}
+                    className="p-4 rounded-xl border border-slate-800 bg-slate-950 space-y-3 flex flex-col justify-between"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-[10px] font-mono text-sky-400 uppercase font-semibold">
+                          {img.category}
+                        </span>
+                        <Link
+                          href={img.page}
+                          target="_blank"
+                          className="inline-flex items-center gap-1 text-[11px] font-mono text-slate-400 hover:text-white transition-colors"
+                        >
+                          <span>{img.page}</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </Link>
+                      </div>
+
+                      <h4 className="text-xs font-semibold text-white line-clamp-1">
+                        {img.title}
+                      </h4>
+
+                      {/* Thumbnail Preview */}
+                      <div className="relative aspect-[16/10] rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={content[img.id] || img.defaultUrl}
+                          alt={img.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5 pt-2 border-t border-slate-900">
+                      <label className="block text-[10px] font-mono text-slate-400 uppercase">
+                        Image Resource URL
+                      </label>
+                      <input
+                        type="text"
+                        value={content[img.id] || ""}
+                        onChange={(e) => setContent({ ...content, [img.id]: e.target.value })}
+                        className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-slate-800 text-[11px] text-white focus:outline-none focus:border-sky-500 font-mono"
+                        placeholder="https://..."
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-end pt-4 border-t border-slate-800">
+                <button
+                  type="button"
+                  onClick={() => handleSaveContent()}
                   disabled={saving}
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs transition-all shadow-md"
                 >
                   <Save className="w-3.5 h-3.5" />
-                  <span>Update Media Configuration</span>
+                  <span>{saving ? "Saving All..." : "Save All Media Changes"}</span>
                 </button>
               </div>
             </div>

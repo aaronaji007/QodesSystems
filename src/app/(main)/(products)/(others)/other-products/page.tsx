@@ -20,7 +20,7 @@ const OtherProductsComponent = () => {
             height={0}
             unoptimized
             quality={100}
-            className="w-full lg:w-[25%] h-[250px] object-fill"
+            className="w-full lg:w-[35%] h-[250px] object-cover rounded-xl shadow-md border border-slate-200 dark:border-slate-800"
           />
           <div className="flex-1 h-full flex flex-col items-start justify-center gap-4 text-base py-2 leading-6">
             <p className="text-wrap text-black font-bold">
@@ -45,7 +45,7 @@ const OtherProductsComponent = () => {
               height={0}
               unoptimized
               quality={100}
-              className="w-full lg:w-[300px] h-[250px] object-fill"
+              className="w-full lg:w-[320px] h-[220px] object-cover rounded-xl shadow-md border border-slate-200 dark:border-slate-800"
             />
           </div>
           {/* <div className="flex-1 flex flex-col items-center justify-center gap-2">

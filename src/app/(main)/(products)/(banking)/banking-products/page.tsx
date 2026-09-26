@@ -19,7 +19,7 @@ const BankingProductsComponent = () => {
           height={0}
           unoptimized
           quality={100}
-          className="w-full lg:w-[25%] h-[250px] object-fill"
+          className="w-full lg:w-[35%] h-[260px] object-cover rounded-xl shadow-md border border-slate-200 dark:border-slate-800"
         />
         <div className="flex-1 h-full flex flex-col items-start justify-center gap-4 text-base py-2 leading-6 font-bold">
           <p className="text-wrap text-black">

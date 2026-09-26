@@ -15,7 +15,7 @@ const CoreBankingSystem = () => {
             "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
-          className="w-full lg:w-[45%] h-[380px] object-fill"
+          className="w-full lg:w-[45%] h-[380px] object-cover rounded-xl shadow-md border border-slate-200 dark:border-slate-800"
           quality={100}
           unoptimized
           draggable={false}
