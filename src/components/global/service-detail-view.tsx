@@ -6,13 +6,12 @@ import Link from "next/link";
 import { 
   ArrowRight, 
   ChevronRight, 
-  ShieldCheck, 
-  CheckCircle2, 
-  ChevronDown, 
-  Building2, 
-  Layers, 
-  Cpu, 
-  Sparkles
+  Plus,
+  Minus,
+  Check,
+  Terminal,
+  FileText,
+  CornerDownRight
 } from "lucide-react";
 
 export interface ServicePillar {
@@ -55,7 +54,7 @@ export default function ServiceDetailView({
   pillars,
   modules,
   keyBenefits,
-  ctaHeadline = "Evaluate Your Institutional Architecture With Our Principals",
+  ctaHeadline = "Initiate Architectural Review",
   ctaSubtext = "Connect directly with our senior core banking architects and cybersecurity officers in Melbourne. We assess legacy constraints, design modern target states, and deliver zero-downtime execution.",
 }: ServiceDetailProps) {
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
@@ -65,105 +64,174 @@ export default function ServiceDetailView({
   };
 
   return (
-    <div className="w-full bg-white text-slate-900 overflow-hidden">
+    <div className="w-full bg-[#FFFFFF] text-[#0F172A] selection:bg-[#0F172A] selection:text-white font-sans antialiased">
       
-      {/* 1. HERO HEADER WITH BREADCRUMB */}
-      <section className="relative w-full bg-gradient-to-b from-slate-50 via-white to-white border-b border-slate-200/80 pt-12 pb-16 lg:pt-16 lg:pb-20">
-        <div 
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(to right, #0f172a 1px, transparent 1px), linear-gradient(to bottom, #0f172a 1px, transparent 1px)`,
-            backgroundSize: "36px 36px",
-          }}
-        />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+      {/* 1. TOP METADATA DOSSIER BAR (Hairline divider & system stamps) */}
+      <section className="w-full border-b border-neutral-200 bg-neutral-50/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-y-2 text-xs font-mono text-neutral-500">
           {/* Breadcrumb Navigation */}
-          <nav className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-6">
+          <nav className="flex items-center gap-2">
             {breadcrumbs.map((crumb, idx) => (
               <React.Fragment key={idx}>
                 {crumb.href ? (
-                  <Link href={crumb.href} className="hover:text-slate-900 transition-colors">
+                  <Link 
+                    href={crumb.href} 
+                    className="hover:text-neutral-950 transition-colors uppercase tracking-wider"
+                  >
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span className="text-slate-900 font-medium">{crumb.label}</span>
+                  <span className="text-neutral-950 font-semibold uppercase tracking-wider">{crumb.label}</span>
                 )}
                 {idx < breadcrumbs.length - 1 && (
-                  <ChevronRight className="w-3 h-3 text-slate-400" />
+                  <span className="text-neutral-300">/</span>
                 )}
               </React.Fragment>
             ))}
           </nav>
 
-          {/* Category Pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800 text-xs font-mono font-medium tracking-wide mb-6 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-sky-600 animate-pulse" />
-            <span>{category}</span>
+          {/* Institutional Specs */}
+          <div className="flex items-center gap-4 text-[11px] uppercase tracking-widest text-neutral-500">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span>SYS_READY // V4.2</span>
+            </span>
+            <span className="hidden sm:inline text-neutral-300">|</span>
+            <span className="hidden sm:inline">SYDNEY &bull; MELBOURNE</span>
+            <span className="text-neutral-300">|</span>
+            <span className="text-sky-700 font-semibold">{category}</span>
           </div>
-
-          <div className="max-w-4xl">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-950 leading-[1.12] mb-6">
-              {title}
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-relaxed mb-8">
-              {subtitle}
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm transition-all duration-200 shadow-sm hover:shadow"
-              >
-                <span>Schedule Technical Review</span>
-                <ArrowRight className="w-4 h-4 text-sky-400" />
-              </Link>
-
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white border border-slate-300 hover:border-slate-400 text-slate-700 font-medium text-sm transition-all hover:bg-slate-50"
-              >
-                <span>About Our Firm</span>
-              </Link>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* 2. OVERVIEW & FEATURED ARCHITECTURE IMAGE */}
-      <section className="w-full py-16 lg:py-24 border-b border-slate-200/80">
+      {/* 2. SWISS ASYMMETRICAL HERO (Editorial Header & Leading Premise) */}
+      <section className="w-full border-b border-neutral-200 pt-16 pb-20 lg:pt-24 lg:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             
-            {/* Left Narrative */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-sky-700 font-semibold">
-                <Building2 className="w-4 h-4" />
-                <span>Executive Architectural Overview</span>
+            {/* Col Left: Section Number & Categorical Stamp */}
+            <div className="lg:col-span-3 flex flex-col justify-between">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block mb-2">
+                  01 // SPECIFICATION
+                </span>
+                <span className="font-mono text-sm font-semibold uppercase tracking-wider text-sky-700 block">
+                  {badgeText}
+                </span>
               </div>
-
-              <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-                {leadParagraphs.map((para, i) => (
-                  <p key={i} className="text-slate-700">
-                    {para}
-                  </p>
-                ))}
+              <div className="hidden lg:block pt-12 text-xs font-mono text-neutral-400 space-y-2 border-t border-neutral-200">
+                <p>INSTITUTIONAL GRADE</p>
+                <p>APRA CPS 234 / ISO 20022</p>
+                <p>99.999% SLA RESILIENCE</p>
               </div>
+            </div>
 
+            {/* Col Right: Massive Typographic Headline & Subtitle */}
+            <div className="lg:col-span-9">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light tracking-[-0.03em] text-neutral-950 leading-[1.06] mb-8">
+                {title}
+              </h1>
+
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6 border-t border-neutral-200">
+                <p className="md:col-span-8 text-lg sm:text-xl text-neutral-600 font-normal leading-relaxed">
+                  {subtitle}
+                </p>
+                <div className="md:col-span-4 flex flex-col justify-end">
+                  <Link
+                    href="/contact"
+                    className="group inline-flex items-center justify-between w-full px-5 py-3.5 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-mono uppercase tracking-widest transition-all"
+                  >
+                    <span>Schedule Review</span>
+                    <ArrowRight className="w-4 h-4 text-sky-400 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 3. HERO GEOMETRIC FIGURE PLATE (Framed photography with technical caption) */}
+      <section className="w-full border-b border-neutral-200 bg-neutral-50/40 py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            
+            {/* Main Visual Plate */}
+            <div className="lg:col-span-9">
+              <div className="relative aspect-[21/10] sm:aspect-[21/9] w-full border border-neutral-200 bg-neutral-900 overflow-hidden">
+                <Image
+                  src={imageUrl}
+                  alt={imageAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 1200px) 100vw, 80vw"
+                  className="object-cover opacity-90 transition-opacity hover:opacity-100"
+                />
+                <div className="absolute top-3 left-3 bg-neutral-950/80 backdrop-blur-sm text-neutral-300 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 border border-neutral-800">
+                  FIG 1.0 &mdash; ARCHITECTURAL SCHEMATIC
+                </div>
+              </div>
+            </div>
+
+            {/* Right Meta Column */}
+            <div className="lg:col-span-3 space-y-4 font-mono text-xs">
+              <div className="p-5 border border-neutral-200 bg-white space-y-3">
+                <div className="text-neutral-400 uppercase tracking-widest text-[11px]">
+                  VERIFICATION
+                </div>
+                <div className="text-neutral-900 font-semibold leading-snug">
+                  Audited for high-concurrency Australian financial infrastructure.
+                </div>
+                <div className="pt-3 border-t border-neutral-100 text-neutral-500 text-[11px] space-y-1">
+                  <div>LATENCY: &lt; 1.2ms</div>
+                  <div>FAILOVER: ZERO-DATA-LOSS</div>
+                  <div>STANDARDS: CDR / NPP</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 4. EXECUTIVE NARRATIVE (Split-rail Swiss reading layout) */}
+      <section className="w-full border-b border-neutral-200 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            {/* Col Left: Section Metadata */}
+            <div className="lg:col-span-4 space-y-4">
+              <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block">
+                02 // EXECUTIVE ARCHITECTURE
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-light text-neutral-950 tracking-tight leading-snug">
+                Built for mission-critical institutional operations.
+              </h2>
+              <p className="text-sm text-neutral-500 font-mono leading-relaxed pt-4 border-t border-neutral-200">
+                Detailed domain separation eliminating batch processing bottlenecks, single-points-of-failure, and legacy vendor lock-in.
+              </p>
+            </div>
+
+            {/* Col Right: Editorial Body Paragraphs */}
+            <div className="lg:col-span-8 space-y-8 text-neutral-700 text-base sm:text-lg leading-[1.75] font-light">
+              {leadParagraphs.map((para, i) => (
+                <p key={i} className="text-neutral-800">
+                  {para}
+                </p>
+              ))}
+
+              {/* Key Deliverables Check-matrix */}
               {keyBenefits && keyBenefits.length > 0 && (
-                <div className="pt-6 border-t border-slate-100">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-slate-900 font-bold mb-4">
-                    Key Value Deliverables
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="pt-10 mt-10 border-t border-neutral-200">
+                  <span className="font-mono text-xs uppercase tracking-widest text-neutral-500 block mb-6">
+                    MANDATORY DELIVERABLES &amp; COMPLIANCE BENCHMARKS
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 font-mono text-xs text-neutral-800">
                     {keyBenefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-slate-700 font-medium leading-snug">
-                          {benefit}
-                        </span>
+                      <div key={idx} className="flex items-start gap-3 py-2 border-b border-neutral-100">
+                        <span className="text-sky-600 font-bold font-mono">[+]</span>
+                        <span className="leading-relaxed font-sans text-sm text-neutral-700">{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -171,73 +239,55 @@ export default function ServiceDetailView({
               )}
             </div>
 
-            {/* Right Media Preview */}
-            <div className="lg:col-span-5">
-              <div className="sticky top-24 space-y-4">
-                <div className="relative aspect-[16/11] w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100 group">
-                  <Image
-                    src={imageUrl}
-                    alt={imageAlt}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 45vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-                  
-                  <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono flex items-center justify-between">
-                    <span className="bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20">
-                      {badgeText}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-500 font-mono space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span>Audit Assurance:</span>
-                    <span className="text-slate-900 font-semibold">APRA CPS 234 Aligned</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Target Delivery:</span>
-                    <span className="text-slate-900 font-semibold">Zero-Downtime Guarantee</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* 3. CAPABILITY PILLARS (IF PROVIDED) */}
+      {/* 5. ARCHITECTURE PILLARS (Clean Swiss Grid Columns with thin borders) */}
       {pillars && pillars.length > 0 && (
-        <section className="w-full py-16 lg:py-20 bg-slate-50/70 border-b border-slate-200/80">
+        <section className="w-full border-b border-neutral-200 bg-neutral-50/50 py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mb-12">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-sky-700 font-semibold mb-3">
-                <Cpu className="w-4 h-4" />
-                <span>Architecture Pillars</span>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-6 border-b border-neutral-200">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block mb-2">
+                  03 // CORE TENETS
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-light text-neutral-950 tracking-tight">
+                  Foundational Engineering Principles
+                </h3>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
-                Engineered for High-Throughput &amp; Zero Failure
-              </h2>
+              <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest">
+                ZERO TECHNICAL DEBT &bull; AUDITED ARCHITECTURE
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Asymmetrical 3-Column Dossier */}
+            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-neutral-200 bg-white">
               {pillars.map((pillar, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow"
+                  className="p-8 sm:p-10 border-r border-b border-neutral-200 flex flex-col justify-between hover:bg-neutral-50/80 transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 mb-5">
-                    {pillar.icon || <Sparkles className="w-5 h-5" />}
+                  <div>
+                    <div className="flex items-center justify-between mb-8">
+                      <span className="font-mono text-xs text-neutral-400">
+                        P_0{idx + 1}
+                      </span>
+                      <span className="text-sky-700 text-xs font-mono uppercase tracking-widest">
+                        PRINCIPLE
+                      </span>
+                    </div>
+                    <h4 className="text-lg font-medium text-neutral-950 mb-3 tracking-tight">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-sm text-neutral-600 leading-relaxed font-light">
+                      {pillar.description}
+                    </p>
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {pillar.description}
-                  </p>
+                  <div className="pt-8 mt-8 border-t border-neutral-100 flex items-center gap-2 text-xs font-mono text-neutral-400">
+                    <CornerDownRight className="w-3.5 h-3.5 text-sky-600" />
+                    <span>VERIFIED SYSTEM STANDARD</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -245,107 +295,120 @@ export default function ServiceDetailView({
         </section>
       )}
 
-      {/* 4. EXPANDABLE TECHNICAL MODULES / ACCORDIONS (IF PROVIDED) */}
+      {/* 6. MODULAR SPECIFICATIONS (Accordion styled like an Engineering Ledger) */}
       {modules && modules.length > 0 && (
-        <section className="w-full py-16 lg:py-24 border-b border-slate-200/80">
+        <section className="w-full border-b border-neutral-200 py-16 lg:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mb-12">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-sky-700 font-semibold mb-3">
-                <Layers className="w-4 h-4" />
-                <span>Modular Specifications</span>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+              
+              {/* Left Column: Heading */}
+              <div className="lg:col-span-4 space-y-4">
+                <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block">
+                  04 // FUNCTIONAL SPECIFICATIONS
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-light text-neutral-950 tracking-tight leading-snug">
+                  Component Breakdown &amp; Practice Modules
+                </h3>
+                <p className="text-sm text-neutral-500 font-mono leading-relaxed pt-4 border-t border-neutral-200">
+                  Select a module index to inspect technical capabilities, accounting sub-ledgers, and integration adapters.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
-                Detailed Practice &amp; Delivery Modules
-              </h2>
-              <p className="text-sm text-slate-600 mt-2">
-                Click any module below to inspect implementation deliverables and technology capabilities.
-              </p>
-            </div>
 
-            <div className="space-y-4 max-w-4xl">
-              {modules.map((mod, index) => {
-                const isOpen = openAccordion === index;
-                return (
-                  <div
-                    key={index}
-                    className="border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm transition-colors"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => toggleAccordion(index)}
-                      className="w-full px-6 py-4.5 text-left flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors"
+              {/* Right Column: Ledger List */}
+              <div className="lg:col-span-8 border-t border-neutral-200">
+                {modules.map((mod, index) => {
+                  const isOpen = openAccordion === index;
+                  return (
+                    <div
+                      key={index}
+                      className="border-b border-neutral-200 transition-colors"
                     >
-                      <div>
-                        <h4 className="font-bold text-base text-slate-900">
-                          {mod.title}
-                        </h4>
-                        {mod.subtitle && (
-                          <p className="text-xs text-slate-500 font-mono mt-0.5">
-                            {mod.subtitle}
-                          </p>
-                        )}
-                      </div>
-                      <ChevronDown
-                        className={`w-5 h-5 text-slate-500 transition-transform duration-200 flex-shrink-0 ${
-                          isOpen ? "rotate-180 text-sky-600" : ""
-                        }`}
-                      />
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() => toggleAccordion(index)}
+                        className="w-full py-6 text-left flex items-start justify-between gap-6 hover:text-sky-700 transition-colors group"
+                      >
+                        <div className="flex items-start gap-4 sm:gap-6">
+                          <span className="font-mono text-xs text-neutral-400 pt-1 group-hover:text-neutral-900">
+                            [{index < 9 ? `0${index + 1}` : index + 1}]
+                          </span>
+                          <div>
+                            <h4 className="font-normal text-lg sm:text-xl text-neutral-950 tracking-tight group-hover:text-sky-800">
+                              {mod.title}
+                            </h4>
+                            {mod.subtitle && (
+                              <p className="text-xs font-mono text-neutral-500 mt-1 uppercase tracking-wider">
+                                {mod.subtitle}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                        <div className="pt-1 text-neutral-400 group-hover:text-neutral-950 flex-shrink-0">
+                          {isOpen ? (
+                            <Minus className="w-5 h-5 text-sky-600" />
+                          ) : (
+                            <Plus className="w-5 h-5" />
+                          )}
+                        </div>
+                      </button>
 
-                    {isOpen && (
-                      <div className="px-6 pb-6 pt-2 border-t border-slate-100 bg-slate-50/50">
-                        <ul className="space-y-2.5">
-                          {mod.items.map((item, itemIdx) => (
-                            <li key={itemIdx} className="flex items-start gap-3 text-sm text-slate-700">
-                              <span className="w-1.5 h-1.5 rounded-full bg-sky-600 mt-2 flex-shrink-0" />
-                              <span className="leading-relaxed">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+                      {isOpen && (
+                        <div className="pb-8 pt-2 pl-8 sm:pl-12">
+                          <div className="p-6 bg-neutral-50 border-l-2 border-neutral-950 font-mono text-xs text-neutral-600 space-y-3">
+                            <span className="text-[10px] uppercase tracking-widest text-neutral-400 block mb-3">
+                              SCOPE OF CAPABILITIES &amp; RUNTIME CONTROLS
+                            </span>
+                            <ul className="space-y-3 font-sans text-sm text-neutral-700 font-light">
+                              {mod.items.map((item, itemIdx) => (
+                                <li key={itemIdx} className="flex items-start gap-3">
+                                  <span className="font-mono text-xs text-sky-600 font-bold mt-0.5">&gt;</span>
+                                  <span className="leading-relaxed">{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
             </div>
           </div>
         </section>
       )}
 
-      {/* 5. BOTTOM ADVISORY CTA BANNER */}
-      <section className="w-full bg-slate-950 text-white py-16 lg:py-20 relative overflow-hidden">
-        <div 
-          className="pointer-events-none absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="max-w-2xl text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-400 text-xs font-mono uppercase tracking-wider mb-4">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Principal Executive Advisory</span>
+      {/* 7. ARCHITECTURAL CONTACT DOSSIER (Obsidian & Crisp Monospace) */}
+      <section className="w-full bg-[#0A0F1D] text-white py-20 lg:py-28 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            
+            <div className="lg:col-span-8 space-y-6">
+              <div className="font-mono text-xs uppercase tracking-widest text-sky-400">
+                05 // ENGAGEMENT PROTOCOL
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-3">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white leading-tight">
                 {ctaHeadline}
               </h3>
-              <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+              <p className="text-neutral-400 text-base sm:text-lg max-w-2xl font-light leading-relaxed">
                 {ctaSubtext}
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <div className="lg:col-span-4 flex flex-col justify-end gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all shadow-md hover:shadow-sky-600/30"
+                className="group flex items-center justify-between w-full px-6 py-4 bg-white text-neutral-950 font-mono text-xs uppercase tracking-widest hover:bg-neutral-100 transition-all"
               >
                 <span>Initiate Technical Advisory</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-sky-600 transition-transform group-hover:translate-x-1" />
               </Link>
+              <div className="text-[11px] font-mono text-neutral-500 uppercase tracking-widest text-right">
+                CONFIDENTIAL &bull; ZERO-OBLIGATION
+              </div>
             </div>
+
           </div>
         </div>
       </section>
