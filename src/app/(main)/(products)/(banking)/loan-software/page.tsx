@@ -12,7 +12,7 @@ const LoanSoftwarePage = () => {
       <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2020/07/loan-management-system-e1594117023268.png"
+            "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           className="w-full lg:w-[40%] h-[300px] object-full"

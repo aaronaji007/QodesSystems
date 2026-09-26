@@ -12,7 +12,7 @@ const SourceCodeReviewPage = () => {
       <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2020/06/source-code-review.jpg"
+            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           className="w-full lg:w-[45%] h-[300px] object-full"

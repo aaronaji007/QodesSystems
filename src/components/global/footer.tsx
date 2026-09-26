@@ -92,22 +92,45 @@ const FooterComponent = () => {
       </div> */}
       <div className="w-[90%] h-fit flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="flex flex-row items-center justify-center gap-3">
-          <FacebookOutlinedIcon className="bg-secondary-dark rounded-full text-facebook !w-10 !h-10" />
-          <div className="bg-linkedin  rounded-full text-secondary-dark p-2 !w-8 !h-8 flex items-center justify-center">
-            <XIcon />
-          </div>
-          <LinkedInIcon className="bg-linkedin rounded-full text-secondary-dark !w-8 !h-8 p-1" />
-          <InstagramIcon className="bg-linkedin rounded-full text-secondary-dark !w-8 !h-8 p-1" />
-        </div>
-        <div className="text-base text-white text-center lg:text-end">
-          All Rights Reserved @2024 | Powered by &quot;
-          <Link
-            href="/"
-            className="cursor-pointer hover:underline underline-offset-2"
+          <a
+            href="https://facebook.com/qodessystems"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Qodes Systems Facebook"
+            className="transition-transform duration-200 hover:scale-110 opacity-90 hover:opacity-100"
           >
-            QODES Systems
-          </Link>
-          &quot;
+            <FacebookOutlinedIcon className="bg-secondary-dark rounded-full text-facebook !w-9 !h-9" />
+          </a>
+          <a
+            href="https://x.com/qodessystems"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Qodes Systems X"
+            className="bg-linkedin rounded-full text-secondary-dark p-2 !w-8 !h-8 flex items-center justify-center transition-transform duration-200 hover:scale-110 opacity-90 hover:opacity-100"
+          >
+            <XIcon className="!w-4 !h-4" />
+          </a>
+          <a
+            href="https://linkedin.com/company/qodes-systems"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Qodes Systems LinkedIn"
+            className="transition-transform duration-200 hover:scale-110 opacity-90 hover:opacity-100"
+          >
+            <LinkedInIcon className="bg-linkedin rounded-full text-secondary-dark !w-8 !h-8 p-1" />
+          </a>
+          <a
+            href="https://instagram.com/qodessystems"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Qodes Systems Instagram"
+            className="transition-transform duration-200 hover:scale-110 opacity-90 hover:opacity-100"
+          >
+            <InstagramIcon className="bg-linkedin rounded-full text-secondary-dark !w-8 !h-8 p-1" />
+          </a>
+        </div>
+        <div className="text-sm md:text-base text-gray-300 text-center lg:text-end">
+          © {new Date().getFullYear()} Qodes Systems. All Rights Reserved.
         </div>
       </div>
     </div>

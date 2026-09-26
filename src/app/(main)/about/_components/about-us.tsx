@@ -61,7 +61,7 @@ const AboutUsComponent = () => {
       <div className="w-[95%] flex flex-col lg:flex-row items-start justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2015/02/1aboutus.jpg"
+            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           width={0}

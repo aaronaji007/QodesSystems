@@ -12,7 +12,7 @@ const ITSecurityAssessmentPage = () => {
       <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2020/05/security1.jpg"
+            "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           className="w-full lg:w-[45%] h-[300px] object-full"

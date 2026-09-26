@@ -12,7 +12,7 @@ const CoreBankingSystem = () => {
       <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2020/07/corebanking-e1594108540878.jpg"
+            "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           className="w-full lg:w-[45%] h-[380px] object-fill"

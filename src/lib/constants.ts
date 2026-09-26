@@ -16,7 +16,7 @@ export const serviceList: serviceListType = [
     description:
       "QODES Systems brings deep expertise in SAP Banking development and implementation projects, positioning us as a trusted partner for your SAP Banking-based IT transformation initiatives.Our Solution Architects excel in conducting detailed solution reviews at every phase of the project, addressing potential design flaws early—long before the acceptance phase—ensuring the integrity and feasibility of deliverables. This proactive approach allows you to confidently progress through each project phase, achieving measurable and solid results.",
     imageUrl:
-      "https://qodestechnologies.com/wp-content/uploads/2020/05/Consulting2.jpg",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop&ixlib=rb-4.0.3",
     href: "/sap-core-banking",
   },
   {
@@ -25,7 +25,7 @@ export const serviceList: serviceListType = [
     description:
       "In the fast-evolving banking landscape, applications require regular upgrades to empower financial institutions with new functionalities, meet regulatory requirements, respond to market demands, stay aligned with technological advancements, and enhance security while reducing operational costs. QODES Systems provides seamless Upgrade and Technology Migration services, ensuring that your applications remain future-ready. Regular upgrades of Temenos applications enable banks to address both present and future needs effectively, offering enhanced customer experiences, improved operational efficiency, and the agility to adapt to an ever-changing industry landscape. With our expertise, banks can implement these upgrades smoothly, minimizing downtime, mitigating risks, and ensuring compliance with the latest standards and trends. Let QODES Systems help you future-proof your banking systems with precision and confidence. ",
     imageUrl:
-      "https://qodestechnologies.com/wp-content/uploads/2020/05/support-e1590164323706.jpg",
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
     href: "/temenos-t24-core-banking",
   },
 

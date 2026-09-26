@@ -12,7 +12,7 @@ const ApplicationSecurityTestingPage = () => {
       <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2020/06/Application-security-e1591619053735.jpg"
+            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           className="w-full lg:w-[45%] h-[350px] object-full"

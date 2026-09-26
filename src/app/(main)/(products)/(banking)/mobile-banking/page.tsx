@@ -12,7 +12,7 @@ const MobileBankingSystemPage = () => {
       <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2020/07/mobile-banking.png"
+            "https://images.unsplash.com/photo-1556742049-0a67c5574f73?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           className="w-full lg:w-[35%] h-[275px] object-full"

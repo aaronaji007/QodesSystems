@@ -12,7 +12,7 @@ const PenetrationTestingPage = () => {
       <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2020/06/Testing-e1591611509996.png"
+            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           className="w-full lg:w-[45%] h-[300px] object-full"

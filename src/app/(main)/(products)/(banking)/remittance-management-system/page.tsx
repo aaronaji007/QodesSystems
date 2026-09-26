@@ -12,7 +12,7 @@ const RemittanceManagementSystemPage = () => {
       <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
         <Image
           src={
-            "https://qodestechnologies.com/wp-content/uploads/2020/07/remittance.jpg"
+            "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop"
           }
           alt="img"
           className="w-full lg:w-[35%] h-[275px] object-full"
