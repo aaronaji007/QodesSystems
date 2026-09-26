@@ -8,8 +8,13 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import Logo from "./logo";
 import { ShieldCheck, MapPin, Mail } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
 const FooterComponent = () => {
+  const { getContent } = useContent();
+  const address = getContent("contact_address", "Sydney, NSW, Australia");
+  const email = getContent("contact_email", "info@qodessystems.com");
+
   return (
     <footer className="w-full bg-slate-950 text-slate-400 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -25,12 +30,12 @@ const FooterComponent = () => {
             <div className="flex flex-col gap-2.5 text-xs text-slate-400 font-mono">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
-                <span>Melbourne, Australia</span>
+                <span>{address}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
-                <a href="mailto:info@qodessystems.com" className="hover:text-white transition-colors">
-                  info@qodessystems.com
+                <a href={`mailto:${email}`} className="hover:text-white transition-colors">
+                  {email}
                 </a>
               </div>
               <div className="flex items-center gap-2">

@@ -4,8 +4,17 @@ import Image from "next/image";
 import React from "react";
 import { Building2, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useContent } from "@/context/content-context";
 
 const AboutUsComponent = () => {
+  const { getContent } = useContent();
+
+  const heading = getContent("about_heading", "Core Banking Engineering & Technology Consulting");
+  const lead = getContent("about_lead", "Our company is a specialized consulting firm in the CORE BANKING DOMAIN, offering expertise in SAP Core Banking and the Temenos T24 Core Banking System.");
+  const story1 = getContent("about_story_1", "With over 20 years of experience, we provide cutting edge solutions to the banking industry. We understand the unique challenges faced by financial institutions in modernizing legacy architectures while keeping operations resilient.");
+  const story2 = getContent("about_story_2", "Our senior architects and delivery engineers combine deep domain banking knowledge with modern software engineering methodologies, ensuring every deployment meets rigorous institutional standards.");
+  const imageUrl = getContent("about_image_url", "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop");
+
   return (
     <section className="w-full bg-white py-16 lg:py-24 border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,27 +29,14 @@ const AboutUsComponent = () => {
           
           {/* Left Column: Authentic Content */}
           <div className="lg:col-span-7 flex flex-col items-start">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-6">
-              Core Banking Engineering &amp; Technology Consulting
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-6 whitespace-pre-line">
+              {heading}
             </h1>
 
             <div className="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-              <p>
-                QODES Systems is a specialized enterprise technology and advisory consultancy in the{" "}
-                <span className="font-semibold text-slate-900">Core Banking Domain</span>, bringing deep, hands-on implementation expertise across{" "}
-                <span className="font-semibold text-slate-900">SAP Core Banking</span> and the{" "}
-                <span className="font-semibold text-slate-900">Temenos T24 Core Banking System</span>.
-              </p>
-
-              <p>
-                Additionally, we engineer proprietary,{" "}
-                <span className="font-semibold text-slate-900">AI-driven Core Banking Systems</span>{" "}
-                built by enterprise architects with over two decades of proven success delivering complex transformations to large financial institutions.
-              </p>
-
-              <p>
-                By combining cutting-edge cloud-native architectures with rigorous institutional governance, we empower banks to optimize core operations, accelerate transaction clearance, and achieve flawless digital modernization without downtime.
-              </p>
+              <p className="whitespace-pre-line">{lead}</p>
+              <p className="whitespace-pre-line">{story1}</p>
+              <p className="whitespace-pre-line">{story2}</p>
             </div>
 
             <div className="pt-8 mt-8 border-t border-slate-100 flex flex-wrap gap-4">
@@ -63,22 +59,23 @@ const AboutUsComponent = () => {
 
           {/* Right Column: High-Res Modern Architectural Photo with Proper Aspect Ratio */}
           <div className="lg:col-span-5">
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
+            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100">
               <Image
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop"
-                alt="QODES Systems Corporate Engineering Headquarters"
+                src={imageUrl}
+                alt="Qodes Systems Engineering Hub"
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover transition-transform duration-500 hover:scale-105"
-                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono bg-slate-950/60 backdrop-blur-md px-3 py-2 rounded-lg border border-white/10">
-                Melbourne, Australia · Engineering &amp; Advisory Practice
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono">
+                <span className="bg-slate-900/80 backdrop-blur-sm px-2.5 py-1 rounded border border-white/20">
+                  Advisory Headquarters · Tier-1 Delivery Team
+                </span>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

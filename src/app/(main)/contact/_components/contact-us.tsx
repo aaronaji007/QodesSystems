@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import dynamic from 'next/dynamic';
 import { Mail, Phone, MapPin, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
 // Dynamically import map without SSR
 const Map = dynamic(() => import('../../../../components/global/map'), { 
@@ -15,6 +16,11 @@ const Map = dynamic(() => import('../../../../components/global/map'), {
 });
 
 const ContactUsComponent = () => {
+  const { getContent } = useContent();
+  const address = getContent("contact_address", "Sydney, NSW, Australia");
+  const email = getContent("contact_email", "info@qodessystems.com");
+  const phone = getContent("contact_phone", "+61 457 170 962");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -229,7 +235,7 @@ const ContactUsComponent = () => {
                   </div>
                   <div>
                     <span className="block font-medium text-slate-900">Headquarters</span>
-                    <span className="text-slate-600">Melbourne, Victoria, Australia</span>
+                    <span className="text-slate-600">{address}</span>
                   </div>
                 </div>
 
@@ -239,8 +245,8 @@ const ContactUsComponent = () => {
                   </div>
                   <div>
                     <span className="block font-medium text-slate-900">Direct Inquiries</span>
-                    <a href="mailto:info@qodessystems.com" className="text-sky-700 hover:text-sky-900 transition-colors">
-                      info@qodessystems.com
+                    <a href={`mailto:${email}`} className="text-sky-700 hover:text-sky-900 transition-colors">
+                      {email}
                     </a>
                   </div>
                 </div>
@@ -251,8 +257,8 @@ const ContactUsComponent = () => {
                   </div>
                   <div>
                     <span className="block font-medium text-slate-900">Advisory Desk</span>
-                    <a href="tel:+61457170962" className="text-slate-700 hover:text-sky-700 transition-colors font-mono">
-                      +61 457 170 962
+                    <a href={`tel:${phone.replace(/\s+/g, '')}`} className="text-slate-700 hover:text-sky-700 transition-colors font-mono">
+                      {phone}
                     </a>
                   </div>
                 </div>

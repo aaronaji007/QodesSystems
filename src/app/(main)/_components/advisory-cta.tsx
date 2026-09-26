@@ -3,8 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
 export const AdvisoryCta = () => {
+  const { getContent } = useContent();
+
+  const headline = getContent("cta_headline", "Architect Your Bank's Next Generation Technology");
+  const subtext = getContent("cta_subtext", "Connect directly with our principal banking architects to evaluate core modernisation, Temenos migrations, or APRA CPS 234 cybersecurity reviews.");
+
   return (
     <section className="w-full bg-slate-900 text-white py-20 relative overflow-hidden">
       {/* Background Accent Lines */}
@@ -23,11 +29,11 @@ export const AdvisoryCta = () => {
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Confidential Banking Advisory</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-              Modernize Your Core Banking Architecture With Absolute Precision
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4 whitespace-pre-line">
+              {headline}
             </h2>
-            <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-              Connect directly with our principal banking architects and cybersecurity officers in Melbourne. We assess legacy debt, architect next-gen CBS implementations, and audit threat surfaces.
+            <p className="text-slate-400 text-base sm:text-lg leading-relaxed whitespace-pre-line">
+              {subtext}
             </p>
           </div>
 
