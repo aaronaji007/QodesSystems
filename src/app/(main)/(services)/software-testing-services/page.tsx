@@ -1,101 +1,96 @@
 "use client";
 
-import { Minus, Plus } from "lucide-react";
-import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
+import ServiceDetailView from "@/components/global/service-detail-view";
+import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
-const SoftwareTestingServicesPage = () => {
-  const [isContentHidden, setIsContentHidden] = useState(true);
+export default function SoftwareTestingServicesPage() {
+  const { getContent } = useContent();
+
+  const imageUrl = getContent(
+    "img_software_testing",
+    "https://plus.unsplash.com/premium_photo-1661546394223-7d465b791444?q=80&w=1786&auto=format&fit=crop"
+  );
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start gap-0">
-      <div className="w-full bg-secondary flex items-center justify-start py-4 px-12">
-        <p className="text-start capitalize text-2xl text-white">
-          Software Testing / quality engineering
-        </p>
-      </div>
-      <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
-        <Image
-          src={
-            "https://plus.unsplash.com/premium_photo-1661546394223-7d465b791444?q=80&w=1786&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          alt="img"
-          className="w-full lg:w-[35%] h-[275px] object-full"
-          quality={100}
-          unoptimized
-          draggable={false}
-          width={0}
-          height={0}
-        />
-        <div className="flex-1 h-full flex flex-col items-start justify-center pt-4 gap-3">
-          <p className="text-wrap text-black text-[17px] leading-6">
-            Today’s increasingly sophisticated products and systems need an
-            equally sophisticated quality management and testing solution for
-            targeted testing against requirements. This requires a coordinated
-            approach to systems and software quality management, including
-            verification and validation throughout the lifecycle and across all
-            engineering assets.
-          </p>
-
-          <p className="text-wrap text-black text-[17px] leading-6">
-            QODES quality management and testing solutions allow the linking of
-            tests to requirements and design artifacts, using an automated
-            testing and defect management framework. This systems testing
-            process enables more targeted testing against requirements, helping
-            designers to understand the impact of test failures, while
-            maintaining test suites in the face of changing project priorities.
-            Our testing solutions can help to reduce testing times and costs,
-            enabling earlier and more frequent testing for delivering quality
-            that endures.
-          </p>
-          <div className="w-full flex items-center justify-end py-4">
-            <div className="relative w-[85%] flex flex-col items-start justify-center gap-2">
-              <div
-                className="flex flex-row items-center justify-center gap-2 cursor-pointer"
-                onClick={() => setIsContentHidden(!isContentHidden)}
-              >
-                <div className="bg-black text-white">
-                  {!isContentHidden ? (
-                    <Plus className="p-1" />
-                  ) : (
-                    <Minus className="p-1" />
-                  )}
-                </div>
-                <p className="text-black capitalize font-bold">what we offer</p>
-              </div>
-              <div className="bg-title w-full h-[0.5px] my-2"></div>
-              {isContentHidden && (
-                <div className="py-4 flex flex-col items-start justify-center gap-6">
-                  <ol className="text-base leading-7 list-disc pl-8">
-                    <li>Ad-hoc testing</li>
-                    <li>Acceptance Testing</li>
-                    <li>Automated testing</li>
-                    <li>Black Box testing</li>
-                    <li>System Integration Testing</li>
-                    <li>Compatibility testing</li>
-                    <li>Component Testing</li>
-                    <li>End-to-end Testing</li>
-                    <li>Exploratory Testing</li>
-                    <li>Functional Testing</li>
-                    <li>GUI (Graphical User Interface) testing</li>
-                    <li>Load Testing</li>
-                    <li>Performance Testing</li>
-                    <li>Regression Testing</li>
-                    <li>Smoke testing</li>
-                    <li>Security Testing</li>
-                    <li>Stress Testing</li>
-                    <li>Unit testing</li>
-                    <li>User Acceptance testing (UAT)</li>
-                    <li>White box Testing</li>
-                  </ol>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ServiceDetailView
+      category="Enterprise Consulting"
+      title="Software Quality Engineering & Assurance"
+      subtitle="Comprehensive financial systems verification, automated regression pipelines, performance stress testing, and independent validation."
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Solutions", href: "/#services" },
+        { label: "Software Testing Services" },
+      ]}
+      leadParagraphs={[
+        "Today's increasingly sophisticated banking systems demand an equally sophisticated quality management and validation practice for targeted testing against critical regulatory and transactional requirements.",
+        "QODES Quality Management and Testing solutions link automated tests directly to functional requirements and architecture artifacts. Using our specialized defect governance framework, our banking QA teams execute automated test suites across complex integration boundaries.",
+        "Our enterprise test automation frameworks drastically reduce regression cycle durations, enabling earlier and more frequent testing to deliver fault-tolerant financial software that endures under peak load."
+      ]}
+      imageUrl={imageUrl}
+      imageAlt="Software Testing and Quality Engineering Laboratory"
+      badgeText="Quality Engineering · 100% Pre-Acceptance Audits"
+      keyBenefits={[
+        "Continuous automated regression testing across core banking pipelines",
+        "High-throughput load and stress simulation for peak transaction volumes",
+        "Rigorous User Acceptance Testing (UAT) and System Integration Testing (SIT)",
+        "Automated defect tracking linked to requirements traceability matrices",
+        "APRA CPS 234 and security test compliance integration",
+        "Independent Verification & Validation (IV&V) for regulatory certification"
+      ]}
+      pillars={[
+        {
+          title: "Automated Regression",
+          description: "CI/CD-integrated test suites simulating complex banking journeys and financial calculations to catch regressions instantly.",
+          icon: <Zap className="w-5 h-5" />,
+        },
+        {
+          title: "High-Load Stress Testing",
+          description: "Synthetic load generation simulating millions of concurrent transactions to identify concurrency locks, latency spikes, and memory leaks.",
+          icon: <ShieldCheck className="w-5 h-5" />,
+        },
+        {
+          title: "Independent V&V",
+          description: "Unbiased, objective third-party verification and validation providing executive stakeholders with verifiable software readiness reports.",
+          icon: <CheckCircle2 className="w-5 h-5" />,
+        },
+      ]}
+      modules={[
+        {
+          title: "Functional & Core Banking Testing Practice",
+          subtitle: "End-to-End Functional Verification",
+          items: [
+            "Functional & Business Logic Testing for deposit, lending, and payment flows",
+            "System Integration Testing (SIT) across Core Banking, CRM, and payment gateways",
+            "User Acceptance Testing (UAT) facilitation and business scenario execution",
+            "End-to-End Transaction Flow Verification across branch, web, and mobile channels",
+            "Black Box and White Box component testing for core calculation engines",
+          ],
+        },
+        {
+          title: "Non-Functional & Performance Engineering",
+          subtitle: "Stress & Scalability Assurance",
+          items: [
+            "Performance, Scalability, and Throughput Benchmarking",
+            "Peak Volume Stress Testing and Disaster Recovery Failover Testing",
+            "COB (Close of Business) batch processing run-time benchmark testing",
+            "Compatibility testing across modern browsers, operating systems, and mobile devices",
+          ],
+        },
+        {
+          title: "Automated Quality Pipelines & Security Testing",
+          subtitle: "Continuous Assurance",
+          items: [
+            "Automated GUI and API test suites built with industry standard frameworks",
+            "Smoke, Sanity, and Nightly Automated Regression execution",
+            "Security vulnerability scanning and input sanitation validation",
+            "Comprehensive traceability matrix linking test cases to regulatory mandates",
+          ],
+        },
+      ]}
+      ctaHeadline="Elevate Your Financial Software Quality"
+      ctaSubtext="Engage our QA directors and test automation architects to establish continuous testing pipelines or audit upcoming core release milestones."
+    />
   );
-};
-
-export default SoftwareTestingServicesPage;
+}
