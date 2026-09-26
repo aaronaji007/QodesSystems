@@ -36,6 +36,15 @@ typography:
     fontWeight: 500
     letterSpacing: "0.12em"
     textTransform: "uppercase"
+  mono-micro:
+    fontFamily: "var(--font-geist-mono), ui-monospace, monospace"
+    fontSize: "0.6875rem" # 11px intentional badge telemetry step
+    fontWeight: 500
+    letterSpacing: "0.08em"
+  caption-micro:
+    fontFamily: "var(--font-geist-sans), sans-serif"
+    fontSize: "0.5625rem" # 9px intentional logo sub-brand step
+    letterSpacing: "0.3em"
 rounded:
   sm: "6px"
   md: "10px"

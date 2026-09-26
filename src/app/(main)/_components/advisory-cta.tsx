@@ -34,7 +34,7 @@ export const AdvisoryCta = () => {
           <div className="flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto lg:min-w-[240px]">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-sm transition-all duration-200 shadow-md hover:shadow-sky-500/20"
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all duration-200 shadow-md hover:shadow-sky-600/30"
             >
               <span>Schedule Advisory</span>
               <ArrowRight className="w-4 h-4" />

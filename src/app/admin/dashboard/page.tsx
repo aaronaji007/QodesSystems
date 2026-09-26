@@ -206,7 +206,7 @@ export default function AdminDashboardPage() {
               onClick={() => setActiveTab("enquiries")}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium transition-all ${
                 activeTab === "enquiries"
-                  ? "bg-sky-500 text-slate-950 shadow-sm"
+                  ? "bg-sky-600 text-white shadow-sm"
                   : "bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -218,7 +218,7 @@ export default function AdminDashboardPage() {
               onClick={() => setActiveTab("applications")}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium transition-all ${
                 activeTab === "applications"
-                  ? "bg-sky-500 text-slate-950 shadow-sm"
+                  ? "bg-sky-600 text-white shadow-sm"
                   : "bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -230,7 +230,7 @@ export default function AdminDashboardPage() {
               onClick={() => setActiveTab("content")}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium transition-all ${
                 activeTab === "content"
-                  ? "bg-sky-500 text-slate-950 shadow-sm"
+                  ? "bg-sky-600 text-white shadow-sm"
                   : "bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -242,7 +242,7 @@ export default function AdminDashboardPage() {
               onClick={() => setActiveTab("media")}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium transition-all ${
                 activeTab === "media"
-                  ? "bg-sky-500 text-slate-950 shadow-sm"
+                  ? "bg-sky-600 text-white shadow-sm"
                   : "bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
@@ -583,7 +583,7 @@ export default function AdminDashboardPage() {
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-sm transition-all shadow-md disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all shadow-md disabled:opacity-50"
               >
                 {saving ? (
                   <>
@@ -661,7 +661,7 @@ export default function AdminDashboardPage() {
                   type="button"
                   onClick={handleSaveContent}
                   disabled={saving}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-xs transition-all shadow-md"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs transition-all shadow-md"
                 >
                   <Save className="w-3.5 h-3.5" />
                   <span>Update Media Configuration</span>

@@ -319,14 +319,14 @@ export const Navbar = () => {
               <div className="py-6 flex flex-col gap-4">
                 <Link
                   href="/"
-                  className="text-base font-medium text-slate-800 hover:text-sky-600 py-1 transition-colors"
+                  className="min-h-[44px] flex items-center text-base font-medium text-slate-800 hover:text-sky-600 transition-colors"
                   onClick={closeSheet}
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className="text-base font-medium text-slate-800 hover:text-sky-600 py-1 transition-colors"
+                  className="min-h-[44px] flex items-center text-base font-medium text-slate-800 hover:text-sky-600 transition-colors"
                   onClick={closeSheet}
                 >
                   About Us
@@ -336,24 +336,24 @@ export const Navbar = () => {
                   <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
                     Core Banking Systems
                   </p>
-                  <div className="flex flex-col gap-2 pl-2">
+                  <div className="flex flex-col gap-1 pl-2">
                     <Link
                       href="/qodes-core-banking-system"
-                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
                       onClick={closeSheet}
                     >
                       Qodes CBS
                     </Link>
                     <Link
                       href="/sap-core-banking"
-                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
                       onClick={closeSheet}
                     >
                       SAP Core Banking
                     </Link>
                     <Link
                       href="/temenos-t24-core-banking"
-                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
                       onClick={closeSheet}
                     >
                       Temenos T24
@@ -363,33 +363,33 @@ export const Navbar = () => {
 
                 <div className="pt-2 border-t border-slate-100">
                   <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                    IT Security & Assurance
+                    IT Security &amp; Assurance
                   </p>
-                  <div className="flex flex-col gap-2 pl-2">
+                  <div className="flex flex-col gap-1 pl-2">
                     <Link
                       href="/it-security-assessment"
-                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
                       onClick={closeSheet}
                     >
                       Security Assessment
                     </Link>
                     <Link
                       href="/penetration-testing"
-                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
                       onClick={closeSheet}
                     >
                       Penetration Testing
                     </Link>
                     <Link
                       href="/security-compliance"
-                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
                       onClick={closeSheet}
                     >
                       APRA Security Compliance
                     </Link>
                     <Link
                       href="/vulnerability-assessment"
-                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
                       onClick={closeSheet}
                     >
                       Vulnerability Assessment
@@ -400,14 +400,14 @@ export const Navbar = () => {
                 <div className="pt-2 border-t border-slate-100 flex flex-col gap-3">
                   <Link
                     href="/join-us"
-                    className="text-base font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                    className="min-h-[44px] flex items-center text-base font-medium text-slate-800 hover:text-sky-600 transition-colors"
                     onClick={closeSheet}
                   >
                     Careers
                   </Link>
                   <Link
                     href="/contact"
-                    className="w-full text-center py-2.5 px-4 rounded-lg bg-slate-950 text-white font-medium text-sm hover:bg-slate-800 transition-colors"
+                    className="min-h-[44px] flex items-center justify-center w-full text-center py-2.5 px-4 rounded-lg bg-slate-950 text-white font-medium text-sm hover:bg-slate-800 transition-colors"
                     onClick={closeSheet}
                   >
                     Contact Us

@@ -137,7 +137,7 @@ export const ServiceList = () => {
             <SpotlightCard className="h-full p-8 flex flex-col justify-between group hover:border-slate-400/80 transition-all duration-300">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                  <div className="w-12 h-12 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-700">
                     <Activity className="w-6 h-6" />
                   </div>
                   <span className="px-2 py-0.5 rounded bg-slate-100 text-[11px] font-mono text-slate-600">
@@ -145,7 +145,7 @@ export const ServiceList = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-indigo-600 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-sky-700 transition-colors">
                   Temenos T24 Upgrades &amp; Migration
                 </h3>
                 <p className="text-slate-600 leading-relaxed text-sm mb-6">
