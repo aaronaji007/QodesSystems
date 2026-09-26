@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Briefcase, Mail, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, CornerDownRight, Check, AlertCircle, Loader2 } from "lucide-react";
 
 const JoinUsComponent = () => {
   const [formData, setFormData] = useState({
@@ -45,20 +46,20 @@ const JoinUsComponent = () => {
       if (response.ok && result.success) {
         setStatus({
           type: "success",
-          message: "Application submitted successfully! Our talent acquisition team will review your credentials.",
+          message: "Application submitted successfully. Our talent engineering committee will review your dossier.",
         });
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       } else {
         setStatus({
           type: "error",
-          message: result.error || "Failed to submit application. Please try again or email careers@qodessystems.com.",
+          message: result.error || "Submission failed. Please contact careers@qodessystems.com directly.",
         });
       }
     } catch (error) {
       console.error(error);
       setStatus({
         type: "error",
-        message: "Network error occurred. Please email your CV directly to careers@qodessystems.com.",
+        message: "Network fault. Please transmit your CV directly to careers@qodessystems.com.",
       });
     } finally {
       setLoading(false);
@@ -66,37 +67,61 @@ const JoinUsComponent = () => {
   };
 
   return (
-    <section className="w-full py-16 lg:py-24 bg-slate-50/50">
+    <section className="w-full bg-[#FFFFFF] py-16 lg:py-24 border-b border-neutral-200 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Page Header */}
-        <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-mono font-medium text-slate-700 uppercase tracking-wider mb-4 shadow-sm">
-            <Briefcase className="w-3.5 h-3.5 text-sky-600" />
-            <span>Engineering &amp; Advisory Careers</span>
+        {/* Header Breadcrumb / Metadata Hairline */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-neutral-200 text-xs font-mono text-neutral-500">
+          <div className="flex items-center gap-2">
+            <Link href="/" className="hover:text-neutral-950 uppercase tracking-wider">Home</Link>
+            <span className="text-neutral-300">/</span>
+            <span className="text-neutral-950 font-semibold uppercase tracking-wider">Careers &amp; Practice</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-            Join the Core Banking Technology Practice
-          </h1>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            We are always seeking senior CBS architects, SAP Banking developers, Temenos T24 consultants, and offensive cybersecurity engineers to join our high-impact deployments.
-          </p>
+          <span className="text-[11px] uppercase tracking-widest text-sky-800 font-semibold">
+            ENGINEERING SQUADS // MELBOURNE &bull; SYDNEY
+          </span>
+        </div>
+
+        {/* Page Header: Swiss Asymmetric Split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pb-12 mb-12 border-b border-neutral-200 items-end">
+          <div className="lg:col-span-4 space-y-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block">
+              01 // TALENT PRACTICE
+            </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-neutral-950 tracking-[-0.03em] leading-tight">
+              Join the Core Banking Practice
+            </h1>
+          </div>
+          <div className="lg:col-span-8 flex flex-col justify-end">
+            <p className="text-base sm:text-lg text-neutral-600 font-light leading-relaxed max-w-2xl">
+              We seek senior CBS architects, SAP Banking consultants, Temenos T24 specialists, and offensive cybersecurity engineers for high-impact Australian and international deployments.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Form (Span 7 cols) */}
-          <div className="lg:col-span-7 bg-white rounded-xl border border-slate-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
+          <div className="lg:col-span-7 border border-neutral-200 bg-white p-8 sm:p-10 space-y-8">
+            <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
+              <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
+                APPLICATION DOSSIER
+              </span>
+              <span className="font-mono text-[11px] text-neutral-400">
+                REQUIRED FIELDS [*]
+              </span>
+            </div>
+
             {status.type === "success" && (
-              <div className="mb-6 p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-start gap-3 text-sm">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+              <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-900 font-mono text-xs flex items-start gap-3">
+                <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                 <p>{status.message}</p>
               </div>
             )}
 
             {status.type === "error" && (
-              <div className="mb-6 p-4 rounded-lg bg-rose-50 border border-rose-200 text-rose-800 flex items-start gap-3 text-sm">
-                <AlertCircle className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" />
+              <div className="p-4 bg-rose-50 border border-rose-200 text-rose-900 font-mono text-xs flex items-start gap-3">
+                <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
                 <p>{status.message}</p>
               </div>
             )}
@@ -104,8 +129,8 @@ const JoinUsComponent = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-medium mb-2">
-                    Full Name <span className="text-rose-500">*</span>
+                  <label htmlFor="name" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
+                    Full Name *
                   </label>
                   <input
                     id="name"
@@ -114,14 +139,14 @@ const JoinUsComponent = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. Elena Rostova"
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-colors"
+                    placeholder="Elena Rostova"
+                    className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-medium mb-2">
-                    Email Address <span className="text-rose-500">*</span>
+                  <label htmlFor="email" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
+                    Email Address *
                   </label>
                   <input
                     id="email"
@@ -130,16 +155,16 @@ const JoinUsComponent = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. elena@domain.com"
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-colors"
+                    placeholder="elena@domain.com"
+                    className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-medium mb-2">
-                    Contact Phone
+                  <label htmlFor="phone" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
+                    Telephone
                   </label>
                   <input
                     id="phone"
@@ -148,13 +173,13 @@ const JoinUsComponent = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+61 400 000 000"
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-colors"
+                    className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-medium mb-2">
-                    Specialty / Role Focus
+                  <label htmlFor="subject" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
+                    Practice Specialty
                   </label>
                   <input
                     id="subject"
@@ -163,14 +188,14 @@ const JoinUsComponent = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="e.g. Senior Temenos T24 Architect"
-                    className="w-full px-4 py-2.5 rounded-lg border border-slate-200 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-colors"
+                    className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs font-mono uppercase tracking-wider text-slate-700 font-medium mb-2">
-                  Profile Summary &amp; Experience Link
+                <label htmlFor="message" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
+                  Experience Summary &amp; Portfolio URL
                 </label>
                 <textarea
                   id="message"
@@ -178,70 +203,69 @@ const JoinUsComponent = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Share a summary of your experience, certifications, and a link to your LinkedIn profile or GitHub repository..."
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-colors resize-y"
+                  placeholder="Share a concise technical background summary, certifications, and GitHub / LinkedIn links..."
+                  className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors resize-y"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-slate-900 text-white font-medium text-sm transition-all duration-200 hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+                className="group flex items-center justify-between w-full sm:w-auto px-8 py-4 bg-neutral-950 hover:bg-neutral-800 text-white font-mono text-xs uppercase tracking-widest transition-all disabled:opacity-50"
               >
                 {loading ? (
-                  <>
+                  <span className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin text-sky-400" />
-                    <span>Submitting Application...</span>
-                  </>
+                    <span>Transmitting Dossier...</span>
+                  </span>
                 ) : (
-                  <>
+                  <span className="flex items-center gap-4">
                     <span>Submit Application</span>
-                    <ArrowRight className="w-4 h-4 text-sky-400" />
-                  </>
+                    <ArrowRight className="w-4 h-4 text-sky-400 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 )}
               </button>
             </form>
           </div>
 
           {/* Direct Channels (Span 5 cols) */}
-          <div className="lg:col-span-5 bg-white rounded-xl border border-slate-200/80 p-6 sm:p-8 shadow-sm space-y-6">
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
-              Direct Talent Desk
-            </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Prefer to email your resume directly? Send your CV and portfolio to our global talent acquisition team:
+          <div className="lg:col-span-5 p-8 border border-neutral-200 bg-neutral-50/50 space-y-6 font-mono text-xs">
+            <span className="text-neutral-400 uppercase tracking-widest text-[11px] block">
+              TALENT LIAISON DESK
+            </span>
+            <p className="font-sans text-sm text-neutral-600 font-light leading-relaxed">
+              Prefer direct communications? Submit your dossier, certifications, and code repositories to our confidential talent liaison:
             </p>
 
-            <div className="space-y-4 pt-2">
-              <div className="p-4 rounded-lg bg-slate-50 border border-slate-200">
-                <span className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">
-                  Primary Careers Desk
+            <div className="space-y-3 pt-2">
+              <div className="p-4 border border-neutral-200 bg-white space-y-1">
+                <span className="text-[10px] text-neutral-400 uppercase tracking-widest block">
+                  PRIMARY CAREERS DESK
                 </span>
                 <a
                   href="mailto:careers@qodessystems.com"
-                  className="text-sm font-semibold text-sky-700 hover:text-sky-900 transition-colors inline-flex items-center gap-1.5"
+                  className="text-neutral-900 font-semibold hover:text-sky-700 transition-colors block text-sm"
                 >
-                  <Mail className="w-4 h-4 text-sky-600" />
-                  <span>careers@qodessystems.com</span>
+                  careers@qodessystems.com
                 </a>
               </div>
 
-              <div className="p-4 rounded-lg bg-slate-50 border border-slate-200">
-                <span className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">
-                  General Inquiries
+              <div className="p-4 border border-neutral-200 bg-white space-y-1">
+                <span className="text-[10px] text-neutral-400 uppercase tracking-widest block">
+                  STAFF AUGMENTATION &bull; CONTRACT CONSULTING
                 </span>
                 <a
                   href="mailto:joinus@qodessystems.com"
-                  className="text-sm font-semibold text-sky-700 hover:text-sky-900 transition-colors inline-flex items-center gap-1.5"
+                  className="text-neutral-900 font-semibold hover:text-sky-700 transition-colors block text-sm"
                 >
-                  <Mail className="w-4 h-4 text-sky-600" />
-                  <span>joinus@qodessystems.com</span>
+                  joinus@qodessystems.com
                 </a>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-100 text-xs text-slate-500 leading-relaxed">
-              We uphold strict privacy protocols for all candidate applications under the Australian Privacy Principles.
+            <div className="pt-4 border-t border-neutral-200 text-neutral-400 text-[11px] flex items-start gap-2">
+              <CornerDownRight className="w-3.5 h-3.5 text-sky-600 flex-shrink-0 mt-0.5" />
+              <span>Strict candidate confidentiality safeguarded under the Australian Privacy Act 1988.</span>
             </div>
           </div>
 

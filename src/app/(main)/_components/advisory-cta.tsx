@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, CornerDownRight } from "lucide-react";
 import { useContent } from "@/context/content-context";
 
 export const AdvisoryCta = () => {
@@ -12,47 +12,45 @@ export const AdvisoryCta = () => {
   const subtext = getContent("cta_subtext", "Connect directly with our principal banking architects to evaluate core modernisation, Temenos migrations, or APRA CPS 234 cybersecurity reviews.");
 
   return (
-    <section className="w-full bg-slate-900 text-white py-20 relative overflow-hidden">
-      {/* Background Accent Lines */}
-      <div 
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="max-w-2xl text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-800/60 text-sky-400 text-xs font-mono uppercase tracking-wider mb-6">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Confidential Banking Advisory</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4 whitespace-pre-line">
+    <section className="w-full bg-[#0A0F1D] text-white py-20 lg:py-28 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end pb-12 border-b border-neutral-800">
+          
+          <div className="lg:col-span-8 space-y-6">
+            <span className="font-mono text-xs uppercase tracking-widest text-sky-400 block">
+              04 // ADVISORY INITIATION &bull; CONFIDENTIAL
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-[-0.02em] text-white leading-tight whitespace-pre-line">
               {headline}
             </h2>
-            <p className="text-slate-400 text-base sm:text-lg leading-relaxed whitespace-pre-line">
+            <p className="text-neutral-400 text-base sm:text-lg max-w-2xl font-light leading-relaxed whitespace-pre-line">
               {subtext}
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto lg:min-w-[240px]">
+          <div className="lg:col-span-4 flex flex-col gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all duration-200 shadow-md hover:shadow-sky-600/30"
+              className="group flex items-center justify-between w-full px-6 py-4 bg-white text-neutral-950 font-mono text-xs uppercase tracking-widest hover:bg-neutral-100 transition-all"
             >
               <span>Schedule Advisory</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-sky-600 transition-transform group-hover:translate-x-1" />
             </Link>
 
             <Link
               href="/join-us"
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-lg bg-slate-900 border border-slate-700 hover:border-slate-600 text-slate-200 hover:text-white font-medium text-sm transition-all duration-200"
+              className="flex items-center justify-between w-full px-6 py-3.5 bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-xs uppercase tracking-widest hover:text-white hover:border-neutral-700 transition-all"
             >
               <span>Join Engineering Team</span>
+              <CornerDownRight className="w-3.5 h-3.5 text-neutral-500" />
             </Link>
           </div>
+
+        </div>
+
+        <div className="pt-8 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-neutral-500 uppercase tracking-widest">
+          <span>QODES SYSTEMS PTY LTD &bull; MELBOURNE &bull; SYDNEY</span>
+          <span>INSTITUTIONAL ASSURANCE // APRA CPS 234</span>
         </div>
       </div>
     </section>
