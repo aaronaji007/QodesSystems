@@ -1,0 +1,15 @@
+<svg width="220" height="48" viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="qodesLogoGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E40AF"/>
+      <stop offset="0.5" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="#0F172A"/>
+  <circle cx="22" cy="22" r="13" stroke="url(#qodesLogoGrad)" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="22" cy="22" r="4.5" fill="url(#qodesLogoGrad)"/>
+  <path d="M30 30L38 38" stroke="url(#qodesLogoGrad)" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="60" y="27" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="22" fill="#0F172A" letter-spacing="-0.5">QODES</text>
+  <text x="61" y="40" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="9.5" fill="#64748B" letter-spacing="3.5">SYSTEMS</text>
+</svg>
