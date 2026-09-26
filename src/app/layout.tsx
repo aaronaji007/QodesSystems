@@ -19,8 +19,12 @@ export const metadata: Metadata = {
   description:
     "Qodes Systems delivers Tier-1 AI-orchestrated Core Banking Systems (CBS), SAP Banking modernization, Temenos T24 migrations, and APRA CPS 234 cybersecurity assessments across Australia and globally.",
   icons: {
-    icon: "/images/qodes-monogram.svg",
+    icon: [
+      { url: "/images/qodes-monogram.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
     shortcut: "/images/qodes-monogram.svg",
+    apple: "/images/apple-touch-icon.png",
   },
 };
 
