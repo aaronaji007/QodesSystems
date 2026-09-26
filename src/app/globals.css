@@ -5,57 +5,60 @@
 
 
 
-* {
-  --webkit-user-select: none;
-  user-select: none;
+::selection {
+  background-color: #0284c7;
+  color: #ffffff;
 }
+
 body {
-  /* font-family: 'Inter', sans-serif; */
-  font-family: "FS Albert Web 100","FS Albert Web","Calibri","Trebuchet MS",sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
+  color: #0f172a;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 @layer base {
   :root {
     --primary: #ffffff;
-    --primary-light: #f5faff;
-    --primary-hover: 	#f2f2f2;
-    /* --secondary: #185cff; */
-    --secondary: #4e8abf;
-    /* --secondary: rgb(5, 133, 247); */
-    --secondary-hover: #3898ec;
-    /* --secondary-dark: #152c5b; */
-    --blue-stripe: #2598DF;
-    --twitter: #84b3dc;
-    --facebook: #6c97bf;
-    --google: #d68778;
-    --linkedin: #6c97bf;
-    --secondary-dark: #222222;
-    --title: #8a95ad;
-    --green-tag: #3a882e;
-    --red-tag: #ff0000;
-    --purple-tag: #9b51e0;
-    --orange-tag: #f60;
-    --blue-tag: #171d72;
-    --background-light: rgba(138, 149, 173, 0.15);
-    --base-font: 16.5px;
-    --border: #ccc;
-    --light-gray: #F8F8F8;
-    --dark-gray: #666;
-  }
-  .dark {
-    --primary: #e0e6f1;
-    --primary-light: #bfc7da;
-    --secondary: #6fa9ff;
-    --secondary-hover: #5596e0;
-    --secondary-dark: #0d1e40;
-    --title: #cdd5e5;
-    --green-tag: #4caf50;
-    --red-tag: #ff5f5f;
-    --purple-tag: #b084f5;
-    --orange-tag: #ffa447;
-    --blue-tag: #283593;
-    --background-light: rgba(50, 60, 85, 0.5);
+    --primary-light: #f8fafc;
+    --primary-hover: #f1f5f9;
+    --secondary: #0284c7;
+    --secondary-hover: #0369a1;
+    --secondary-dark: #090d16;
+    --blue-stripe: #0284c7;
+    --twitter: #0284c7;
+    --facebook: #1d4ed8;
+    --google: #ea4335;
+    --linkedin: #0284c7;
+    --title: #64748b;
+    --green-tag: #059669;
+    --red-tag: #dc2626;
+    --purple-tag: #7c3aed;
+    --orange-tag: #ea580c;
+    --blue-tag: #0369a1;
+    --background-light: rgba(15, 23, 42, 0.04);
+    --base-font: 16px;
+    --border: #e2e8f0;
+    --light-gray: #f8fafc;
+    --dark-gray: #334155;
   }
 }
 

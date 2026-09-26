@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-
 import React, { useState } from "react";
-import { ChevronRight, Menu } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ChevronDown, Menu, Shield, Cpu, Building2, ArrowRight } from "lucide-react";
+import Logo from "./logo";
 import {
   Sheet,
   SheetContent,
@@ -14,734 +13,414 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useSheet } from "@/app/providers/sheet-provider";
-// import { Button } from "../ui/button";
 
-type MenuStateType = {
-  home: boolean;
-  services: boolean;
-  products: boolean;
-  itServices: boolean;
-  banking: boolean;
-  others: boolean;
-  coreBankingSystem: boolean;
-  reachUs: boolean;
-};
-
-const Navbar = () => {
-  const initialMenuState = {
-    home: false,
-    services: false,
-    products: false,
-    itServices: false,
-    banking: false,
-    others: false,
-    coreBankingSystem: false,
-    reachUs: false,
-  };
-  const [menuState, setMenuState] = useState<MenuStateType>(initialMenuState);
-
-  const handleMenuToggle = (key: keyof MenuStateType, value: boolean) => {
-    setMenuState((prevValue) => ({
-      ...prevValue,
-      [key]: value,
-    }));
-  };
-
+export const Navbar = () => {
+  const pathname = usePathname();
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const { isSheetOpen, closeSheet, toggleSheet } = useSheet();
 
+  const handleDropdown = (name: string) => {
+    setActiveDropdown((current) => (current === name ? null : name));
+  };
+
   return (
-    <div
-      className="w-full h-[5rem] bg-primary flex flex-row items-center justify-center"
-      onMouseLeave={() => setMenuState(initialMenuState)}
+    <header
+      className="sticky top-0 z-50 w-full h-20 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all"
+      onMouseLeave={() => setActiveDropdown(null)}
     >
-      <div className="w-[90%] flex flex-row items-center justify-between gap-2">
-        <Link
-          href={"/"}
-          className="flex flex-row items-center justify-center gap-2"
-        >
-          <Image
-            src={"/images/logo.jpg"}
-            alt="Logo"
-            width={0}
-            height={0}
-            className="w-[6rem] h-[3rem] md:h-[4rem] lg:h-[4rem] rounded-xl transform transition-transform duration-300 hover:scale-95 cursor-pointer"
-            unoptimized
-            quality={100}
-          />
-          {/* <p className="text-2xl italic text-nowrap">QODES Systems</p> */}
-        </Link>
-        <ul className="flex-1 hidden lg:flex flex-row items-center justify-center gap-12">
-          <li
-            className={cn(
-              `relative group text-lg font-normal capitalize text-nowrap text-black transform transition-all duration-300 hover:text-secondary z-999 cursor-pointer`,
-              ""
-            )}
-          >
-            <Link href={"/"}>Home</Link>
-          </li>
-          <li
-            className={cn(
-              `relative group text-lg font-normal capitalize text-nowrap text-black transform transition-all duration-300 hover:text-secondary z-999 cursor-pointer`,
-              ""
-            )}
-            onMouseEnter={() =>
-              setMenuState({ ...initialMenuState, home: true })
-            }
-          >
-            <Link href={"/about"}>about us</Link>
-          </li>
-          <li
-            className={cn(
-              `relative group text-lg capitalize text-nowrap text-black transform transition-all duration-300 hover:text-secondary z-999`,
-              menuState.coreBankingSystem ? "text-secondary" : "text-black"
-            )}
-            onMouseEnter={() =>
-              setMenuState({ ...initialMenuState, coreBankingSystem: true })
-            }
-          >
-            <p>core banking system</p>
-            <div
-              // onMouseLeave={() => handleMenuToggle("services", false)}
-              className={cn(
-                `absolute -left-10 right-0 bg-white px-4 py-3 top-10 text-nowrap w-[225px] shadow-lg shadow-title border border-secondary overflow-auto`,
-                menuState.coreBankingSystem ? "block" : "hidden"
-              )}
-            >
-              <ul className="w-full flex flex-col items-start justify-center gap-3">
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/sap-core-banking"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    SAP core banking
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/temenos-t24-core-banking"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    Temenos T24 Core Banking
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/qodes-core-banking-system"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary leading-5"
-                  >
-                    Qodes <br /> Core Banking System
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li
-            className={cn(
-              `relative group text-lg capitalize text-nowrap text-black transform transition-all duration-300 hover:text-secondary z-999`,
-              menuState.services ? "text-secondary" : "text-black"
-            )}
-            onMouseEnter={() =>
-              setMenuState({ ...initialMenuState, services: true })
-            }
-          >
-            <p>services</p>
-            <div
-              // onMouseLeave={() => handleMenuToggle("services", false)}
-              className={cn(
-                `absolute -left-20 right-0 bg-white px-4 py-3 top-10 text-nowrap w-[225px] shadow-lg shadow-title border border-secondary overflow-auto`,
-                menuState.services ? "block" : "hidden"
-              )}
-            >
-              <ul className="w-full flex flex-col items-start justify-center gap-3">
-                <li
-                  className="w-full flex items-center justify-between gap-2 cursor-pointer"
-                  onMouseEnter={() => handleMenuToggle("itServices", true)}
-                >
-                  <Link
-                    href={"/it-security-assessment"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    iT security
-                  </Link>
-                  <ChevronRight className="text-black !w-5 !h-5" />
-                </li>
-                <li
-                  className="w-full flex items-center justify-start cursor-pointer"
-                  onMouseEnter={() => handleMenuToggle("itServices", false)}
-                >
-                  <Link
-                    href={"/sap-services"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    SAP services
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/application-development"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    application development
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/software-testing-services"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary leading-5"
-                  >
-                    software testing /<br />
-                    quality engineering
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/staff-augmentation-services"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    staff augmentation services
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div
-              onMouseLeave={() => handleMenuToggle("itServices", false)}
-              className={cn(
-                `absolute left-[145px] right-0 bg-white px-4 py-3 top-10 text-nowrap w-[225px] shadow-lg shadow-title border border-secondary`,
-                menuState.itServices ? "block" : "hidden"
-              )}
-            >
-              <ul className="w-full flex flex-col items-start justify-center gap-3">
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/it-security-assessment"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    iT security assessment
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/security-compliance"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    security compliance
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/penetration-testing"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    penetration testing
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/vulnerability-assessment"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    vulnerability assessment
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/application-security-testing"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    application security testing
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/source-code-review"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    source code review
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/ict-environment-audit"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    ICT environment audit
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </li>
-          {/* <li
-            className={cn(
-              `relative group text-lg capitalize text-nowrap text-black transform transition-all duration-300 hover:text-secondary z-999`,
-              menuState.products ? "text-secondary" : "text-black"
-            )}
-            onMouseEnter={() =>
-              setMenuState({ ...initialMenuState, products: true })
-            }
-          >
-            <p>products</p>
-            <div
-              // onMouseLeave={() => handleMenuToggle("services", false)}
-              className={cn(
-                `absolute -left-16 right-0 bg-white px-4 py-3 top-10 text-nowrap w-[200px] shadow-lg shadow-title border border-secondary overflow-auto`,
-                menuState.products ? "block" : "hidden"
-              )}
-            >
-              <ul className="w-full flex flex-col items-start justify-center gap-3">
-                <li
-                  className="w-full flex items-center justify-between gap-2 cursor-pointer"
-                  onMouseEnter={() =>
-                    setMenuState({
-                      ...menuState,
-                      banking: true,
-                      others: false,
-                    })
-                  }
-                >
-                  <Link href={"/core-banking-system"} className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary">
-                    banking
-                  </Link>
-                  <ChevronRight className="text-black !w-5 !h-5" />
-                </li>
-                <li
-                  className="w-full flex items-center justify-between gap-2 cursor-pointer"
-                  onMouseEnter={() =>
-                    setMenuState({
-                      ...menuState,
-                      banking: false,
-                      others: true,
-                    })
-                  }
-                >
-                  <Link href={"/other-products"} className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary">
-                    others
-                  </Link>
-                  <ChevronRight className="text-black !w-5 !h-5" />
-                </li>
-              </ul>
-            </div>
-            <div
-              onMouseLeave={() => handleMenuToggle("banking", false)}
-              className={cn(
-                `absolute left-[135px] right-0 bg-white px-4 py-3 top-10 text-nowrap w-[225px] shadow-lg shadow-title border border-secondary`,
-                menuState.banking ? "block" : "hidden"
-              )}
-            >
-              <ul className="w-full flex flex-col items-start justify-center gap-3">
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/core-banking-system"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    core banking system
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/loan-software"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    loan software
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/remittance-management-system"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    remittance management
-                    <br /> system
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/internet-banking-system"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    internet banking system
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/mobile-banking"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    mobile banking
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div
-              onMouseLeave={() => handleMenuToggle("others", false)}
-              className={cn(
-                `absolute left-[135px] right-0 bg-white px-4 py-3 top-[80px] text-nowrap w-[225px] shadow-lg shadow-title border border-secondary`,
-                menuState.others ? "block" : "hidden"
-              )}
-            >
-              <ul className="w-full flex flex-col items-start justify-center gap-3">
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/hrms-package"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    HRMS package
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </li> */}
-          <li
-            className={cn(
-              `relative group text-lg capitalize text-nowrap text-black transform transition-all duration-300 hover:text-secondary z-999`,
-              menuState.reachUs ? "text-secondary" : "text-black"
-            )}
-            onMouseEnter={() =>
-              setMenuState({ ...initialMenuState, reachUs: true })
-            }
-          >
-            <p>reach us</p>
-            <div
-              // onMouseLeave={() => handleMenuToggle("services", false)}
-              className={cn(
-                `absolute -left-10 right-0 bg-white px-4 py-3 top-10 text-nowrap w-[150px] shadow-lg shadow-title border border-secondary overflow-auto`,
-                menuState.reachUs ? "block" : "hidden"
-              )}
-            >
-              <ul className="w-full flex flex-col items-start justify-center gap-3">
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/join-us"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary"
-                  >
-                    join us
-                  </Link>
-                </li>
-                <li className="w-full flex items-center justify-start cursor-pointer">
-                  <Link
-                    href={"/contact"}
-                    className="text-black text-base capitalize text-nowrap transform transition-all duration-300 hover:text-secondary leading-5"
-                  >
-                    contact us
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-        <div className=" w-[10px] "></div>
+      <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
+        {/* Brand Logo with Concept A Monogram */}
+        <div className="flex-shrink-0">
+          <Logo />
+        </div>
 
-        <Sheet open={isSheetOpen} onOpenChange={toggleSheet}>
-          {" "}
-          {/* Use the state to control open/close */}
-          <SheetTrigger className="block lg:hidden" onClick={toggleSheet}>
-            {" "}
-            {/* Toggle the state when clicked */}
-            <Menu className="cursor-pointer h-[1.5rem] w-[1.5rem]  md:h-[1.75rem] md:w-[1.75rem]" />
-          </SheetTrigger>
-          <SheetContent className="bg-white w-full overflow-y-auto">
-            <SheetHeader className="hidden">
-              <SheetTitle>Are you absolutely sure?</SheetTitle>
-            </SheetHeader>
-            <div className="flex flex-col items-start justify-center gap-10">
-              <Link
-                href={"/"}
-                className="flex flex-row items-center justify-center gap-2"
-                onClick={closeSheet}
-              >
-                <Image
-                  src={"/images/logo.jpg"}
-                  alt="Logo"
-                  width={0}
-                  height={0}
-                  className="w-[6rem] h-[3rem] md:h-[4rem] rounded-xl transform transition-transform duration-300 hover:scale-95 cursor-pointer"
-                  unoptimized
-                  quality={100}
-                />
-                {/* <p className="text-xl italic text-nowrap">QODES Systems</p> */}
-              </Link>
-              <div className="flex flex-col items-start justify-center gap-6 px-6">
-                <div className="flex flex-col items-start justify-center gap-4">
-                  <Link
-                    href={"/"}
-                    className="capitalize text-black text-lg cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    home
-                  </Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <Link
+            href="/"
+            className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+              pathname === "/"
+                ? "text-sky-600 font-semibold"
+                : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+            }`}
+          >
+            Home
+          </Link>
+
+          <Link
+            href="/about"
+            className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+              pathname === "/about"
+                ? "text-sky-600 font-semibold"
+                : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+            }`}
+          >
+            About Us
+          </Link>
+
+          {/* Core Banking Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setActiveDropdown("cbs")}
+          >
+            <button
+              onClick={() => handleDropdown("cbs")}
+              className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+                activeDropdown === "cbs" || pathname.includes("banking")
+                  ? "text-sky-600 bg-sky-50/50"
+                  : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+              }`}
+            >
+              <span>Core Banking</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  activeDropdown === "cbs" ? "rotate-180 text-sky-600" : "text-slate-400"
+                }`}
+              />
+            </button>
+
+            {activeDropdown === "cbs" && (
+              <div className="absolute left-0 top-full pt-2 w-80 animate-in fade-in-50 slide-in-from-top-2 duration-150">
+                <div className="bg-white rounded-xl shadow-xl shadow-slate-950/5 border border-slate-200/80 p-2 overflow-hidden">
+                  <div className="px-3 py-2 border-b border-slate-100 text-[11px] font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                    <Building2 className="w-3.5 h-3.5 text-sky-600" />
+                    Tier-1 Core Banking Systems
+                  </div>
+                  <div className="py-1">
+                    <Link
+                      href="/qodes-core-banking-system"
+                      className="group flex flex-col px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      <span className="text-sm font-medium text-slate-900 group-hover:text-sky-600 flex items-center justify-between">
+                        Qodes CBS (AI-Engineered)
+                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sky-600" />
+                      </span>
+                      <span className="text-xs text-slate-500 line-clamp-1">
+                        Centralized, modular AI-powered core banking platform
+                      </span>
+                    </Link>
+                    <Link
+                      href="/sap-core-banking"
+                      className="group flex flex-col px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      <span className="text-sm font-medium text-slate-900 group-hover:text-sky-600 flex items-center justify-between">
+                        SAP Core Banking
+                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sky-600" />
+                      </span>
+                      <span className="text-xs text-slate-500 line-clamp-1">
+                        Implementation, architecture review & upgrades
+                      </span>
+                    </Link>
+                    <Link
+                      href="/temenos-t24-core-banking"
+                      className="group flex flex-col px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      <span className="text-sm font-medium text-slate-900 group-hover:text-sky-600 flex items-center justify-between">
+                        Temenos T24 Core Banking
+                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sky-600" />
+                      </span>
+                      <span className="text-xs text-slate-500 line-clamp-1">
+                        Application migration, optimization & compliance
+                      </span>
+                    </Link>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start justify-center gap-4">
-                  <Link
-                    href={"/about"}
-                    className="capitalize text-black text-lg cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    about us
-                  </Link>
+              </div>
+            )}
+          </div>
+
+          {/* IT Security Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setActiveDropdown("security")}
+          >
+            <button
+              onClick={() => handleDropdown("security")}
+              className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+                activeDropdown === "security" || pathname.includes("security") || pathname.includes("testing")
+                  ? "text-sky-600 bg-sky-50/50"
+                  : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+              }`}
+            >
+              <span>IT Security</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  activeDropdown === "security" ? "rotate-180 text-sky-600" : "text-slate-400"
+                }`}
+              />
+            </button>
+
+            {activeDropdown === "security" && (
+              <div className="absolute left-0 top-full pt-2 w-96 animate-in fade-in-50 slide-in-from-top-2 duration-150">
+                <div className="bg-white rounded-xl shadow-xl shadow-slate-950/5 border border-slate-200/80 p-2 overflow-hidden">
+                  <div className="px-3 py-2 border-b border-slate-100 text-[11px] font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                    <Shield className="w-3.5 h-3.5 text-sky-600" />
+                    Assurance & APRA CPS 234 Compliance
+                  </div>
+                  <div className="grid grid-cols-2 gap-1 py-1">
+                    <Link
+                      href="/it-security-assessment"
+                      className="px-3 py-2 rounded-lg hover:bg-slate-50 text-xs font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Security Assessment
+                    </Link>
+                    <Link
+                      href="/penetration-testing"
+                      className="px-3 py-2 rounded-lg hover:bg-slate-50 text-xs font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Penetration Testing
+                    </Link>
+                    <Link
+                      href="/security-compliance"
+                      className="px-3 py-2 rounded-lg hover:bg-slate-50 text-xs font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Security Compliance
+                    </Link>
+                    <Link
+                      href="/vulnerability-assessment"
+                      className="px-3 py-2 rounded-lg hover:bg-slate-50 text-xs font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Vulnerability Assessment
+                    </Link>
+                    <Link
+                      href="/application-security-testing"
+                      className="px-3 py-2 rounded-lg hover:bg-slate-50 text-xs font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      App Security Testing
+                    </Link>
+                    <Link
+                      href="/source-code-review"
+                      className="px-3 py-2 rounded-lg hover:bg-slate-50 text-xs font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Source Code Review
+                    </Link>
+                    <Link
+                      href="/ict-environment-audit"
+                      className="col-span-2 px-3 py-2 rounded-lg hover:bg-slate-50 text-xs font-medium text-slate-800 hover:text-sky-600 transition-colors border-t border-slate-100"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      ICT Environment Audit & Risk Analysis
+                    </Link>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start justify-center gap-4">
-                  <p className="capitalize text-black text-lg cursor-pointer">
-                    core banking system
+              </div>
+            )}
+          </div>
+
+          {/* Enterprise Services Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setActiveDropdown("services")}
+          >
+            <button
+              onClick={() => handleDropdown("services")}
+              className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+                activeDropdown === "services" || pathname.includes("services")
+                  ? "text-sky-600 bg-sky-50/50"
+                  : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+              }`}
+            >
+              <span>Services</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  activeDropdown === "services" ? "rotate-180 text-sky-600" : "text-slate-400"
+                }`}
+              />
+            </button>
+
+            {activeDropdown === "services" && (
+              <div className="absolute left-0 top-full pt-2 w-72 animate-in fade-in-50 slide-in-from-top-2 duration-150">
+                <div className="bg-white rounded-xl shadow-xl shadow-slate-950/5 border border-slate-200/80 p-2 overflow-hidden">
+                  <div className="px-3 py-2 border-b border-slate-100 text-[11px] font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                    <Cpu className="w-3.5 h-3.5 text-sky-600" />
+                    Engineering & Consulting
+                  </div>
+                  <div className="py-1">
+                    <Link
+                      href="/sap-services"
+                      className="flex flex-col px-3 py-2 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      SAP Services & Implementation
+                    </Link>
+                    <Link
+                      href="/application-development"
+                      className="flex flex-col px-3 py-2 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Enterprise Application Engineering
+                    </Link>
+                    <Link
+                      href="/software-testing-services"
+                      className="flex flex-col px-3 py-2 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Software Quality Engineering
+                    </Link>
+                    <Link
+                      href="/staff-augmentation-services"
+                      className="flex flex-col px-3 py-2 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-sky-600 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Staff Augmentation & CBS Talent
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <Link
+            href="/join-us"
+            className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+              pathname === "/join-us"
+                ? "text-sky-600 font-semibold"
+                : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+            }`}
+          >
+            Careers
+          </Link>
+        </nav>
+
+        {/* Right Action: CTA Button */}
+        <div className="hidden lg:flex items-center gap-3">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-slate-950 hover:bg-slate-800 rounded-lg shadow-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            Contact Advisory
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Menu */}
+        <div className="flex items-center lg:hidden">
+          <Sheet open={isSheetOpen} onOpenChange={toggleSheet}>
+            <SheetTrigger
+              aria-label="Open Navigation Menu"
+              className="p-2 text-slate-700 hover:text-slate-950 rounded-lg focus:outline-none"
+            >
+              <Menu className="w-6 h-6" />
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-white w-[300px] sm:w-[350px] p-6 overflow-y-auto">
+              <SheetHeader className="text-left pb-4 border-b border-slate-100">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                <Logo onClick={closeSheet} />
+              </SheetHeader>
+
+              <div className="py-6 flex flex-col gap-4">
+                <Link
+                  href="/"
+                  className="text-base font-medium text-slate-800 hover:text-sky-600 py-1 transition-colors"
+                  onClick={closeSheet}
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-base font-medium text-slate-800 hover:text-sky-600 py-1 transition-colors"
+                  onClick={closeSheet}
+                >
+                  About Us
+                </Link>
+
+                <div className="pt-2 border-t border-slate-100">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+                    Core Banking Systems
                   </p>
-                  <Link
-                    href={"/sap-core-banking"}
-                    className="text-lg text-black capitalize pl-[2rem] cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    sAP Core Banking
-                  </Link>
-                  <Link
-                    href={"/temenos-t24-core-banking"}
-                    className="text-lg text-black capitalize pl-[2rem] cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    Temenos T24 Core Banking
-                  </Link>
-                  <Link
-                    href={"/qodes-core-banking-system"}
-                    className="text-lg text-black capitalize pl-[2rem] cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    Qodes Core Banking System
-                  </Link>
+                  <div className="flex flex-col gap-2 pl-2">
+                    <Link
+                      href="/qodes-core-banking-system"
+                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      Qodes CBS
+                    </Link>
+                    <Link
+                      href="/sap-core-banking"
+                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      SAP Core Banking
+                    </Link>
+                    <Link
+                      href="/temenos-t24-core-banking"
+                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      Temenos T24
+                    </Link>
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-start justify-center gap-4">
-                  <p className="capitalize text-black text-lg">services</p>
-                  <Link
-                    href={"/it-security-assessment"}
-                    className="text-lg text-black capitalize pl-[2rem]"
-                    onClick={closeSheet}
-                  >
-                    IT Security
-                  </Link>
-                  <Link
-                    href={"/it-security-assessment"}
-                    className="text-lg text-black capitalize pl-[4rem]"
-                    onClick={closeSheet}
-                  >
-                    IT security assessment
-                  </Link>
-                  <Link
-                    href={"/security-compliance"}
-                    className="text-lg text-black capitalize pl-[4rem]"
-                    onClick={closeSheet}
-                  >
-                    security compliance
-                  </Link>
-                  <Link
-                    href={"/penetration-testing"}
-                    className="text-lg text-black capitalize pl-[4rem]"
-                    onClick={closeSheet}
-                  >
-                    penetration testing
-                  </Link>
-                  <Link
-                    href={"/vulnerability-assessment"}
-                    className="text-lg text-black capitalize pl-[4rem]"
-                    onClick={closeSheet}
-                  >
-                    Vulnerability assessment
-                  </Link>
-                  <Link
-                    href={"/application-security-testing"}
-                    className="text-lg text-black capitalize pl-[4rem]"
-                    onClick={closeSheet}
-                  >
-                    application security testing
-                  </Link>
-                  <Link
-                    href={"/source-code-review"}
-                    className="text-lg text-black capitalize pl-[4rem]"
-                    onClick={closeSheet}
-                  >
-                    source code review
-                  </Link>
-                  <Link
-                    href={"/ict-environment-audit"}
-                    className="text-lg text-black capitalize pl-[4rem]"
-                    onClick={closeSheet}
-                  >
-                    ICT environment audit
-                  </Link>
-                  <Link
-                    href={"/sap-services"}
-                    className="text-lg text-black capitalize pl-[2rem]"
-                    onClick={closeSheet}
-                  >
-                    SAP Services
-                  </Link>
-                  <Link
-                    href={"/application-development"}
-                    className="text-lg text-black capitalize pl-[2rem]"
-                    onClick={closeSheet}
-                  >
-                    application development
-                  </Link>
-                  <Link
-                    href={"/software-testing-services"}
-                    className="text-lg text-black capitalize pl-[2rem]"
-                    onClick={closeSheet}
-                  >
-                    software testing / quality engineering
-                  </Link>
-                  <Link
-                    href={"/staff-augmentation-services"}
-                    className="text-lg text-black capitalize pl-[2rem]"
-                    onClick={closeSheet}
-                  >
-                    staff augmentation services
-                  </Link>
+                <div className="pt-2 border-t border-slate-100">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+                    IT Security & Assurance
+                  </p>
+                  <div className="flex flex-col gap-2 pl-2">
+                    <Link
+                      href="/it-security-assessment"
+                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      Security Assessment
+                    </Link>
+                    <Link
+                      href="/penetration-testing"
+                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      Penetration Testing
+                    </Link>
+                    <Link
+                      href="/security-compliance"
+                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      APRA Security Compliance
+                    </Link>
+                    <Link
+                      href="/vulnerability-assessment"
+                      className="text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      Vulnerability Assessment
+                    </Link>
+                  </div>
                 </div>
-                {/* <div className="flex flex-col items-start justify-center gap-4">
-                  <p className="capitalize text-black text-lg">products</p>
-                  <p className="capitalize text-black text-lg pl-[2rem]">
-                    banking
-                  </p>
+
+                <div className="pt-2 border-t border-slate-100 flex flex-col gap-3">
                   <Link
-                    href={"/core-banking-system"}
-                    className="capitalize text-black text-lg pl-[4rem] cursor-pointer"
+                    href="/join-us"
+                    className="text-base font-medium text-slate-800 hover:text-sky-600 transition-colors"
                     onClick={closeSheet}
                   >
-                    core banking system
+                    Careers
                   </Link>
                   <Link
-                    href={"/loan-software"}
-                    className="capitalize text-black text-lg pl-[4rem] cursor-pointer"
+                    href="/contact"
+                    className="w-full text-center py-2.5 px-4 rounded-lg bg-slate-950 text-white font-medium text-sm hover:bg-slate-800 transition-colors"
                     onClick={closeSheet}
                   >
-                    loan software
-                  </Link>
-                  <Link
-                    href={"/remittance-management-system"}
-                    className="capitalize text-black text-lg pl-[4rem] cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    remittance management system
-                  </Link>
-                  <Link
-                    href={"/internet-banking-system"}
-                    className="capitalize text-black text-lg pl-[4rem] cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    internet banking system
-                  </Link>
-                  <Link
-                    href={"/mobile-banking"}
-                    className="capitalize text-black text-lg pl-[4rem] cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    mobile banking
-                  </Link>
-                  <p className="capitalize text-black text-lg pl-[2rem]">
-                    others
-                  </p>
-                  <Link
-                    href={"/hrms-package"}
-                    className="capitalize text-black text-lg pl-[4rem] cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    HRMS package
-                  </Link>
-                </div> */}
-                <div className="flex flex-col items-start justify-center gap-4">
-                  <p
-                    className="capitalize text-black text-lg cursor-pointer"
-                    onClick={closeSheet}
-                  >
-                    reach us
-                  </p>
-                  <Link
-                    href={"/join-us"}
-                    className="text-lg text-black capitalize pl-[2rem]"
-                    onClick={closeSheet}
-                  >
-                    join us
-                  </Link>
-                  <Link
-                    href={"/contact"}
-                    className="text-lg text-black capitalize pl-[2rem]"
-                    onClick={closeSheet}
-                  >
-                    contact
+                    Contact Us
                   </Link>
                 </div>
               </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 
 export default Navbar;
 
-// {/* <NavigationMenu>
-// <NavigationMenuList>
-//   {/* Main Dropdown */}
-//   <NavigationMenuItem className="relative">
-//     <NavigationMenuTrigger className="text-lg capitalize text-nowrap">
-//       <Link href={"/"}>Home</Link>
-//     </NavigationMenuTrigger>
-//     <NavigationMenuContent className="absolute bg-white h-fit px-4 py-3 flex flex-col items-start justify-center gap-3 shadow-lg z-999">
-//       <ul className="w-fit h-fit flex flex-col items-start justify-center gap-3">
-//         <li>
-//           <NavigationMenuLink asChild>
-//             <Link
-//               className="outline-none focus:shadow-md capitalize text-lg text-black text-nowrap transform transition-all hover:text-secondary"
-//               href="/about"
-//             >
-//               about us
-//             </Link>
-//           </NavigationMenuLink>
-//         </li>
-//       </ul>
-//     </NavigationMenuContent>
-//   </NavigationMenuItem>
-//   <NavigationMenuItem className="relative">
-//     <NavigationMenuTrigger className="text-lg capitalize text-nowrap">
-//       <Link href={"/"}>services</Link>
-//     </NavigationMenuTrigger>
-//     <NavigationMenuContent className="absolute bg-white h-fit px-4 py-3 flex flex-col items-start justify-center gap-3 shadow-lg z-999">
-//       <ul className="w-[400px] h-fit flex flex-col items-start justify-center gap-3">
-//         <li>
-//           <NavigationMenuLink asChild>
-//             <Link
-//               className="outline-none focus:shadow-md capitalize text-lg text-black text-nowrap transform transition-all hover:text-secondary"
-//               href="/about"
-//             >
-//               iT security
-//             </Link>
-//           </NavigationMenuLink>
-//         </li>
-//         <li>
-//           <NavigationMenuLink asChild>
-//             <Link
-//               className="outline-none focus:shadow-md capitalize text-lg text-black text-nowrap transform transition-all hover:text-secondary"
-//               href="/about"
-//             >
-//               iT infrastructure services
-//             </Link>
-//           </NavigationMenuLink>
-//         </li>
-//       </ul>
-//     </NavigationMenuContent>
-//   </NavigationMenuItem>
-//   <NavigationMenuItem>
-//     <NavigationMenuTrigger className="text-lg capitalize">
-//       Product
-//     </NavigationMenuTrigger>
-//   </NavigationMenuItem>
-//   <NavigationMenuItem>
-//     <NavigationMenuTrigger className="text-lg capitalize">
-//       Join us
-//     </NavigationMenuTrigger>
-//   </NavigationMenuItem>
-//   <NavigationMenuItem>
-//     <NavigationMenuTrigger className="text-lg capitalize">
-//       Contact
-//     </NavigationMenuTrigger>
-//   </NavigationMenuItem>
-// </NavigationMenuList>
-// <NavigationMenuViewport />
-// </NavigationMenu> */}
