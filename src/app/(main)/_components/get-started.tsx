@@ -61,53 +61,53 @@ const GetStartedComponent = () => {
           </Link>
         </div>
 
-        {/* Metrics Grid */}
+        {/* Verified Capability Pillars */}
         <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-slate-200/80 text-left">
           <div className="p-4 rounded-lg bg-slate-50/50 border border-slate-100">
             <div className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight font-mono">
-              <CountUp to={20} suffix="+" duration={1.8} />
+              <CountUp to={20} suffix="+" duration={1.5} />
             </div>
             <div className="text-xs uppercase tracking-wider text-slate-500 font-medium mt-1">
-              Years Banking Track Record
+              Years Banking Heritage
             </div>
             <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-              Proven core implementations across Tier-1 financial institutions.
+              Two decades of proven implementation track record across large banking organizations.
             </p>
           </div>
 
           <div className="p-4 rounded-lg bg-slate-50/50 border border-slate-100">
             <div className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight font-mono">
-              <CountUp to={99.999} suffix="%" duration={2} />
+              <CountUp to={3} suffix=" Suites" duration={1.2} />
             </div>
             <div className="text-xs uppercase tracking-wider text-slate-500 font-medium mt-1">
-              Core Availability SLA
+              Core Banking Engines
             </div>
             <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-              Active-active fault-tolerant resilience designed for zero disruption.
+              Specialized expertise spanning SAP Banking, Temenos T24, and proprietary AI-driven CBS.
             </p>
           </div>
 
           <div className="p-4 rounded-lg bg-slate-50/50 border border-slate-100">
             <div className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight font-mono">
-              <CountUp to={50} prefix="$" suffix="B+" duration={2.2} />
+              Zero
             </div>
             <div className="text-xs uppercase tracking-wider text-slate-500 font-medium mt-1">
-              Transaction Engine Capacity
+              Unplanned Downtime
             </div>
             <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-              Ultra-low latency processing power for real-time clearing and settlement.
+              Mission-critical upgrade and technology migration methodology built to eliminate operational pauses.
             </p>
           </div>
 
           <div className="p-4 rounded-lg bg-slate-50/50 border border-slate-100">
             <div className="text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight font-mono">
-              <CountUp to={100} suffix="%" duration={1.5} />
+              100%
             </div>
             <div className="text-xs uppercase tracking-wider text-slate-500 font-medium mt-1">
-              Defect-Free Acceptance
+              Pre-Acceptance Reviews
             </div>
             <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-              Rigorous pre-acceptance solution reviews mitigating structural risk.
+              Identifying structural design flaws early in project phases, long before user acceptance testing.
             </p>
           </div>
         </div>

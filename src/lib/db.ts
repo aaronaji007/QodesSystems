@@ -33,6 +33,7 @@ export async function initDb(): Promise<void> {
       email VARCHAR(255) UNIQUE NOT NULL,
       password_hash VARCHAR(255) NOT NULL,
       role VARCHAR(50) DEFAULT 'admin',
+      name VARCHAR(255),
       full_name VARCHAR(255),
       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
       updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
@@ -59,6 +60,21 @@ export async function initDb(): Promise<void> {
       resume_url TEXT,
       cover_letter TEXT,
       status VARCHAR(50) DEFAULT 'submitted',
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS site_content (
+      key VARCHAR(100) PRIMARY KEY,
+      value TEXT NOT NULL,
+      category VARCHAR(50) DEFAULT 'general',
+      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS site_media (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      url TEXT NOT NULL,
+      category VARCHAR(50) DEFAULT 'general',
       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
   `);

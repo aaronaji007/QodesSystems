@@ -23,48 +23,23 @@ export const Logo: React.FC<LogoProps> = ({
       className={`inline-flex items-center gap-2.5 transition-opacity hover:opacity-90 ${className}`}
       aria-label="QODES Systems Home"
     >
-      {/* Interlocking Dual-Line "QS" Monogram */}
+      {/* Grafein-Style Diagonal "QS" Monogram */}
       <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-950 p-[1.5px] shadow-sm overflow-hidden group-hover:scale-105 transition-transform duration-200">
         <svg
-          viewBox="0 0 44 44"
+          viewBox="0 0 48 48"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-8 h-8"
+          className="w-7 h-7"
         >
-          <defs>
-            <linearGradient id="qsCyan" x1="4" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#38BDF8" />
-              <stop offset="0.6" stopColor="#0284C7" />
-              <stop offset="1" stopColor="#0369A1" />
-            </linearGradient>
-            <linearGradient id="qsWhite" x1="10" y1="10" x2="34" y2="34" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFFFFF" />
-              <stop offset="1" stopColor="#E2E8F0" />
-            </linearGradient>
-          </defs>
-
-          {/* Q Outer & Inner Concentric Vault Lines */}
-          <circle cx="18" cy="22" r="12" stroke="url(#qsCyan)" strokeWidth="2.5" strokeLinecap="round" opacity="0.95" />
-          <circle cx="18" cy="22" r="8.5" stroke="url(#qsWhite)" strokeWidth="2" strokeLinecap="round" />
-          
-          {/* Q Diagonal Exit Stroke (Dual Line) */}
-          <path d="M23 27L33 37" stroke="url(#qsCyan)" strokeWidth="2.5" strokeLinecap="round" />
-          <path d="M21 29L29 37" stroke="url(#qsWhite)" strokeWidth="2" strokeLinecap="round" />
-
-          {/* S Interlocking Ribbon (Dual Stroke weaving through Q) */}
-          <path
-            d="M33 13.5C31 9.5 24 9.5 24 14.5C24 20 34 21 34 26.5C34 31.5 26.5 32 23 29.5"
-            stroke="url(#qsWhite)"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          {/* Top-Left: Chunky Q Vault with Diagonal Spur */}
+          <path 
+            d="M 12 8 C 8 8 6 10 6 14 L 6 22 C 6 26 8 28 12 28 L 18 28 L 26 36 C 27.5 37.5 30 36.5 30 34.5 L 30 30 L 24 24 L 24 14 C 24 10 22 8 18 8 Z M 14 14 L 16 14 C 17.1 14 18 14.9 18 16 L 18 20 C 18 21.1 17.1 22 16 22 L 14 22 C 12.9 22 12 21.1 12 20 L 12 16 C 12 14.9 12.9 14 14 14 Z" 
+            fill="#38BDF8" 
           />
-          <path
-            d="M36 12C33 7.5 22 7.5 22 14.5C22 22 36 23 36 29C36 34.5 27 35.5 21 32"
-            stroke="url(#qsCyan)"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          {/* Bottom-Right: Chunky S Curve Aligned Diagonally */}
+          <path 
+            d="M 36 20 C 40 20 42 22 42 26 L 42 34 C 42 38 40 40 36 40 L 28 40 C 24 40 22 38 22 34 L 28 34 C 28.5 34 29 34.5 29 35 C 29 35.5 29.5 36 30 36 L 35 36 C 36.1 36 37 35.1 37 34 L 37 31 C 37 29.9 36.1 29 35 29 L 27 29 C 23 29 21 27 21 23 L 21 21 L 26 21 L 26 23 C 26 24.1 26.9 25 28 25 L 35 25 C 36.5 25 37 24.5 37 23.5 C 37 22.5 36.5 22 35 22 L 29 22 C 29 20 31 20 36 20 Z" 
+            fill="#FFFFFF" 
           />
         </svg>
       </div>
