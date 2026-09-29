@@ -19,15 +19,18 @@ export const Logo: React.FC<LogoProps> = ({
     <Link
       href="/"
       onClick={onClick}
-      className={`inline-flex items-center transition-opacity hover:opacity-90 ${className}`}
+      className={`inline-flex items-center transition-opacity hover:opacity-90 shrink-0 ${className}`}
       aria-label="QODES Systems Home"
     >
-      <div className="relative h-10 sm:h-11 w-auto flex items-center">
+      <div className="relative h-10 sm:h-11 flex items-center shrink-0">
         <svg
           viewBox="0 0 540 220"
+          width="135"
+          height="55"
+          preserveAspectRatio="xMinYMid meet"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-10 sm:h-11 w-auto max-w-[190px]"
+          className="h-10 sm:h-11 w-auto max-w-[190px] select-none pointer-events-none"
           aria-hidden="true"
         >
           {/* Q Outer and Inner Ring */}
