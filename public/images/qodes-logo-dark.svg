@@ -6,7 +6,7 @@
     M 82.5 43.5
     A 49.5 49.5 0 1 0 82.6 43.5
     Z
-  " fill="#2EA3DC" />
+  " fill="#38BDF8" />
 
   <!-- Q Sweeping Calligraphic Tail -->
   <path d="
@@ -15,24 +15,24 @@
     C 142 198, 146 195, 140 190
     C 114 175, 96 156, 88 138
     Z
-  " fill="#2EA3DC" />
+  " fill="#38BDF8" />
   <path d="
     M 78 152
     C 90 166, 110 182, 136 194
     C 122 192, 102 180, 88 162
     Z
-  " fill="#2EA3DC" />
+  " fill="#38BDF8" />
 
-  <!-- Letter O (Width: 80, x: 182..262, y: 42..132) -->
+  <!-- Letter O -->
   <path d="
     M 222 42
     A 40 45 0 1 1 221.9 42
     M 222 56.5
     A 26 30.5 0 1 0 222.1 56.5
     Z
-  " fill="#2EA3DC" />
+  " fill="#38BDF8" />
 
-  <!-- Letter D (Width: 74, x: 280..354, y: 42..132) -->
+  <!-- Letter D -->
   <path d="
     M 280 42
     L 315 42
@@ -46,9 +46,9 @@
     C 339 105, 328 117.5, 313 117.5
     L 294 117.5
     Z
-  " fill="#2EA3DC" />
+  " fill="#38BDF8" />
 
-  <!-- Letter E (Width: 58, x: 372..430, y: 42..132) -->
+  <!-- Letter E -->
   <path d="
     M 372 42
     L 430 42
@@ -63,9 +63,9 @@
     L 430 132
     L 372 132
     Z
-  " fill="#2EA3DC" />
+  " fill="#38BDF8" />
 
-  <!-- Letter S (Width: 54, x: 448..502, y: 42..132) -->
+  <!-- Letter S -->
   <path d="
     M 498 62
     C 495 50, 485 42, 474 42
@@ -82,11 +82,11 @@
     C 437 49, 449 40, 471 40
     C 486 40, 497 49, 501 62
     Z
-  " fill="#2EA3DC" />
+  " fill="#38BDF8" />
 
-  <!-- Divider Line (x: 145..504, y: 147, height: 2.5) -->
-  <rect x="145" y="147" width="360" height="2.5" rx="1.25" fill="#B5D7EA" />
+  <!-- Divider Line -->
+  <rect x="145" y="147" width="360" height="2.5" rx="1.25" fill="#38BDF8" fill-opacity="0.4" />
 
   <!-- Systems Subtext -->
-  <text x="148" y="194" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif" font-size="43" font-weight="400" letter-spacing="15.5px" fill="#4B5563">Systems</text>
+  <text x="148" y="194" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif" font-size="43" font-weight="400" letter-spacing="15.5px" fill="#F1F5F9">Systems</text>
 </svg>

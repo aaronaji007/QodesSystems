@@ -11,8 +11,11 @@ interface LogoProps {
 
 export const Logo: React.FC<LogoProps> = ({
   className = '',
+  theme = 'light',
   onClick,
 }) => {
+  const logoSrc = theme === 'dark' ? '/images/qodes-logo-dark.svg' : '/images/qodes-logo.svg';
+
   return (
     <Link
       href="/"
@@ -22,7 +25,7 @@ export const Logo: React.FC<LogoProps> = ({
     >
       <div className="relative h-11 w-48">
         <Image
-          src="/images/qodes-logo.svg"
+          src={logoSrc}
           alt="QODES Systems"
           fill
           priority
