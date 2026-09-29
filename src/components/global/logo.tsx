@@ -1,20 +1,19 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import React from "react";
+import Link from "next/link";
 
 interface LogoProps {
   className?: string;
-  variant?: 'full' | 'icon';
-  theme?: 'dark' | 'light' | 'auto';
+  variant?: "full" | "icon";
+  theme?: "dark" | "light" | "auto";
   onClick?: () => void;
 }
 
 export const Logo: React.FC<LogoProps> = ({
-  className = '',
-  theme = 'light',
+  className = "",
+  theme = "light",
   onClick,
 }) => {
-  const logoSrc = theme === 'dark' ? '/images/qodes-logo-dark.svg' : '/images/qodes-logo.svg';
+  const isDark = theme === "dark";
 
   return (
     <Link
@@ -23,14 +22,78 @@ export const Logo: React.FC<LogoProps> = ({
       className={`inline-flex items-center transition-opacity hover:opacity-90 ${className}`}
       aria-label="QODES Systems Home"
     >
-      <div className="relative h-11 w-48">
-        <Image
-          src={logoSrc}
-          alt="QODES Systems"
-          fill
-          priority
-          className="object-contain object-left"
-        />
+      <div className="relative h-10 sm:h-11 w-auto flex items-center">
+        <svg
+          viewBox="0 0 540 220"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-10 sm:h-11 w-auto max-w-[190px]"
+          aria-hidden="true"
+        >
+          {/* Q Outer and Inner Ring */}
+          <path
+            d="M 82.5 27 A 66 66 0 1 1 82.4 27 M 82.5 43.5 A 49.5 49.5 0 1 0 82.6 43.5 Z"
+            fill={isDark ? "#38BDF8" : "#2EA3DC"}
+          />
+
+          {/* Q Sweeping Calligraphic Tail */}
+          <path
+            d="M 68 142 C 78 158, 98 178, 134 195 C 142 198, 146 195, 140 190 C 114 175, 96 156, 88 138 Z"
+            fill={isDark ? "#38BDF8" : "#2EA3DC"}
+          />
+          <path
+            d="M 78 152 C 90 166, 110 182, 136 194 C 122 192, 102 180, 88 162 Z"
+            fill={isDark ? "#38BDF8" : "#2EA3DC"}
+          />
+
+          {/* Letter O */}
+          <path
+            d="M 222 42 A 40 45 0 1 1 221.9 42 M 222 56.5 A 26 30.5 0 1 0 222.1 56.5 Z"
+            fill={isDark ? "#38BDF8" : "#2EA3DC"}
+          />
+
+          {/* Letter D */}
+          <path
+            d="M 280 42 L 315 42 C 339 42, 354 60, 354 87 C 354 114, 339 132, 315 132 L 280 132 Z M 294 56.5 L 313 56.5 C 328 56.5, 339 69, 339 87 C 339 105, 328 117.5, 313 117.5 L 294 117.5 Z"
+            fill={isDark ? "#38BDF8" : "#2EA3DC"}
+          />
+
+          {/* Letter E */}
+          <path
+            d="M 372 42 L 430 42 L 430 56.5 L 386 56.5 L 386 79.5 L 422 79.5 L 422 94 L 386 94 L 386 117.5 L 430 117.5 L 430 132 L 372 132 Z"
+            fill={isDark ? "#38BDF8" : "#2EA3DC"}
+          />
+
+          {/* Letter S */}
+          <path
+            d="M 498 62 C 495 50, 485 42, 474 42 C 460 42, 451 51, 451 63 C 451 76, 461 83, 474 88 C 488 93, 499 100, 499 113 C 499 126, 487 135, 473 135 C 457 135, 447 125, 444 114 L 457 110 C 459 118, 465 122, 473 122 C 480 122, 486 118, 486 111 C 486 102, 476 96, 462 90 C 449 84, 437 77, 437 63 C 437 49, 449 40, 471 40 C 486 40, 497 49, 501 62 Z"
+            fill={isDark ? "#38BDF8" : "#2EA3DC"}
+          />
+
+          {/* Divider Line */}
+          <rect
+            x="145"
+            y="147"
+            width="360"
+            height="2.5"
+            rx="1.25"
+            fill={isDark ? "#38BDF8" : "#B5D7EA"}
+            fillOpacity={isDark ? 0.4 : 1}
+          />
+
+          {/* Systems Subtext */}
+          <text
+            x="148"
+            y="194"
+            fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+            fontSize="43"
+            fontWeight="400"
+            letterSpacing="15.5px"
+            fill={isDark ? "#F1F5F9" : "#4B5563"}
+          >
+            Systems
+          </text>
+        </svg>
       </div>
     </Link>
   );
