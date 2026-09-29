@@ -34,9 +34,9 @@ export const AdvisoryCta = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             
             <div className="lg:col-span-8 space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#79C5EC] tracking-wider uppercase">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#79C5EC]">
                 <Compass className="w-3.5 h-3.5" />
-                <span>Executive Advisory & Commissions</span>
+                <span>Executive Advisory &bull; Institutional Commissions</span>
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-[1.15]">
@@ -60,7 +60,7 @@ export const AdvisoryCta = () => {
             <div className="lg:col-span-4 flex flex-col gap-4">
               <Link
                 href="/contact"
-                className="group flex items-center justify-between w-full px-7 py-4.5 bg-[#2EA3DC] text-white rounded-full font-medium text-sm tracking-wide hover:bg-[#258ec2] shadow-lg shadow-[#2EA3DC]/20 transition-all duration-300 hover:scale-[1.02]"
+                className="group flex items-center justify-between w-full px-6 py-4 bg-[#2EA3DC] text-white rounded-xl font-medium text-sm tracking-wide hover:bg-[#258ec2] shadow-lg shadow-[#2EA3DC]/20 transition-all duration-200"
               >
                 <span>Schedule Consultation</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -68,7 +68,7 @@ export const AdvisoryCta = () => {
 
               <Link
                 href="/services"
-                className="flex items-center justify-between w-full px-7 py-4 bg-white/5 border border-white/10 text-stone-200 rounded-full font-medium text-sm tracking-wide hover:bg-white/10 hover:text-white transition-all duration-200"
+                className="flex items-center justify-between w-full px-6 py-3.5 bg-white/5 border border-white/10 text-stone-200 rounded-xl font-medium text-sm tracking-wide hover:bg-white/10 hover:text-white transition-all duration-200"
               >
                 <span>Explore Catalog & Systems</span>
                 <span className="text-stone-400 text-xs">Full Portfolio →</span>

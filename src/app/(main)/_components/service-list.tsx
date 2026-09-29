@@ -11,7 +11,6 @@ import {
   Cpu, 
   Smartphone, 
   Layers, 
-  Sparkles,
   CheckCircle2,
   SlidersHorizontal
 } from "lucide-react";
@@ -134,10 +133,10 @@ export const ServiceList = () => {
         
         {/* Gallery Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-12 mb-12 border-b border-stone-200">
-          <div className="space-y-4 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-200/70 text-stone-700 text-xs font-semibold uppercase tracking-wider">
-              <span>The Exhibition &bull; Architecture Collection</span>
-            </div>
+          <div className="space-y-3 max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.2em] font-semibold text-stone-500">
+              The Architecture Collection &bull; Engineering Catalog
+            </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-stone-900 tracking-tight leading-tight">
               Curated Financial Systems &amp; Defensive Practices
             </h2>
@@ -147,10 +146,10 @@ export const ServiceList = () => {
           </div>
 
           {/* Interactive Exhibition Category Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-2 bg-stone-200/50 p-1.5 rounded-full border border-stone-200 self-start lg:self-end">
+          <div className="flex flex-wrap items-center gap-1.5 bg-stone-200/60 p-1.5 rounded-xl border border-stone-200/80 self-start lg:self-end">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
+              className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
                 activeTab === "all" 
                   ? "bg-white text-stone-950 shadow-sm" 
                   : "text-stone-600 hover:text-stone-950"
@@ -160,7 +159,7 @@ export const ServiceList = () => {
             </button>
             <button
               onClick={() => setActiveTab("cbs")}
-              className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
+              className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
                 activeTab === "cbs" 
                   ? "bg-white text-stone-950 shadow-sm" 
                   : "text-stone-600 hover:text-stone-950"
@@ -170,17 +169,17 @@ export const ServiceList = () => {
             </button>
             <button
               onClick={() => setActiveTab("cyber")}
-              className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
+              className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
                 activeTab === "cyber" 
                   ? "bg-white text-stone-950 shadow-sm" 
                   : "text-stone-600 hover:text-stone-950"
               }`}
             >
-              Cybersecurity Vaults
+              Cybersecurity
             </button>
             <button
               onClick={() => setActiveTab("digital")}
-              className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
+              className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
                 activeTab === "digital" 
                   ? "bg-white text-stone-950 shadow-sm" 
                   : "text-stone-600 hover:text-stone-950"
@@ -190,7 +189,7 @@ export const ServiceList = () => {
             </button>
             <button
               onClick={() => setActiveTab("enterprise")}
-              className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
+              className={`px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
                 activeTab === "enterprise" 
                   ? "bg-white text-stone-950 shadow-sm" 
                   : "text-stone-600 hover:text-stone-950"
@@ -218,10 +217,10 @@ export const ServiceList = () => {
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-semibold text-stone-800 shadow-sm">
+                    <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md text-[11px] font-semibold text-stone-800 shadow-xs border border-stone-200/50">
                       {item.plateNumber}
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-sky-50/90 backdrop-blur-md text-[11px] font-semibold text-sky-800 border border-sky-200/60 shadow-sm">
+                    <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md text-[11px] font-semibold text-sky-800 shadow-xs border border-stone-200/50">
                       {item.categoryLabel}
                     </span>
                   </div>
@@ -273,9 +272,9 @@ export const ServiceList = () => {
         {/* 2. INTERACTIVE ARCHITECTURE STUDIO (Fun Yet Professional Configurator) */}
         <div className="mt-24 p-8 sm:p-12 rounded-3xl bg-white border border-stone-200/90 shadow-xl overflow-hidden relative">
           <div className="max-w-3xl space-y-4 mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-semibold">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-800">
               <SlidersHorizontal className="w-3.5 h-3.5" />
-              <span>Interactive Architecture Simulator</span>
+              <span>Architecture Studio &bull; Topology Simulator</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-normal text-stone-900 tracking-tight">
               Design Your Institutional Topology in Real-Time
@@ -407,7 +406,7 @@ export const ServiceList = () => {
                   Live Architectural Topology
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   Validated Conformance
                 </span>
               </div>
@@ -448,7 +447,7 @@ export const ServiceList = () => {
                 <span className="text-stone-400 block mb-1">Active Architecture Nodes ({capabilities.length}):</span>
                 <div className="flex flex-wrap gap-2">
                   {capabilities.map((c) => (
-                    <span key={c} className="px-3 py-1 rounded-full bg-stone-800 border border-stone-700 text-stone-200">
+                    <span key={c} className="px-2.5 py-1 rounded-md bg-stone-800 border border-stone-700 text-stone-200 text-xs">
                       {c.toUpperCase()} Engine
                     </span>
                   ))}

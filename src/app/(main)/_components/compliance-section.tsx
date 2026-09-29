@@ -42,9 +42,9 @@ export const ComplianceSection = () => {
         {/* Header Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pb-12 mb-12 border-b border-stone-200 items-end">
           <div className="lg:col-span-5 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-200/70 text-stone-700 text-xs font-semibold uppercase tracking-wider">
-              <span>Prudential Governance &bull; Regulatory Seals</span>
-            </div>
+            <p className="text-xs uppercase tracking-[0.2em] font-semibold text-stone-500">
+              Prudential Governance &bull; Regulatory Seals
+            </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-stone-900 tracking-tight leading-tight">
               Institutional Rigor Built Into Every Architecture
             </h2>
@@ -70,7 +70,7 @@ export const ComplianceSection = () => {
                     <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-[#0284C7]">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[11px] font-semibold text-sky-800 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200/60">
+                    <span className="text-[11px] font-semibold text-stone-500 uppercase tracking-wider">
                       {item.badge}
                     </span>
                   </div>

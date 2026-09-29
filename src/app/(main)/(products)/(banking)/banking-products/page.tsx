@@ -77,10 +77,9 @@ export default function BankingProductsOverviewPage() {
       <section className="relative w-full bg-gradient-to-b from-slate-50 via-white to-white border-b border-slate-200/80 pt-12 pb-16 lg:pt-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800 text-xs font-mono font-medium tracking-wide mb-6 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-sky-600 animate-pulse" />
-            <span>Banking Products Suite</span>
-          </div>
+          <p className="text-xs uppercase tracking-[0.2em] font-semibold text-sky-800 mb-4">
+            Institutional Banking Products Suite
+          </p>
 
           <div className="max-w-4xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-950 leading-[1.12] mb-6">

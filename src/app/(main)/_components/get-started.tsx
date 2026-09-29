@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, CheckCircle2, Building, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import CountUp from "@/components/bits/CountUp";
 import { useContent } from "@/context/content-context";
 
@@ -60,23 +60,23 @@ const GetStartedComponent = () => {
           
           {/* Left Column: Editorial Headline & Actions */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-sky-800 text-xs font-semibold tracking-wide shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-sky-600" />
-              <span>Enterprise Financial Systems &amp; Advisory</span>
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.22em] font-semibold text-sky-800">
+                Enterprise Financial Systems &bull; Institutional Advisory
+              </p>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-stone-900 leading-[1.1] text-balance">
+                {headline}
+              </h1>
             </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-stone-900 leading-[1.1] text-balance">
-              {headline}
-            </h1>
 
             <p className="text-lg sm:text-xl text-stone-600 font-normal leading-relaxed text-balance max-w-2xl">
               {subtitle}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-4">
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#0284C7] hover:bg-[#0369A1] text-white font-medium text-sm transition-all shadow-sm hover:shadow-md"
+                className="inline-flex items-center gap-3 px-7 py-3.5 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white font-medium text-sm transition-all shadow-sm hover:shadow"
               >
                 <span>{ctaPrimary}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -84,7 +84,7 @@ const GetStartedComponent = () => {
 
               <Link
                 href="/qodes-core-banking-system"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-stone-50 border border-stone-300 text-stone-800 font-medium text-sm transition-all shadow-sm"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white hover:bg-stone-50 border border-stone-300 text-stone-800 font-medium text-sm transition-all shadow-sm"
               >
                 <span>{ctaSecondary}</span>
               </Link>
@@ -220,16 +220,20 @@ const GetStartedComponent = () => {
           </div>
 
           {/* 4. INSTITUTIONAL ACCREDITATION SEALS */}
-          <div className="mt-10 pt-6 border-t border-stone-200 flex flex-wrap items-center justify-between gap-4 text-xs text-stone-500">
-            <span className="text-xs font-semibold uppercase tracking-wider text-stone-700">
+          <div className="mt-10 pt-6 border-t border-stone-200 flex flex-wrap items-center justify-between gap-4 text-xs">
+            <span className="font-semibold uppercase tracking-wider text-stone-700">
               Institutional Compliance &amp; Standards:
             </span>
-            <div className="flex flex-wrap items-center gap-3 sm:gap-6 font-medium text-stone-800">
-              <span className="px-3 py-1 rounded-full bg-white border border-stone-200 shadow-xs">APRA CPS 234</span>
-              <span className="px-3 py-1 rounded-full bg-white border border-stone-200 shadow-xs">ISO/IEC 27001</span>
-              <span className="px-3 py-1 rounded-full bg-white border border-stone-200 shadow-xs">PCI-DSS v4.0</span>
-              <span className="px-3 py-1 rounded-full bg-white border border-stone-200 shadow-xs">SWIFT ISO 20022</span>
-              <span className="px-3 py-1 rounded-full bg-white border border-stone-200 shadow-xs">NPP Australia</span>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-medium text-stone-700">
+              <span>APRA CPS 234</span>
+              <span className="text-stone-300">•</span>
+              <span>ISO/IEC 27001</span>
+              <span className="text-stone-300">•</span>
+              <span>PCI-DSS v4.0</span>
+              <span className="text-stone-300">•</span>
+              <span>SWIFT ISO 20022</span>
+              <span className="text-stone-300">•</span>
+              <span>NPP Australia</span>
             </div>
           </div>
         </div>
