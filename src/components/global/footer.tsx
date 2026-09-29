@@ -27,7 +27,7 @@ const FooterComponent = () => {
               Premier Australian provider of enterprise core banking platforms and cybersecurity assurance. Envisioned and engineered with two decades of Tier-1 banking delivery track record.
             </p>
 
-            <div className="flex flex-col gap-2.5 text-xs text-slate-400 font-mono">
+            <div className="flex flex-col gap-2.5 text-xs text-slate-400">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
                 <span>{address}</span>
@@ -47,7 +47,7 @@ const FooterComponent = () => {
 
           {/* Column 2: Core Banking */}
           <div className="flex flex-col">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold mb-4">
+            <h4 className="text-xs uppercase tracking-wider text-slate-200 font-semibold mb-4">
               Core Banking
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -81,7 +81,7 @@ const FooterComponent = () => {
 
           {/* Column 3: Security & Quality */}
           <div className="flex flex-col">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold mb-4">
+            <h4 className="text-xs uppercase tracking-wider text-slate-200 font-semibold mb-4">
               Security &amp; Quality
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -115,7 +115,7 @@ const FooterComponent = () => {
 
           {/* Column 4: Company & Advisory */}
           <div className="flex flex-col">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold mb-4">
+            <h4 className="text-xs uppercase tracking-wider text-slate-200 font-semibold mb-4">
               Company
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -154,7 +154,7 @@ const FooterComponent = () => {
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs text-slate-500 text-center sm:text-left">
             <span>© {new Date().getFullYear()} QODES Systems Pty Ltd. All Rights Reserved.</span>
             <span className="hidden sm:inline text-slate-700">|</span>
-            <span className="text-slate-400 font-mono">Australian Core Banking &amp; Security Engineering</span>
+            <span className="text-slate-400">Australian Core Banking &amp; Security Engineering</span>
           </div>
 
           {/* Social Links */}
