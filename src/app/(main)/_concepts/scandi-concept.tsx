@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Building2, Layers, ShieldCheck, Globe2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const ScandiConcept = () => {
   const [activeCollection, setActiveCollection] = useState<"all" | "core" | "sap-erp" | "security">("all");
@@ -277,79 +277,8 @@ export const ScandiConcept = () => {
         </div>
       </section>
 
-      {/* 4. EXECUTIVE VALUE PILLARS (Clean, Simple, Executive-Friendly) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 py-24">
-        <div className="space-y-12">
-          
-          <div className="max-w-3xl space-y-3">
-            <p className="text-xs uppercase tracking-[0.2em] font-semibold text-stone-500">
-              Why Financial Institutions Choose Qodes
-            </p>
-            <h3 className="text-2xl sm:text-4xl font-normal text-stone-900 tracking-tight">
-              Simple, Dependable, and Proven Delivery.
-            </h3>
-            <p className="text-stone-600 text-base leading-relaxed font-light">
-              We remove unnecessary complexity so bank executive leadership can focus on growth, compliance, and operational stability.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <div className="p-7 rounded-3xl bg-stone-50 border border-stone-200/80 space-y-4 hover:border-[#0B99D9]/40 hover:bg-white hover:shadow-lg transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-white border border-stone-200 flex items-center justify-center text-[#0B99D9] shadow-xs">
-                <Building2 className="w-6 h-6" />
-              </div>
-              <h4 className="text-lg font-medium text-stone-900 tracking-tight">
-                4 Core Banking Systems
-              </h4>
-              <p className="text-sm text-stone-600 leading-relaxed font-light">
-                Specialized architecture, upgrade, and support teams for SAP Core Banking, Temenos T24, Qodes CBS, and Oracle FLEXCUBE.
-              </p>
-            </div>
-
-            <div className="p-7 rounded-3xl bg-stone-50 border border-stone-200/80 space-y-4 hover:border-[#0B99D9]/40 hover:bg-white hover:shadow-lg transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-white border border-stone-200 flex items-center justify-center text-[#0B99D9] shadow-xs">
-                <Layers className="w-6 h-6" />
-              </div>
-              <h4 className="text-lg font-medium text-stone-900 tracking-tight">
-                SAP ERP Lifecycle &amp; AMS
-              </h4>
-              <p className="text-sm text-stone-600 leading-relaxed font-light">
-                Equal emphasis on end-to-end SAP ERP implementation, rollout blueprinting, custom ABAP/Fiori, and 24/7 dedicated AMS support.
-              </p>
-            </div>
-
-            <div className="p-7 rounded-3xl bg-stone-50 border border-stone-200/80 space-y-4 hover:border-[#0B99D9]/40 hover:bg-white hover:shadow-lg transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-white border border-stone-200 flex items-center justify-center text-[#0B99D9] shadow-xs">
-                <Globe2 className="w-6 h-6" />
-              </div>
-              <h4 className="text-lg font-medium text-stone-900 tracking-tight">
-                Australia &amp; India Model
-              </h4>
-              <p className="text-sm text-stone-600 leading-relaxed font-light">
-                Onshore executive consulting and regulatory alignment in Australia, paired with high-velocity engineering delivery centers in India.
-              </p>
-            </div>
-
-            <div className="p-7 rounded-3xl bg-stone-50 border border-stone-200/80 space-y-4 hover:border-[#0B99D9]/40 hover:bg-white hover:shadow-lg transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-white border border-stone-200 flex items-center justify-center text-[#0B99D9] shadow-xs">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h4 className="text-lg font-medium text-stone-900 tracking-tight">
-                Senior Banking Veterans
-              </h4>
-              <p className="text-sm text-stone-600 leading-relaxed font-light">
-                Two decades of Tier-1 banking delivery track record. We speak the language of bank senior management with zero tech jargon.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. STUDIO INVITATION - BRAND BLUE FEATURE SECTION */}
-      <section className="w-full bg-[#0B99D9] py-24 text-center text-white relative overflow-hidden">
+      {/* 4. STUDIO INVITATION - BRAND BLUE FEATURE SECTION */}
+      <section className="w-full bg-[#0B99D9] py-24 text-center text-white relative overflow-hidden border-t border-white/20">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-8 space-y-6 relative z-10">
           <p className="text-xs uppercase tracking-[0.25em] font-semibold text-sky-100">
