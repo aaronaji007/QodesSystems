@@ -1,117 +1,86 @@
-import Image from "next/image";
+"use client";
+
 import React from "react";
+import ServiceDetailView from "@/components/global/service-detail-view";
+import { ShieldCheck, Eye, Layers } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
-const ITSecurityAssessmentPage = () => {
-  return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start gap-0">
-      <div className="w-full bg-secondary flex items-center justify-start py-4 px-12">
-        <p className="text-start capitalize text-2xl text-white">
-          IT security assessment
-        </p>
-      </div>
-      <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2070&auto=format&fit=crop"
-          }
-          alt="img"
-          className="w-full lg:w-[45%] h-[300px] object-full"
-          quality={100}
-          unoptimized
-          draggable={false}
-          width={0}
-          height={0}
-        />
-        <div className="flex-1 h-full flex flex-col items-start justify-center pt-4 gap-3">
-          <div className="w-full flex flex-col items-start justify-center gap-2">
-            <h2 className="uppercase text-secondary font-bold">
-              WHEN DID YOU LAST CHECK THE SECURITY OF YOUR SYSTEMS?
-            </h2>
-            <p className="text-wrap text-black text-[17px] leading-6">
-              Are you concerned about your business resilience in light of the
-              many high profile cyber attacks? Perhaps your organisation has
-              never undergone a cyber security assessment?
-            </p>
-          </div>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            At <span className="text-secondary"> QODES Systems </span> Cyber
-            Security Assessment is a comprehensive, deep dive into your people,
-            processes and technology.
-          </p>
-          <div className="w-full flex flex-col items-start justify-center gap-2">
-            <h2 className="uppercase text-secondary font-bold">
-              PROTECT YOUR ORGANIZATION WITH AN INFORMATION SECURITY ASSESSMENT
-            </h2>
-            <p className="text-wrap text-black text-[17px] leading-6">
-              As the threats to IT security continue to evolve, it takes a
-              sophisticated information security assessment to understand how
-              they may penetrate your organization’s defenses and what you can
-              do to stop them. By regularly performing a comprehensive IT
-              security audit and information security assessment, you can gain
-              the insight you need to put the right strategies, technologies,
-              policies and procedures in place to ensure optimal protection.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="w-[90%] flex flex-col items-start justify-center gap-4 pt-2 pb-4">
-        <p className="text-base text-wrap text-black leading-6">
-          Performing an information security assessment requires experts with
-          broad knowledge and deep expertise in the latest threats and security
-          measures to combat them. When seeking a partner that can manage your
-          information security assessment and help to implement the
-          recommendations that follow, consider the extraordinary expertise and
-          experience of the security professionals from{" "}
-          <span className="text-secondary"> QODES Systems </span> .
-        </p>
-        <div className="w-full flex flex-col items-start justify-center gap-2">
-          <h2 className="uppercase text-secondary font-bold">
-            OUR INFORMATION SECURITY ASSESSMENT SERVICES
-          </h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            An information security assessment with{" "}
-            <span className="text-secondary"> QODES Systems </span> will enable
-            you to:
-          </p>
-        </div>
-        <ol className="text-base leading-7 list-disc pl-4">
-          <li>
-            Address gaps, manage risk mitigation and allocate resources to
-            better protect your organization.
-          </li>
-          <li>
-            Evaluate your current program and develop a roadmap that allows your
-            security initiatives to mature.
-          </li>
-          <li>
-            Bring your security strategies into alignment with your business
-            goals.
-          </li>
-          <li>
-            Determine the effectiveness of your current efforts and controls and
-            recommend improvements.
-          </li>
-          <li>
-            Reduce the costs and improve the effectiveness of your efforts at
-            governance, risk and compliance.
-          </li>
-          <li>
-            Identify vulnerabilities and weaknesses across all types of devices.
-          </li>
-          <li>
-            Provide evidence to support budget requests for security programs or
-            investments.
-          </li>
-          <li>
-            Evaluate the combination of system flaws and human factors to
-            identify and quantify risk.
-          </li>
-          <li>Develop effective controls and solutions for security flaws.</li>
-          <li>Use threat modelling to identify high-risk vulnerabilities.F</li>
-        </ol>
-      </div>
-    </div>
+export default function ITSecurityAssessmentPage() {
+  const { getContent } = useContent();
+
+  const imageUrl = getContent(
+    "img_security_assessment",
+    "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2070&auto=format&fit=crop"
   );
-};
 
-export default ITSecurityAssessmentPage;
+  return (
+    <ServiceDetailView
+      category="Cybersecurity & Assurance"
+      title="Holistic IT Security Assessment & Posture Review"
+      subtitle="Comprehensive multi-dimensional evaluation of your enterprise technology, human operational processes, governance policies, and threat surface."
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Security & Assurance", href: "/#services" },
+        { label: "IT Security Assessment" },
+      ]}
+      leadParagraphs={[
+        "When did your institution last rigorously evaluate the security resilience of its core systems? In an era characterized by relentless ransomware and supply-chain compromises, an ad-hoc security review is insufficient.",
+        "At QODES Systems, our IT Security Assessment is a comprehensive, deep-dive examination across your three most vital pillars: People, Processes, and Technology.",
+        "We evaluate defensive architectural depth, employee access hygiene, incident response playbooks, and cloud security configurations, delivering executive clarity on where real operational risks lie and how to remediate them with precision."
+      ]}
+      imageUrl={imageUrl}
+      imageAlt="Institutional IT Security Posture Assessment"
+      badgeText="Holistic Security Audit · People, Process, Technology"
+      keyBenefits={[
+        "Unbiased 360-degree evaluation of current cybersecurity maturity",
+        "Clear identification of critical blind spots and misaligned controls",
+        "Detailed executive roadmap prioritized by business impact and cost to remediate",
+        "Verification of policy enforcement and staff access privileges",
+        "Benchmarking against Australian Essential Eight and NIST Cybersecurity Framework",
+        "Board-ready risk scorecards and strategic security investment plans"
+      ]}
+      pillars={[
+        {
+          title: "Technology Assessment",
+          description: "Technical configuration audits of firewalls, endpoint detection (EDR), cloud workloads, identity providers, and data encryption.",
+          icon: <ShieldCheck className="w-5 h-5" />,
+        },
+        {
+          title: "Process & Governance",
+          description: "Review of change management controls, incident response playbooks, patch governance, and third-party vendor review workflows.",
+          icon: <Layers className="w-5 h-5" />,
+        },
+        {
+          title: "Human Risk Surface",
+          description: "Evaluation of privileged user access hygiene, multi-factor authentication enforcement, and organizational security awareness.",
+          icon: <Eye className="w-5 h-5" />,
+        },
+      ]}
+      modules={[
+        {
+          title: "Assessment Scope & Architecture Review",
+          subtitle: "Core Evaluation Dimensions",
+          items: [
+            "Perimeter & Cloud Security Architecture Review (AWS, Azure, Private Cloud)",
+            "Identity & Access Management (IAM) governance and Principle of Least Privilege audit",
+            "Data Protection and Cryptographic Controls (Data-at-rest, data-in-transit, key escrow)",
+            "Incident Detection, Logging, SIEM / SOC telemetry readiness evaluation",
+            "Essential Eight maturity level verification and gap analysis",
+          ],
+        },
+        {
+          title: "Executive Deliverables & Strategic Roadmap",
+          subtitle: "Clear Actionable Telemetry",
+          items: [
+            "Executive Summary with maturity scoring across NIST CSF / Essential Eight domains",
+            "Detailed technical findings register with contextual risk severity and exploitability",
+            "Prioritized 30/60/90-day remediation action plan",
+            "Executive presentation to C-Suite stakeholders and Risk & Audit committees",
+          ],
+        },
+      ]}
+      ctaHeadline="Understand Your Real Cybersecurity Posture"
+      ctaSubtext="Engage our senior cybersecurity assessment leads to benchmark your institutional defenses and eliminate critical exposure."
+    />
+  );
+}

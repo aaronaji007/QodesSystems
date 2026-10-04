@@ -1,127 +1,85 @@
-import Image from "next/image";
+"use client";
+
 import React from "react";
+import ServiceDetailView from "@/components/global/service-detail-view";
+import { Shield, Smartphone, Globe, Lock } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
-const ApplicationSecurityTestingPage = () => {
-  return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start gap-0">
-      <div className="w-full bg-secondary flex items-center justify-start py-4 px-12">
-        <p className="text-start capitalize text-2xl text-white">
-          Application Security Testing
-        </p>
-      </div>
-      <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
-          }
-          alt="img"
-          className="w-full lg:w-[45%] h-[350px] object-full"
-          quality={100}
-          unoptimized
-          draggable={false}
-          width={0}
-          height={0}
-        />
-        <div className="flex-1 h-full flex flex-col items-start justify-center pt-4 gap-4">
-          <p className="text-wrap text-black text-[17px] leading-6">
-            Web applications have become the primary vector for attacks, making
-            app security testing critical to protecting the enterprise. With
-            superior app security testing technology, enterprises can find flaws
-            and vulnerabilities in software and fix them before attackers can
-            exploit them.
-          </p>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            While most enterprises acknowledge that testing is essential for app
-            security, integrating app security testing into the software
-            development lifecycle (SDLC) is no easy feat. Many testing solutions
-            require a significant investment in hardware or software, as well as
-            staff resources to maintain and upgrade them. Software development
-            teams are frequently resistant to introducing app security testing
-            technology into the development process, as many solutions are
-            time-consuming and can make it harder to meet deadlines.
-          </p>
-          <div className="w-full flex flex-col items-start justify-center gap-2">
-            <h2 className="uppercase text-secondary font-bold">
-              APP SECURITY TESTING FROM QODES TECHNOLOGIES
-            </h2>
-            <p className="text-wrap text-black text-[17px] leading-6">
-              <span className="text-secondary"> QODES Systems </span> is a
-              leading provider of solutions to secure the software that powers
-              business and innovation. With comprehensive solutions for app
-              security testing, we help the world’s largest enterprises minimize
-              application-layer risk across web, mobile and third-party
-              applications.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="w-[90%] flex flex-col items-start justify-center gap-4 pt-2 pb-4">
-        <p className="text-wrap text-black text-[17px] leading-6">
-          Our unified platform offers automated, cloud-based services that
-          provide broad coverage through multiple testing methods, centralized
-          policies and world-class expertise. Organizations in a wide range of
-          industries rely on our app security testing technology to support
-          security DevOps initiatives, to serve as OWASP testing tools, and to
-          eradicate flaws in software from inception through production.
-        </p>
-        <p className="text-wrap text-black text-[17px] leading-6">
-          As a cloud-based solution, our app security testing services require
-          no capital investment in hardware or software and no ongoing costs for
-          maintenance or upgrades. With Qodes Technologies, testing is fast and
-          easy, enabling developers to integrate testing into every phase of the
-          SDLC without slowing development timelines. And because results are
-          returned with a Fix-First Analysis, your team will know exactly where
-          to start in order to address the most serious threats to security.
-        </p>
-        <div className="w-full flex flex-col items-start justify-center gap-2">
-          <h2 className="uppercase text-secondary">
-            COMPREHENSIVE APP SECURITY TESTING SOLUTIONS
-          </h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            Our app security testing services include:
-          </p>
-        </div>
-        <ol className="text-base leading-7 list-disc pl-4">
-          <li>
-            <span className="text-secondary"> Web Application Scanning - </span>{" "}
-            A web application monitoring tool for identifying web applications –
-            even the ones you don’t know about – and scanning thousands of sites
-            in parallel to find and prioritize your biggest risks.
-          </li>
-          <li>
-            <span className="text-secondary"> Static Analysis - </span> for
-            scanning binaries and analyzing major frameworks and languages to
-            quickly identify and fix application security flaws without
-            requiring source code.
-          </li>
-          <li>
-            <span className="text-secondary">
-              {" "}
-              Qodes Technologies Static Analysis IDE Scan -{" "}
-            </span>{" "}
-            for providing immediate feedback within your IDE to help developers
-            spot security flaws as code is being written.
-          </li>
-          <li>
-            <span className="text-secondary">
-              {" "}
-              Software Composition Analysis -{" "}
-            </span>{" "}
-            for inventorying and scanning open source components to identify
-            vulnerabilities.
-          </li>
-          <li>
-            <span className="text-secondary">
-              {" "}
-              Vendor Application Security Testing -{" "}
-            </span>{" "}
-            for evaluating the security of third-party applications without
-            requiring access to source code.
-          </li>
-        </ol>
-      </div>
-    </div>
+export default function ApplicationSecurityTestingPage() {
+  const { getContent } = useContent();
+
+  const imageUrl = getContent(
+    "img_app_security",
+    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
   );
-};
 
-export default ApplicationSecurityTestingPage;
+  return (
+    <ServiceDetailView
+      category="Cybersecurity & Assurance"
+      title="Application Security Testing (AST & DAST)"
+      subtitle="Comprehensive web, mobile, and API security testing protecting critical application layers against sophisticated attacks without impeding engineering velocity."
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Security & Assurance", href: "/#services" },
+        { label: "Application Security Testing" },
+      ]}
+      leadParagraphs={[
+        "Modern web portals and mobile applications represent the primary external exposure point for financial institutions, making continuous application security testing a mandatory requirement.",
+        "QODES Systems helps banks, credit unions, and fintechs minimize application-layer risk across web, mobile, and microservice APIs. We balance rigorous security verification with rapid developer feedback loops.",
+        "Our unified testing methodology combines Dynamic Application Security Testing (DAST), Interactive Application Security Testing (IAST), and manual API penetration testing to discover real-world exploits before production release."
+      ]}
+      imageUrl={imageUrl}
+      imageAlt="Application Security Testing and Defense Operations"
+      badgeText="Application Security · OWASP ASVS Certified"
+      keyBenefits={[
+        "Eliminate web application vulnerabilities before customer release",
+        "Deep coverage of OWASP Top 10 and API Security Top 10 risks",
+        "Seamless DevSecOps pipeline integration with automated pull-request checks",
+        "Mobile banking app tampering and reverse-engineering resistance",
+        "Detailed developer-friendly remediation guides with reproduction payloads",
+        "APRA CPS 234 and PCI-DSS application security verification"
+      ]}
+      pillars={[
+        {
+          title: "Dynamic Scanning (DAST)",
+          description: "Black-box and grey-box testing simulating live authenticated attacks against running web applications to evaluate perimeter defense.",
+          icon: <Globe className="w-5 h-5" />,
+        },
+        {
+          title: "Mobile App Hardening",
+          description: "Decompilation resistance, runtime application self-protection (RASP), and secure keystore storage auditing for iOS and Android.",
+          icon: <Smartphone className="w-5 h-5" />,
+        },
+        {
+          title: "DevSecOps Integration",
+          description: "Embedding automated security policy gates directly into GitHub Actions, GitLab CI, and Azure DevOps pipelines.",
+          icon: <Lock className="w-5 h-5" />,
+        },
+      ]}
+      modules={[
+        {
+          title: "Application Security Testing Methodologies",
+          subtitle: "Multi-Pronged Assurance",
+          items: [
+            "Dynamic Application Security Testing (DAST) for runtime vulnerability detection",
+            "API Security Testing covering REST, GraphQL, SOAP, and gRPC endpoints",
+            "Mobile Application Security Testing (MAST) aligned with OWASP MASVS",
+            "Business Logic Testing covering money movement, authentication bypass, and rate limiting",
+          ],
+        },
+        {
+          title: "Continuous DevSecOps Pipeline Enablement",
+          subtitle: "Developer Friction Reduction",
+          items: [
+            "Automated CI/CD security quality gates preventing vulnerable builds from reaching staging",
+            "IDE plugins providing immediate feedback to engineers during code development",
+            "Prioritized triage with automated filtering of environmental false positives",
+            "Custom vulnerability telemetry dashboards for engineering leads and CISOs",
+          ],
+        },
+      ]}
+      ctaHeadline="Secure Your Digital Banking Channels"
+      ctaSubtext="Speak with our Application Security specialists to integrate automated AST into your pipelines or audit your core client-facing web applications."
+    />
+  );
+}
