@@ -57,12 +57,12 @@ export const ScandiConcept = () => {
     : systems.filter(s => s.category === activeCollection);
 
   return (
-    <div className="w-full bg-[#F7F6F2] text-stone-900 font-sans selection:bg-[#2EA3DC]/20">
+    <div className="w-full bg-white text-stone-900 font-sans selection:bg-[#0B99D9]/20">
       
       {/* 1. NORDIC STUDIO HEADER */}
-      <div className="border-b border-stone-200/70 px-4 sm:px-8 py-3.5 text-xs text-stone-600 flex flex-wrap items-center justify-between gap-4 font-normal">
+      <div className="border-b border-stone-200/70 px-4 sm:px-8 py-3.5 text-xs text-stone-600 flex flex-wrap items-center justify-between gap-4 font-normal bg-stone-50/50">
         <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#2EA3DC]"></span>
+          <span className="w-2 h-2 rounded-full bg-[#0B99D9]"></span>
           <span>Qodes Studio &bull; Australian Banking Design</span>
           <span className="text-stone-300">/</span>
           <span>Collection 2026</span>
@@ -96,7 +96,7 @@ export const ScandiConcept = () => {
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-medium text-sm transition-all shadow-sm"
               >
                 <span>Initiate Consultation</span>
-                <ArrowRight className="w-4 h-4 text-[#2EA3DC]" />
+                <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
               </Link>
               <Link
                 href="/services"
@@ -125,7 +125,7 @@ export const ScandiConcept = () => {
               />
               <div className="absolute inset-0 bg-stone-900/10" />
               <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-stone-200/60 space-y-2">
-                <span className="text-xs uppercase tracking-wider font-semibold text-[#0284C7] block">
+                <span className="text-xs uppercase tracking-wider font-semibold text-[#0B99D9] block">
                   Studio Principle 01
                 </span>
                 <h4 className="text-base font-medium text-stone-900">
@@ -141,26 +141,26 @@ export const ScandiConcept = () => {
         </div>
       </section>
 
-      {/* 3. THE STUDIO COLLECTION (Gallery) */}
-      <section className="w-full bg-[#EFECE6] py-24 border-y border-stone-200/80">
+      {/* 3. THE STUDIO COLLECTION (Gallery) - BRAND BLUE FEATURE SECTION */}
+      <section className="w-full bg-[#0B99D9] py-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 mb-12 border-b border-stone-300">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 mb-12 border-b border-white/20">
             <div className="space-y-3">
-              <p className="text-xs uppercase tracking-[0.2em] font-semibold text-stone-500">
+              <p className="text-xs uppercase tracking-[0.2em] font-semibold text-sky-100">
                 Curated Catalogue
               </p>
-              <h2 className="text-3xl sm:text-4xl font-normal text-stone-900 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-normal text-white tracking-tight">
                 The Systems Collection
               </h2>
             </div>
 
             {/* Filter Tabs */}
-            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-stone-200/80 border border-stone-300/60 self-start md:self-end">
+            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-sky-950/25 border border-white/20 backdrop-blur-sm self-start md:self-end">
               <button
                 onClick={() => setActiveCollection("all")}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  activeCollection === "all" ? "bg-white text-stone-950 shadow-xs" : "text-stone-600 hover:text-stone-950"
+                  activeCollection === "all" ? "bg-white text-[#0B99D9] shadow-sm font-semibold" : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
                 All Works
@@ -168,7 +168,7 @@ export const ScandiConcept = () => {
               <button
                 onClick={() => setActiveCollection("core")}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  activeCollection === "core" ? "bg-white text-stone-950 shadow-xs" : "text-stone-600 hover:text-stone-950"
+                  activeCollection === "core" ? "bg-white text-[#0B99D9] shadow-sm font-semibold" : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
                 Core Banking
@@ -176,7 +176,7 @@ export const ScandiConcept = () => {
               <button
                 onClick={() => setActiveCollection("security")}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  activeCollection === "security" ? "bg-white text-stone-950 shadow-xs" : "text-stone-600 hover:text-stone-950"
+                  activeCollection === "security" ? "bg-white text-[#0B99D9] shadow-sm font-semibold" : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
                 Security Vaults
@@ -184,7 +184,7 @@ export const ScandiConcept = () => {
               <button
                 onClick={() => setActiveCollection("channels")}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  activeCollection === "channels" ? "bg-white text-stone-950 shadow-xs" : "text-stone-600 hover:text-stone-950"
+                  activeCollection === "channels" ? "bg-white text-[#0B99D9] shadow-sm font-semibold" : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
                 Channels
@@ -197,7 +197,7 @@ export const ScandiConcept = () => {
             {filtered.map((item) => (
               <div
                 key={item.id}
-                className="group rounded-3xl bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group rounded-3xl bg-white text-stone-900 border border-sky-100/30 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone-100">
@@ -207,13 +207,13 @@ export const ScandiConcept = () => {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs font-medium text-stone-700 shadow-xs">
+                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs font-semibold text-stone-800 shadow-xs border border-stone-200/50">
                       {item.subtitle}
                     </div>
                   </div>
 
                   <div className="p-8 space-y-4">
-                    <h3 className="text-2xl font-normal text-stone-900 tracking-tight group-hover:text-[#0284C7] transition-colors">
+                    <h3 className="text-2xl font-normal text-stone-900 tracking-tight group-hover:text-[#0B99D9] transition-colors">
                       {item.name}
                     </h3>
                     <p className="text-sm text-stone-600 leading-relaxed font-light">
@@ -223,7 +223,7 @@ export const ScandiConcept = () => {
                       {item.tags.map((t, idx) => (
                         <span
                           key={idx}
-                          className="px-2.5 py-1 rounded-md bg-stone-50 border border-stone-200 text-xs text-stone-500"
+                          className="px-2.5 py-1 rounded-md bg-stone-50 border border-stone-200 text-xs text-stone-600 font-medium"
                         >
                           {t}
                         </span>
@@ -235,10 +235,10 @@ export const ScandiConcept = () => {
                 <div className="p-8 pt-4 border-t border-stone-100 flex items-center justify-between">
                   <Link
                     href={item.href}
-                    className="text-xs uppercase tracking-wider font-semibold text-stone-900 group-hover:text-[#0284C7] transition-colors inline-flex items-center gap-1"
+                    className="text-xs uppercase tracking-wider font-semibold text-stone-900 group-hover:text-[#0B99D9] transition-colors inline-flex items-center gap-1.5"
                   >
                     <span>View Specifications</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#0B99D9]" />
                   </Link>
 
                   <span className="text-xs text-stone-400">APRA CPS 234 Verified</span>
@@ -268,7 +268,7 @@ export const ScandiConcept = () => {
           <div className="space-y-6 max-w-xl">
             <div className="flex items-center justify-between text-sm">
               <span className="font-medium text-stone-700">Target Peak Throughput:</span>
-              <span className="font-semibold text-xl text-[#0284C7]">{scaleVolume},000 TPS</span>
+              <span className="font-semibold text-xl text-[#0B99D9]">{scaleVolume},000 TPS</span>
             </div>
             <input
               type="range"
@@ -277,7 +277,7 @@ export const ScandiConcept = () => {
               step="5"
               value={scaleVolume}
               onChange={(e) => setScaleVolume(Number(e.target.value))}
-              className="w-full accent-[#0284C7] cursor-pointer"
+              className="w-full accent-[#0B99D9] cursor-pointer"
             />
             <div className="flex justify-between text-xs text-stone-400">
               <span>Neobank Scale (5k TPS)</span>
@@ -303,25 +303,26 @@ export const ScandiConcept = () => {
         </div>
       </section>
 
-      {/* 5. QUIET STUDIO INVITATION */}
-      <section className="border-t border-stone-200 bg-[#EFECE6] py-20 text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-8 space-y-6">
-          <p className="text-xs uppercase tracking-[0.25em] font-semibold text-stone-500">
+      {/* 5. QUIET STUDIO INVITATION - BRAND BLUE FEATURE SECTION */}
+      <section className="w-full bg-[#0B99D9] py-24 text-center text-white relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-8 space-y-6 relative z-10">
+          <p className="text-xs uppercase tracking-[0.25em] font-semibold text-sky-100">
             Studio Invitation
           </p>
-          <h2 className="text-3xl sm:text-4xl font-normal text-stone-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
             Let’s discuss your bank’s technological horizon.
           </h2>
-          <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
+          <p className="text-sky-50 text-base sm:text-lg leading-relaxed font-light max-w-2xl mx-auto">
             We work as collaborative partners with leadership teams. Discreet, pragmatic, and uncompromising on engineering quality.
           </p>
-          <div className="pt-2">
+          <div className="pt-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-medium text-sm transition-all shadow-md"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-white hover:bg-sky-50 text-stone-950 font-medium text-sm transition-all shadow-lg hover:shadow-xl"
             >
               <span>Connect With A Principal Architect</span>
-              <ArrowRight className="w-4 h-4 text-[#2EA3DC]" />
+              <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
             </Link>
           </div>
         </div>
