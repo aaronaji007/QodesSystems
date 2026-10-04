@@ -12,7 +12,7 @@ import { useContent } from "@/context/content-context";
 
 const FooterComponent = () => {
   const { getContent } = useContent();
-  const address = getContent("contact_address", "Sydney, NSW, Australia");
+  const locations = getContent("contact_locations", "Australia • India");
   const email = getContent("contact_email", "info@qodessystems.com");
 
   return (
@@ -24,13 +24,13 @@ const FooterComponent = () => {
           <div className="lg:col-span-2 flex flex-col items-start pr-0 lg:pr-8">
             <Logo theme="dark" className="mb-6" />
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm mb-6">
-              Premier Australian provider of enterprise core banking platforms and cybersecurity assurance. Envisioned and engineered with two decades of Tier-1 banking delivery track record.
+              Premier technology partner for Core Banking Systems (SAP, Temenos T24, Qodes CBS, Oracle FLEXCUBE), SAP ERP solutions, and cybersecurity assurance operating across Australia and India.
             </p>
 
             <div className="flex flex-col gap-2.5 text-xs text-slate-400">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
-                <span>{address}</span>
+                <span>{locations}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
@@ -45,15 +45,15 @@ const FooterComponent = () => {
             </div>
           </div>
 
-          {/* Column 2: Core Banking */}
+          {/* Column 2: Core Banking & SAP */}
           <div className="flex flex-col">
             <h4 className="text-xs uppercase tracking-wider text-slate-200 font-semibold mb-4">
-              Core Banking
+              Core Banking &amp; SAP
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/qodes-core-banking-system" className="hover:text-white transition-colors">
-                  Qodes CBS (AI-Engineered)
+                  Qodes Core Banking (Proprietary)
                 </Link>
               </li>
               <li>
@@ -63,17 +63,17 @@ const FooterComponent = () => {
               </li>
               <li>
                 <Link href="/temenos-t24-core-banking" className="hover:text-white transition-colors">
-                  Temenos T24 Upgrades
+                  Temenos T24 Core Banking
                 </Link>
               </li>
               <li>
-                <Link href="/banking-products" className="hover:text-white transition-colors">
-                  Banking Products Suite
+                <Link href="/oracle-flexcube-core-banking" className="hover:text-white transition-colors">
+                  Oracle FLEXCUBE Core Banking
                 </Link>
               </li>
               <li>
                 <Link href="/sap-services" className="hover:text-white transition-colors">
-                  SAP Enterprise Services
+                  SAP ERP Implementation &amp; Support
                 </Link>
               </li>
             </ul>

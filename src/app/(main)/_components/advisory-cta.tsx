@@ -60,7 +60,7 @@ export const AdvisoryCta = () => {
             <div className="lg:col-span-4 flex flex-col gap-4">
               <Link
                 href="/contact"
-                className="group flex items-center justify-between w-full px-6 py-4 bg-[#2EA3DC] text-white rounded-xl font-medium text-sm tracking-wide hover:bg-[#258ec2] shadow-lg shadow-[#2EA3DC]/20 transition-all duration-200"
+                className="group flex items-center justify-between w-full px-6 py-4 bg-[#0B99D9] text-white rounded-xl font-medium text-sm tracking-wide hover:bg-[#0987c0] shadow-lg shadow-[#0B99D9]/20 transition-all duration-200"
               >
                 <span>Schedule Consultation</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -79,7 +79,7 @@ export const AdvisoryCta = () => {
 
           <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-stone-400">
             <div>
-              <span className="font-semibold text-stone-200">Qodes Systems Pty Ltd</span> — Melbourne &bull; Sydney &bull; Global Operations
+              <span className="font-semibold text-stone-200">Qodes Systems Pty Ltd</span> — Australia &bull; India Operations
             </div>
             <div className="text-stone-400">
               Discreet Institutional Advisory for Banking & High-Fintech

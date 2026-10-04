@@ -10,8 +10,8 @@ const AboutUsComponent = () => {
   const { getContent } = useContent();
 
   const heading = getContent("about_heading", "Core Banking Engineering & Technology Consulting");
-  const lead = getContent("about_lead", "Our company is a specialized consulting firm in the CORE BANKING DOMAIN, offering expertise in SAP Core Banking and the Temenos T24 Core Banking System.");
-  const story1 = getContent("about_story_1", "With over 20 years of experience, we provide cutting edge solutions to the banking industry. We understand the unique challenges faced by financial institutions in modernizing legacy architectures while keeping operations resilient.");
+  const lead = getContent("about_lead", "Our company is a specialized consulting firm in the CORE BANKING DOMAIN, offering proven expertise across SAP Core Banking, Temenos T24 Core Banking, our proprietary Qodes Core Banking platform, and Oracle FLEXCUBE Core Banking, alongside full-lifecycle SAP ERP implementation and support.");
+  const story1 = getContent("about_story_1", "With over 20 years of experience, we provide cutting edge solutions to the banking industry across Australia and India. We understand the unique challenges faced by financial institutions in modernizing legacy architectures while keeping operations resilient.");
   const story2 = getContent("about_story_2", "Our senior architects and delivery engineers combine deep domain banking knowledge with modern software engineering methodologies, ensuring every deployment meets rigorous institutional standards.");
   const imageUrl = getContent("about_image_url", "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop");
 
@@ -27,7 +27,7 @@ const AboutUsComponent = () => {
             <span className="text-neutral-950 font-semibold uppercase tracking-wider">About Us</span>
           </div>
           <span className="text-[11px] uppercase tracking-widest text-sky-800 font-semibold">
-            ESTABLISHED 2004 &bull; 20+ YEARS HERITAGE
+            ESTABLISHED 2004 &bull; 20+ YEARS HERITAGE &bull; AUSTRALIA &amp; INDIA
           </span>
         </div>
 
@@ -43,10 +43,10 @@ const AboutUsComponent = () => {
               QODES SYSTEMS PTY LTD
             </span>
             <div className="pt-6 border-t border-neutral-200 text-xs font-mono text-neutral-500 space-y-2">
-              <p>HEADQUARTERS: MELBOURNE, AU</p>
-              <p>BRANCHES: SYDNEY, AU</p>
-              <p>PRIMARY DOMAIN: CORE BANKING</p>
-              <p>ASSURANCE: APRA CPS 234</p>
+              <p>AUSTRALIA: MELBOURNE &bull; SYDNEY</p>
+              <p>INDIA: STRATEGIC DELIVERY HUBS</p>
+              <p>OPERATING IN: AUSTRALIA &amp; INDIA</p>
+              <p>PRIMARY DOMAINS: CORE BANKING &amp; SAP ERP</p>
             </div>
           </div>
 

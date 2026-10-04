@@ -126,11 +126,36 @@ export const Navbar = () => {
                         Application migration, optimization & compliance
                       </span>
                     </Link>
+                    <Link
+                      href="/oracle-flexcube-core-banking"
+                      className="group flex flex-col px-3 py-2.5 rounded-lg hover:bg-slate-50 transition-colors"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      <span className="text-sm font-medium text-slate-900 group-hover:text-sky-600 flex items-center justify-between">
+                        Oracle FLEXCUBE Core Banking
+                        <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sky-600" />
+                      </span>
+                      <span className="text-xs text-slate-500 line-clamp-1">
+                        Implementation, upgrades & 24/7 AMS
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </div>
             )}
           </div>
+
+          {/* SAP ERP Link */}
+          <Link
+            href="/sap-services"
+            className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+              pathname === "/sap-services"
+                ? "text-sky-600 font-semibold"
+                : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+            }`}
+          >
+            SAP ERP
+          </Link>
 
           {/* IT Security Dropdown */}
           <div
@@ -357,6 +382,28 @@ export const Navbar = () => {
                       onClick={closeSheet}
                     >
                       Temenos T24
+                    </Link>
+                    <Link
+                      href="/oracle-flexcube-core-banking"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      Oracle FLEXCUBE
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-slate-100">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+                    SAP ERP Solutions
+                  </p>
+                  <div className="flex flex-col gap-1 pl-2">
+                    <Link
+                      href="/sap-services"
+                      className="min-h-[44px] flex items-center text-sm text-slate-700 hover:text-sky-600 transition-colors"
+                      onClick={closeSheet}
+                    >
+                      SAP ERP Implementation &amp; Support
                     </Link>
                   </div>
                 </div>

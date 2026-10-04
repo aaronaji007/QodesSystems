@@ -107,6 +107,32 @@ const EXHIBIT_ITEMS: ExhibitItem[] = [
     href: "/temenos-t24-core-banking",
     tags: ["Transact Upgrade", "Cloud Migration", "Zero Downtime"],
     metrics: "99.999% SLA"
+  },
+  {
+    id: "oracle-flexcube",
+    category: "cbs",
+    categoryLabel: "Core Banking Engine",
+    plateNumber: "Plate 07",
+    title: "Oracle FLEXCUBE Implementation & Support",
+    subtitle: "Enterprise Universal Banking",
+    description: "Full-lifecycle Oracle FLEXCUBE deployment, module customization, payment interface integration, and 24/7 dedicated AMS support.",
+    imageUrl: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop",
+    href: "/oracle-flexcube-core-banking",
+    tags: ["Oracle FLEXCUBE", "Interface Integration", "24/7 AMS"],
+    metrics: "24/7 Dual-Shore AMS"
+  },
+  {
+    id: "sap-erp-services",
+    category: "enterprise",
+    categoryLabel: "Enterprise ERP",
+    plateNumber: "Plate 08",
+    title: "SAP ERP Implementation & 24/7 Support",
+    subtitle: "Full Lifecycle Delivery & AMS",
+    description: "Complete SAP ERP rollout, business blueprinting, custom ABAP/Fiori development, and round-the-clock SLA-governed support across Australia and India.",
+    imageUrl: "https://plus.unsplash.com/premium_photo-1714618828448-abf8732500c6?q=80&w=1800&auto=format&fit=crop",
+    href: "/sap-services",
+    tags: ["SAP Implementation", "24/7 Support (AMS)", "Custom ABAP & Fiori"],
+    metrics: "SLA Guaranteed"
   }
 ];
 

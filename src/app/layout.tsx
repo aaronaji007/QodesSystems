@@ -17,7 +17,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Qodes Systems | Enterprise Core Banking & IT Security Technology",
   description:
-    "Qodes Systems delivers Tier-1 AI-orchestrated Core Banking Systems (CBS), SAP Banking modernization, Temenos T24 migrations, and APRA CPS 234 cybersecurity assessments across Australia and globally.",
+    "Qodes Systems delivers Tier-1 Core Banking Systems (SAP Banking, Temenos T24, Qodes CBS, Oracle FLEXCUBE), SAP ERP implementation & support, and cybersecurity assurance across Australia and India.",
   icons: {
     icon: [
       { url: "/favicon.ico?v=3", sizes: "any" },

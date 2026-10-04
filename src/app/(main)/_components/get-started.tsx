@@ -40,7 +40,7 @@ const GetStartedComponent = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-y-2 text-xs text-stone-600">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-2 text-stone-900 font-semibold tracking-wider uppercase text-[11px]">
-              <span className="w-2 h-2 rounded-full bg-[#0284C7]" />
+              <span className="w-2 h-2 rounded-full bg-[#0B99D9]" />
               <span>QODES SYSTEMS</span>
             </span>
             <span className="text-stone-300">/</span>
@@ -49,7 +49,7 @@ const GetStartedComponent = () => {
             </span>
           </div>
           <div className="flex items-center gap-3 text-[11px] text-stone-500 font-medium">
-            <span>Sydney &bull; Melbourne &bull; Global Operations</span>
+            <span>Australia &bull; India Operations</span>
           </div>
         </div>
       </div>

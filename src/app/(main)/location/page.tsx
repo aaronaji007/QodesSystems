@@ -53,22 +53,22 @@ export default function LocationPage() {
                 01 // GEOSPATIAL INFRASTRUCTURE
               </span>
               <span className="font-mono text-sm font-semibold uppercase tracking-wider text-sky-700 block">
-                GLOBAL PRESENCE
+                AUSTRALIA &amp; INDIA OPERATIONS
               </span>
               <div className="pt-6 border-t border-neutral-200 text-xs font-mono text-neutral-400 space-y-2 hidden lg:block">
-                <p>PRIMARY: SYDNEY / MELBOURNE</p>
-                <p>JURISDICTION: AUSTRALIA</p>
-                <p>REGULATORY: APRA REGION</p>
+                <p>AUSTRALIA: SYDNEY / MELBOURNE</p>
+                <p>INDIA: BANGALORE / DELIVERY HUBS</p>
+                <p>JURISDICTIONS: AUSTRALIA &amp; INDIA</p>
               </div>
             </div>
 
             <div className="lg:col-span-9 space-y-8">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-[-0.03em] text-neutral-950 leading-[1.06]">
-                Global Delivery Infrastructure &amp; Headquarters
+                Australia &amp; India Delivery Infrastructure &amp; Offices
               </h1>
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6 border-t border-neutral-200 items-end">
                 <p className="md:col-span-8 text-lg sm:text-xl text-neutral-600 font-light leading-relaxed">
-                  Headquartered in Australia with specialized delivery centers and partner networks serving banking institutions across the Asia-Pacific region and worldwide.
+                  Headquartered in Australia with specialized engineering and delivery centers in India, serving banking institutions and enterprise clients across Australia and India.
                 </p>
                 <div className="md:col-span-4 flex justify-end">
                   <Link
@@ -144,7 +144,7 @@ export default function LocationPage() {
                   DISTRIBUTED DEPLOYMENT MODEL
                 </span>
                 <p className="font-sans text-sm text-neutral-700 font-light leading-relaxed">
-                  In addition to our Australian headquarters, QODES maintains specialized engineering squads and co-located delivery facilities to provide round-the-clock implementation, cutover support, and 24/7 Application Management (AMS).
+                  With our Australian headquarters and dedicated delivery centers in India, QODES maintains specialized engineering squads to provide round-the-clock implementation, cutover support, and 24/7 Application Management Services (AMS).
                 </p>
               </div>
             </div>
