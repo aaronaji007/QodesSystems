@@ -3,15 +3,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import dynamic from 'next/dynamic';
-import { ArrowRight, CornerDownRight, Check, AlertCircle, Loader2 } from "lucide-react";
+import { ArrowRight, ChevronRight, Check, AlertCircle, Loader2, MapPin, Phone, Mail, ShieldCheck } from "lucide-react";
 import { useContent } from "@/context/content-context";
 
 // Dynamically import map without SSR
 const Map = dynamic(() => import('../../../../components/global/map'), { 
   ssr: false,
   loading: () => (
-    <div className="w-full h-[320px] bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-500 text-xs font-mono">
-      INITIALIZING GEOSPATIAL MAP TELEMETRY...
+    <div className="w-full h-[320px] bg-stone-100 border border-stone-200 flex items-center justify-center text-stone-500 text-sm">
+      Loading interactive map...
     </div>
   )
 });
@@ -63,7 +63,7 @@ const ContactUsComponent = () => {
       if (response.ok && result.success) {
         setStatus({
           type: "success",
-          message: "Inquiry received. Our principal banking advisory desk will respond within 24 hours.",
+          message: "Inquiry received. Our principal banking consultants will respond within 24 hours.",
         });
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       } else {
@@ -76,7 +76,7 @@ const ContactUsComponent = () => {
       console.error(error);
       setStatus({
         type: "error",
-        message: "Network fault. Please contact info@qodessystems.com directly.",
+        message: "Network error. Please contact info@qodessystems.com directly.",
       });
     } finally {
       setLoading(false);
@@ -84,34 +84,35 @@ const ContactUsComponent = () => {
   };
 
   return (
-    <section className="w-full bg-[#FFFFFF] py-16 lg:py-24 border-b border-neutral-200 font-sans">
+    <section className="w-full bg-white py-16 lg:py-24 border-b border-stone-200 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header Breadcrumb / Metadata Hairline */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-neutral-200 text-xs font-mono text-neutral-500">
+        {/* Header Breadcrumb */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-stone-200 text-xs text-stone-500">
           <div className="flex items-center gap-2">
-            <Link href="/" className="hover:text-neutral-950 uppercase tracking-wider">Home</Link>
-            <span className="text-neutral-300">/</span>
-            <span className="text-neutral-950 font-semibold uppercase tracking-wider">Executive Contact</span>
+            <span className="w-2 h-2 rounded-full bg-[#0B99D9]"></span>
+            <Link href="/" className="hover:text-stone-950 font-medium">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+            <span className="text-stone-900 font-semibold">Executive Contact</span>
           </div>
-          <span className="text-[11px] uppercase tracking-widest text-sky-800 font-semibold">
-            SECURE ADVISORY CHANNEL &bull; 24-HOUR SLA
+          <span className="px-3 py-1 rounded-full text-xs font-medium bg-sky-50 text-[#0B99D9] border border-sky-200/60">
+            Dedicated Response &bull; Australia &amp; India
           </span>
         </div>
 
-        {/* Page Header: Swiss Asymmetric Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pb-12 mb-12 border-b border-neutral-200 items-end">
-          <div className="lg:col-span-4 space-y-3">
-            <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block">
-              01 // EXECUTIVE ADVISORY
+        {/* Page Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pb-12 mb-12 border-b border-stone-200 items-end">
+          <div className="lg:col-span-5 space-y-3">
+            <span className="text-xs uppercase tracking-wider font-semibold text-[#0B99D9] block">
+              Consultation &amp; Inquiries
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-neutral-950 tracking-[-0.03em] leading-tight">
-              Connect With Our Advisory Practice
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-stone-900 tracking-tight leading-tight">
+              Connect With Our Practice
             </h1>
           </div>
-          <div className="lg:col-span-8 flex flex-col justify-end">
-            <p className="text-base sm:text-lg text-neutral-600 font-light leading-relaxed max-w-2xl">
-              Schedule a confidential architectural assessment with our principal core banking architects and cybersecurity officers in Melbourne and Sydney.
+          <div className="lg:col-span-7 flex flex-col justify-end">
+            <p className="text-base sm:text-lg text-stone-600 font-light leading-relaxed max-w-2xl">
+              Schedule a confidential discussion with our senior core banking and SAP ERP specialists across Australia and India.
             </p>
           </div>
         </div>
@@ -119,35 +120,35 @@ const ContactUsComponent = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Contact Form (Span 7 cols) */}
-          <div className="lg:col-span-7 border border-neutral-200 bg-white p-8 sm:p-10 space-y-8">
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
-                ADVISORY INTAKE FORM
-              </span>
-              <span className="font-mono text-[11px] text-neutral-400">
-                CONFIDENTIAL PROTOCOL
-              </span>
+          <div className="lg:col-span-7 rounded-3xl border border-stone-200 bg-white p-8 sm:p-10 shadow-xl space-y-6">
+            <div className="border-b border-stone-100 pb-4">
+              <h3 className="text-lg font-medium text-stone-900">
+                Send A Consultation Request
+              </h3>
+              <p className="text-xs text-stone-500 mt-1">
+                Fill in your details and our team will get in touch shortly.
+              </p>
             </div>
 
             {status.type === "success" && (
-              <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-900 font-mono text-xs flex items-start gap-3">
-                <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+              <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm flex items-start gap-3">
+                <Check className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                 <p>{status.message}</p>
               </div>
             )}
 
             {status.type === "error" && (
-              <div className="p-4 bg-rose-50 border border-rose-200 text-rose-900 font-mono text-xs flex items-start gap-3">
-                <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
+              <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 text-sm flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" />
                 <p>{status.message}</p>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
-                    Executive Name *
+                  <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                    Your Name *
                   </label>
                   <input
                     id="name"
@@ -156,14 +157,14 @@ const ContactUsComponent = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="Marcus Thorne"
-                    className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors"
+                    placeholder="e.g. John Smith"
+                    className="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder:text-stone-400 text-sm focus:outline-none focus:border-[#0B99D9] transition-colors shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
-                    Corporate Email *
+                  <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                    Business Email *
                   </label>
                   <input
                     id="email"
@@ -172,16 +173,16 @@ const ContactUsComponent = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="m.thorne@institution.com"
-                    className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors"
+                    placeholder="e.g. j.smith@bank.com"
+                    className="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder:text-stone-400 text-sm focus:outline-none focus:border-[#0B99D9] transition-colors shadow-xs"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
-                    Direct Phone
+                  <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                    Phone Number
                   </label>
                   <input
                     id="phone"
@@ -190,13 +191,13 @@ const ContactUsComponent = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+61 400 000 000"
-                    className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder:text-stone-400 text-sm focus:outline-none focus:border-[#0B99D9] transition-colors shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
-                    Practice Subject
+                  <label htmlFor="subject" className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                    Topic of Discussion *
                   </label>
                   <input
                     id="subject"
@@ -204,98 +205,94 @@ const ContactUsComponent = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="e.g. Core Banking Migration / CPS 234 Audit"
-                    className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors"
+                    required
+                    placeholder="e.g. SAP Core Banking, Temenos, Oracle FLEXCUBE"
+                    className="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder:text-stone-400 text-sm focus:outline-none focus:border-[#0B99D9] transition-colors shadow-xs"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
-                  Technical Scope &amp; Objectives *
+                <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                  Message / Requirements *
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  placeholder="Outline your timeline, legacy core architecture (SAP, Temenos, AS400), or compliance assessment requirements..."
-                  className="w-full px-4 py-3 border border-neutral-200 text-neutral-900 placeholder:text-neutral-300 text-sm focus:outline-none focus:border-neutral-950 font-mono transition-colors resize-y"
+                  placeholder="Tell us about your institutional requirements or upcoming project milestones..."
+                  className="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder:text-stone-400 text-sm focus:outline-none focus:border-[#0B99D9] transition-colors shadow-xs resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="group flex items-center justify-between w-full sm:w-auto px-8 py-4 bg-neutral-950 hover:bg-neutral-800 text-white font-mono text-xs uppercase tracking-widest transition-all disabled:opacity-50"
+                className="w-full py-4 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-medium text-sm transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-70"
               >
                 {loading ? (
-                  <span className="flex items-center gap-2">
-                    <Loader2 className="w-4 h-4 animate-spin text-sky-400" />
-                    <span>Transmitting Inquiry...</span>
-                  </span>
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-[#0B99D9]" />
+                    <span>Processing Inquiry...</span>
+                  </>
                 ) : (
-                  <span className="flex items-center gap-4">
-                    <span>Submit Executive Inquiry</span>
-                    <ArrowRight className="w-4 h-4 text-sky-400 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                  <>
+                    <span>Submit Inquiry</span>
+                    <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
+                  </>
                 )}
               </button>
             </form>
           </div>
 
-          {/* Contact Details & Map (Span 5 cols) */}
+          {/* Right Column: Office Info & Map */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-8 border border-neutral-200 bg-neutral-50/50 space-y-6 font-mono text-xs">
-              <span className="text-neutral-400 uppercase tracking-widest text-[11px] block">
-                HEADQUARTERS LIAISON
-              </span>
+            
+            <div className="rounded-3xl border border-stone-200 bg-stone-50/80 p-8 space-y-6">
+              <div>
+                <span className="text-xs uppercase tracking-wider font-semibold text-[#0B99D9] block mb-1">
+                  Direct Inquiries
+                </span>
+                <h3 className="text-xl font-medium text-stone-900 tracking-tight">
+                  Qodes Systems Pty Ltd
+                </h3>
+              </div>
 
-              <div className="space-y-4 pt-2">
-                <div className="p-4 border border-neutral-200 bg-white space-y-1">
-                  <span className="text-[10px] text-neutral-400 uppercase tracking-widest block">
-                    LOCATION
-                  </span>
-                  <span className="text-neutral-900 font-semibold block text-sm">
-                    {address}
-                  </span>
+              <div className="space-y-4 text-sm pt-4 border-t border-stone-200 text-stone-700">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-[#0B99D9] flex-shrink-0 mt-0.5" />
+                  <span>{address}</span>
                 </div>
 
-                <div className="p-4 border border-neutral-200 bg-white space-y-1">
-                  <span className="text-[10px] text-neutral-400 uppercase tracking-widest block">
-                    ADVISORY DESK DIRECT
-                  </span>
-                  <a href={`mailto:${email}`} className="text-sky-700 hover:text-sky-900 font-semibold block text-sm">
-                    {email}
-                  </a>
-                </div>
-
-                <div className="p-4 border border-neutral-200 bg-white space-y-1">
-                  <span className="text-[10px] text-neutral-400 uppercase tracking-widest block">
-                    TELECOMMUNICATIONS
-                  </span>
-                  <a href={`tel:${phone.replace(/\s+/g, '')}`} className="text-neutral-900 font-semibold hover:text-sky-700 block text-sm">
+                <div className="flex items-start gap-3">
+                  <Phone className="w-4 h-4 text-[#0B99D9] flex-shrink-0 mt-0.5" />
+                  <a href={`tel:${phone.replace(/\s+/g, '')}`} className="hover:text-[#0B99D9] transition-colors">
                     {phone}
                   </a>
                 </div>
+
+                <div className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-[#0B99D9] flex-shrink-0 mt-0.5" />
+                  <a href={`mailto:${email}`} className="hover:text-[#0B99D9] transition-colors">
+                    {email}
+                  </a>
+                </div>
               </div>
 
-              <div className="pt-4 border-t border-neutral-200 text-neutral-400 text-[11px] flex items-start gap-2">
-                <CornerDownRight className="w-3.5 h-3.5 text-sky-600 flex-shrink-0 mt-0.5" />
-                <span>Encrypted transmission with APRA CPS 234 compliance adherence.</span>
+              <div className="pt-4 border-t border-stone-200 flex items-center gap-2 text-xs text-emerald-800 font-medium">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <span>APRA CPS 234 Aligned &bull; Confidential Protocol</span>
               </div>
             </div>
 
-            {/* Interactive Map */}
-            <div className="border border-neutral-200 bg-neutral-900 p-2 overflow-hidden h-[300px]">
+            {/* Map Preview */}
+            <div className="rounded-3xl border border-stone-200 overflow-hidden shadow-lg h-[260px] bg-stone-100">
               <Map />
             </div>
-            <div className="text-[10px] font-mono text-neutral-400 flex items-center justify-between">
-              <span>FIG 1.0 &mdash; CORPORATE RADAR</span>
-              <span>SYDNEY FACILITY</span>
-            </div>
+
           </div>
 
         </div>

@@ -11,7 +11,6 @@ import {
   CreditCard, 
   Send, 
   Users, 
-  ShieldCheck, 
   CheckCircle2, 
   Layers 
 } from "lucide-react";
@@ -22,42 +21,42 @@ const PRODUCTS = [
     title: "Core Banking System",
     href: "/core-banking-system",
     description: "Modular, web-enabled core banking platform for retail, commercial, and financial inclusion operations.",
-    icon: <Building2 className="w-5 h-5 text-sky-600" />,
+    icon: <Building2 className="w-5 h-5 text-[#0B99D9]" />,
     tag: "Core Platform",
   },
   {
     title: "Internet Banking Platform",
     href: "/internet-banking-system",
     description: "Institutional-grade digital banking web portal with multi-factor authentication and real-time payments.",
-    icon: <Globe className="w-5 h-5 text-sky-600" />,
+    icon: <Globe className="w-5 h-5 text-[#0B99D9]" />,
     tag: "Digital Channel",
   },
   {
     title: "Mobile Banking Application",
     href: "/mobile-banking",
     description: "Secure, responsive iOS & Android mobile banking clients with offline state protection and biometric login.",
-    icon: <Smartphone className="w-5 h-5 text-sky-600" />,
+    icon: <Smartphone className="w-5 h-5 text-[#0B99D9]" />,
     tag: "Mobile Channel",
   },
   {
     title: "Loan & Credit Origination",
     href: "/loan-software",
     description: "Automated underwriting, multi-tier credit scoring, repayment scheduling, and collateral management.",
-    icon: <CreditCard className="w-5 h-5 text-sky-600" />,
+    icon: <CreditCard className="w-5 h-5 text-[#0B99D9]" />,
     tag: "Credit Engine",
   },
   {
     title: "Remittance Management System",
     href: "/remittance-management-system",
     description: "High-speed cross-border funds transfer, SWIFT messaging, and foreign exchange settlement.",
-    icon: <Send className="w-5 h-5 text-sky-600" />,
+    icon: <Send className="w-5 h-5 text-[#0B99D9]" />,
     tag: "Payments & FX",
   },
   {
     title: "HRMS Enterprise Package",
     href: "/hrms-package",
     description: "Bank-grade human resources, payroll, and workforce compliance management software.",
-    icon: <Users className="w-5 h-5 text-sky-600" />,
+    icon: <Users className="w-5 h-5 text-[#0B99D9]" />,
     tag: "Enterprise HR",
   },
 ];
@@ -71,31 +70,31 @@ export default function BankingProductsOverviewPage() {
   );
 
   return (
-    <div className="w-full bg-white text-slate-900 overflow-hidden">
+    <div className="w-full bg-white text-stone-900 overflow-hidden font-sans">
       
       {/* 1. HERO HEADER */}
-      <section className="relative w-full bg-gradient-to-b from-slate-50 via-white to-white border-b border-slate-200/80 pt-12 pb-16 lg:pt-16 lg:pb-20">
+      <section className="relative w-full bg-stone-50/50 border-b border-stone-200 pt-16 pb-20 lg:pt-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <p className="text-xs uppercase tracking-[0.2em] font-semibold text-sky-800 mb-4">
+          <p className="text-xs uppercase tracking-[0.2em] font-semibold text-[#0B99D9] mb-4">
             Institutional Banking Products Suite
           </p>
 
           <div className="max-w-4xl">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-950 leading-[1.12] mb-6">
-              Institutional Banking Software &amp; Digital Channel Suite
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-stone-900 leading-[1.12] mb-6">
+              Banking Software &amp; Digital Channel Suite
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-relaxed mb-8">
+            <p className="text-base sm:text-lg lg:text-xl text-stone-600 font-light leading-relaxed mb-8">
               A comprehensive suite of modular banking applications engineered to automate core accounting, streamline customer engagement across web and mobile, and maximize technological ROI.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm transition-all shadow-sm"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-medium text-sm transition-all shadow-sm"
               >
                 <span>Request Product Demonstration</span>
-                <ArrowRight className="w-4 h-4 text-sky-400" />
+                <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
               </Link>
             </div>
           </div>
@@ -104,17 +103,17 @@ export default function BankingProductsOverviewPage() {
       </section>
 
       {/* 2. OVERVIEW SPLIT */}
-      <section className="w-full py-16 lg:py-24 border-b border-slate-200/80">
+      <section className="w-full py-16 lg:py-24 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-sky-700 font-semibold">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#0B99D9] font-semibold">
                 <Layers className="w-4 h-4" />
                 <span>Strategic Technology ROI</span>
               </div>
 
-              <div className="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed">
+              <div className="space-y-4 text-base sm:text-lg text-stone-600 font-light leading-relaxed">
                 <p>
                   Technology trends in banking are accelerating rapidly. Customer expectations demand instant settlement, continuous uptime, and intuitive digital experiences across every touchpoint.
                 </p>
@@ -122,43 +121,42 @@ export default function BankingProductsOverviewPage() {
                   Banks are increasingly relying on automation beyond physical branches—demanding data accuracy, automated reconciliations, and modular architectures that inform reliable strategic decisions.
                 </p>
                 <p>
-                  Our comprehensive product suite empowers financial institutions to extract the highest productivity from their technology investments while delivering empowering customer experiences with substantial operational savings.
+                  Our comprehensive product suite empowers financial institutions across Australia and India to extract the highest productivity from their technology investments while delivering empowering customer experiences.
                 </p>
               </div>
 
               <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="flex items-center gap-2.5 text-sm text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                <div className="flex items-center gap-2.5 text-sm text-stone-700 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#0B99D9] flex-shrink-0" />
                   <span>Modular, independent deployment</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>APRA CPS 234 security certified</span>
+                <div className="flex items-center gap-2.5 text-sm text-stone-700 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#0B99D9] flex-shrink-0" />
+                  <span>APRA CPS 234 security aligned</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>Cloud-native and on-prem deployment</span>
+                <div className="flex items-center gap-2.5 text-sm text-stone-700 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#0B99D9] flex-shrink-0" />
+                  <span>Cloud-native &amp; on-premises options</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm text-slate-700 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                <div className="flex items-center gap-2.5 text-sm text-stone-700 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#0B99D9] flex-shrink-0" />
                   <span>Real-time REST &amp; ISO 20022 APIs</span>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-5">
-              <div className="relative aspect-[16/11] w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100">
+              <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-xl border border-stone-200 bg-stone-100">
                 <Image
                   src={imageUrl}
                   alt="Qodes Banking Products Suite Interface"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono">
-                  <span className="bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20">
+                <div className="absolute inset-0 bg-stone-900/10" />
+                <div className="absolute bottom-4 left-4 right-4 text-xs">
+                  <span className="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-stone-200 text-stone-800 font-medium shadow-xs">
                     Comprehensive Banking Suite
                   </span>
                 </div>
@@ -170,15 +168,15 @@ export default function BankingProductsOverviewPage() {
       </section>
 
       {/* 3. PRODUCT CATALOG GRID */}
-      <section className="w-full py-16 lg:py-24 bg-slate-50/70 border-b border-slate-200/80">
+      <section className="w-full py-16 lg:py-24 bg-stone-50/50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-2xl mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+          <div className="max-w-2xl mb-12 space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-normal tracking-tight text-stone-900">
               Explore Our Software Products
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Select any banking product below to inspect technical architecture, features, and deployment parameters.
+            <p className="text-sm text-stone-600 font-light">
+              Select any banking product below to inspect features and deployment specifications.
             </p>
           </div>
 
@@ -187,30 +185,30 @@ export default function BankingProductsOverviewPage() {
               <Link
                 key={idx}
                 href={prod.href}
-                className="group bg-white rounded-xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-sky-500/50 transition-all flex flex-col justify-between"
+                className="group bg-white rounded-2xl p-7 border border-stone-200 shadow-sm hover:shadow-xl hover:border-sky-200 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center">
                       {prod.icon}
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 uppercase">
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-600 font-medium">
                       {prod.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors flex items-center gap-1.5">
+                  <h3 className="text-lg font-medium text-stone-900 mb-2 group-hover:text-[#0B99D9] transition-colors flex items-center justify-between">
                     <span>{prod.title}</span>
-                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sky-600" />
+                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#0B99D9]" />
                   </h3>
 
-                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                  <p className="text-sm text-stone-600 leading-relaxed font-light mb-6">
                     {prod.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center text-xs font-mono text-sky-600 font-medium">
-                  <span>View Product Architecture →</span>
+                <div className="pt-4 border-t border-stone-100 flex items-center text-xs text-[#0B99D9] font-medium">
+                  <span>View Specifications →</span>
                 </div>
               </Link>
             ))}
@@ -219,25 +217,27 @@ export default function BankingProductsOverviewPage() {
         </div>
       </section>
 
-      {/* 4. ADVISORY BANNER */}
-      <section className="w-full bg-slate-950 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              Ready to Upgrade Your Banking Systems?
-            </h3>
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              Connect directly with our product specialists to request a tailored functional demonstration or discuss custom integration requirements.
-            </p>
-            <div className="pt-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all shadow-md"
-              >
-                <span>Schedule Product Briefing</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+      {/* 4. ADVISORY BANNER - BRAND BLUE FEATURE SECTION */}
+      <section className="w-full bg-[#0B99D9] text-white py-20 text-center relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
+          <p className="text-xs uppercase tracking-[0.25em] font-semibold text-sky-100">
+            Product Advisory
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
+            Schedule a Live Product Walkthrough
+          </h2>
+          <p className="text-sky-50 text-base sm:text-lg leading-relaxed font-light max-w-2xl mx-auto">
+            Discuss implementation roadmaps, regulatory alignment, and core ledger connectivity with our specialists across Australia and India.
+          </p>
+          <div className="pt-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-white hover:bg-sky-50 text-stone-950 font-medium text-sm transition-all shadow-lg hover:shadow-xl"
+            >
+              <span>Schedule Demonstration</span>
+              <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
+            </Link>
           </div>
         </div>
       </section>

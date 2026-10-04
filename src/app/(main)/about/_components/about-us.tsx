@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import { ArrowRight, CornerDownRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useContent } from "@/context/content-context";
 
@@ -16,91 +16,102 @@ const AboutUsComponent = () => {
   const imageUrl = getContent("about_image_url", "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop");
 
   return (
-    <section className="w-full bg-[#FFFFFF] py-16 lg:py-24 border-b border-neutral-200 font-sans">
+    <section className="w-full bg-white py-16 lg:py-24 border-b border-stone-200 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header Breadcrumb / Metadata Hairline */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-neutral-200 text-xs font-mono text-neutral-500">
+        {/* Header Breadcrumb */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-stone-200 text-xs text-stone-500">
           <div className="flex items-center gap-2">
-            <Link href="/" className="hover:text-neutral-950 uppercase tracking-wider">Home</Link>
-            <span className="text-neutral-300">/</span>
-            <span className="text-neutral-950 font-semibold uppercase tracking-wider">About Us</span>
+            <span className="w-2 h-2 rounded-full bg-[#0B99D9]"></span>
+            <Link href="/" className="hover:text-stone-950 font-medium">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+            <span className="text-stone-900 font-semibold">About Us</span>
           </div>
-          <span className="text-[11px] uppercase tracking-widest text-sky-800 font-semibold">
-            ESTABLISHED 2004 &bull; 20+ YEARS HERITAGE &bull; AUSTRALIA &amp; INDIA
+          <span className="px-3 py-1 rounded-full text-xs font-medium bg-sky-50 text-[#0B99D9] border border-sky-200/60">
+            Established 2004 &bull; 20+ Years Heritage &bull; Australia &amp; India
           </span>
         </div>
 
-        {/* Asymmetrical Swiss Editorial Layout */}
+        {/* Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           
-          {/* Left Column: Metadata & Positioning */}
-          <div className="lg:col-span-3 space-y-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block">
-              01 // CORPORATE DOSSIER
-            </span>
-            <span className="font-mono text-sm font-semibold uppercase tracking-wider text-sky-700 block">
-              QODES SYSTEMS PTY LTD
-            </span>
-            <div className="pt-6 border-t border-neutral-200 text-xs font-mono text-neutral-500 space-y-2">
-              <p>AUSTRALIA: MELBOURNE &bull; SYDNEY</p>
-              <p>INDIA: STRATEGIC DELIVERY HUBS</p>
-              <p>OPERATING IN: AUSTRALIA &amp; INDIA</p>
-              <p>PRIMARY DOMAINS: CORE BANKING &amp; SAP ERP</p>
+          {/* Left Column: Organization Summary Card */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="rounded-3xl bg-stone-50 border border-stone-200/80 p-6 sm:p-8 space-y-4">
+              <span className="text-xs uppercase tracking-wider font-semibold text-[#0B99D9] block">
+                Company Profile
+              </span>
+              <h3 className="text-xl font-medium text-stone-900 tracking-tight">
+                Qodes Systems Pty Ltd
+              </h3>
+              <div className="pt-4 border-t border-stone-200 text-xs text-stone-600 space-y-2.5">
+                <div className="flex justify-between py-1 border-b border-stone-200/60">
+                  <span className="text-stone-400">Headquarters</span>
+                  <span className="font-medium text-stone-900">Melbourne &bull; Sydney</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-stone-200/60">
+                  <span className="text-stone-400">Delivery Centers</span>
+                  <span className="font-medium text-stone-900">India Operations</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-stone-200/60">
+                  <span className="text-stone-400">Operating Regions</span>
+                  <span className="font-medium text-stone-900">Australia &amp; India</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-stone-200/60">
+                  <span className="text-stone-400">Core Domain</span>
+                  <span className="font-medium text-stone-900">Core Banking &amp; SAP ERP</span>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span className="text-stone-400">Compliance</span>
+                  <span className="font-medium text-emerald-700">APRA CPS 234 Aligned</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Center Column: Narrative & Headline */}
-          <div className="lg:col-span-9 space-y-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-[-0.03em] text-neutral-950 leading-[1.06] whitespace-pre-line">
+          {/* Right Column: Narrative & Visual */}
+          <div className="lg:col-span-8 space-y-8">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-stone-900 leading-[1.12]">
               {heading}
             </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6 border-t border-neutral-200">
-              
-              <div className="md:col-span-7 space-y-5 text-neutral-700 text-base sm:text-lg font-light leading-relaxed">
-                <p className="font-normal text-neutral-900 whitespace-pre-line">{lead}</p>
-                <p className="whitespace-pre-line">{story1}</p>
-                <p className="whitespace-pre-line">{story2}</p>
+            <div className="space-y-5 text-stone-600 text-base sm:text-lg font-light leading-relaxed">
+              <p className="font-normal text-stone-900">{lead}</p>
+              <p>{story1}</p>
+              <p>{story2}</p>
 
-                <div className="pt-8 border-t border-neutral-100 flex flex-wrap gap-3">
-                  <Link
-                    href="/qodes-core-banking-system"
-                    className="group inline-flex items-center gap-2 px-6 py-3.5 bg-neutral-950 text-white font-mono text-xs uppercase tracking-widest hover:bg-neutral-800 transition-all"
-                  >
-                    <span>Our CBS Platform</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-sky-400 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+              <div className="pt-6 border-t border-stone-200 flex flex-wrap gap-4">
+                <Link
+                  href="/qodes-core-banking-system"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-stone-900 text-white rounded-xl text-sm font-medium hover:bg-stone-800 transition-all shadow-sm"
+                >
+                  <span>Our CBS Platform</span>
+                  <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
+                </Link>
 
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-neutral-50 border border-neutral-200 text-neutral-800 font-mono text-xs uppercase tracking-widest hover:bg-neutral-100 transition-all"
-                  >
-                    <span>Contact Advisory</span>
-                  </Link>
-                </div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-stone-200 text-stone-800 rounded-xl text-sm font-medium hover:bg-stone-50 transition-all shadow-sm"
+                >
+                  <span>Contact Our Specialists</span>
+                </Link>
               </div>
+            </div>
 
-              {/* Right Figure Plate */}
-              <div className="md:col-span-5 space-y-3">
-                <div className="relative aspect-[4/3] w-full border border-neutral-200 bg-neutral-900 overflow-hidden">
-                  <Image
-                    src={imageUrl}
-                    alt="Qodes Systems Engineering Hub"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 35vw"
-                    className="object-cover opacity-90 transition-opacity hover:opacity-100"
-                  />
-                  <div className="absolute top-2 left-2 bg-neutral-950/80 backdrop-blur-sm text-neutral-300 font-mono text-[9px] uppercase tracking-widest px-2 py-0.5 border border-neutral-800">
-                    FIG 1.0 &mdash; ENGINEERING HUB
-                  </div>
-                </div>
-                <div className="p-3 bg-neutral-50 border border-neutral-200 text-[11px] font-mono text-neutral-500">
-                  Principal Advisory Headquarters &bull; Tier-1 Delivery Architects
-                </div>
+            <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden shadow-xl border border-stone-200 bg-stone-100 mt-8">
+              <Image
+                src={imageUrl}
+                alt="Qodes Systems Engineering Hub"
+                fill
+                priority
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-stone-900/10" />
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-stone-200/60">
+                <p className="text-xs font-medium text-stone-800">
+                  Principal Advisory Headquarters &bull; Tier-1 Banking Delivery Architects
+                </p>
               </div>
-
             </div>
           </div>
 

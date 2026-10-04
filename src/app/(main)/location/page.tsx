@@ -3,15 +3,15 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ArrowRight, CornerDownRight } from "lucide-react";
+import { ArrowRight, ChevronRight, MapPin, Phone, Mail, Clock, ShieldCheck } from "lucide-react";
 import { useContent } from "@/context/content-context";
 
 // Dynamically import the map component with no SSR
 const Map = dynamic(() => import("@/components/global/map"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[520px] bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-500 text-xs font-mono">
-      INITIALIZING GEOSPATIAL RADAR TELEMETRY...
+    <div className="w-full h-[520px] bg-stone-100 border border-stone-200 flex items-center justify-center text-stone-500 text-sm">
+      Loading interactive map...
     </div>
   ),
 });
@@ -25,60 +25,57 @@ export default function LocationPage() {
   const hours = getContent("contact_hours", "Monday – Friday, 9:00 AM – 5:30 PM AEST");
 
   return (
-    <div className="w-full bg-[#FFFFFF] text-[#0F172A] font-sans">
+    <div className="w-full bg-white text-stone-900 font-sans selection:bg-[#0B99D9]/20">
       
-      {/* 1. TOP METADATA DOSSIER BAR */}
-      <section className="w-full border-b border-neutral-200 bg-neutral-50/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-y-2 text-xs font-mono text-neutral-500">
+      {/* 1. CLEAN BREADCRUMB BAR */}
+      <section className="w-full border-b border-stone-200 bg-stone-50/50 py-3.5 px-4 sm:px-8 text-xs text-stone-600">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-2">
           <nav className="flex items-center gap-2">
-            <Link href="/" className="hover:text-neutral-950 uppercase tracking-wider">Home</Link>
-            <span className="text-neutral-300">/</span>
-            <span className="text-neutral-950 font-semibold uppercase tracking-wider">Locations &amp; Facilities</span>
+            <span className="w-2 h-2 rounded-full bg-[#0B99D9]"></span>
+            <Link href="/" className="hover:text-stone-950 font-medium">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+            <span className="text-stone-900 font-semibold">Locations &amp; Facilities</span>
           </nav>
-          <div className="flex items-center gap-4 text-[11px] uppercase tracking-widest text-neutral-500">
-            <span>GEO_COORDINATES: -33.8688° S, 151.2093° E</span>
-            <span className="text-neutral-300">|</span>
-            <span className="text-sky-700 font-semibold">AUSTRALIAN HEADQUARTERS</span>
+          <div className="flex items-center gap-3">
+            <span className="px-3 py-1 rounded-full text-xs font-medium bg-sky-50 text-[#0B99D9] border border-sky-200/60">
+              Australia &amp; India Operations
+            </span>
           </div>
         </div>
       </section>
 
-      {/* 2. SWISS ASYMMETRIC HEADER */}
-      <section className="w-full border-b border-neutral-200 pt-16 pb-20 lg:pt-24 lg:pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+      {/* 2. AIRY HERO */}
+      <section className="w-full border-b border-stone-200 pt-16 pb-20 lg:pt-24 lg:pb-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             
-            <div className="lg:col-span-3 space-y-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block">
-                01 // GEOSPATIAL INFRASTRUCTURE
+            <div className="lg:col-span-8 space-y-6">
+              <span className="text-xs uppercase tracking-wider font-semibold text-[#0B99D9] block">
+                Regional Presence &bull; Australia &amp; India
               </span>
-              <span className="font-mono text-sm font-semibold uppercase tracking-wider text-sky-700 block">
-                AUSTRALIA &amp; INDIA OPERATIONS
-              </span>
-              <div className="pt-6 border-t border-neutral-200 text-xs font-mono text-neutral-400 space-y-2 hidden lg:block">
-                <p>AUSTRALIA: SYDNEY / MELBOURNE</p>
-                <p>INDIA: BANGALORE / DELIVERY HUBS</p>
-                <p>JURISDICTIONS: AUSTRALIA &amp; INDIA</p>
-              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal text-stone-900 tracking-tight leading-[1.12]">
+                Our Offices &amp; Delivery Centers
+              </h1>
+              <p className="text-lg sm:text-xl text-stone-600 font-light leading-relaxed max-w-2xl">
+                Headquartered in Australia with specialized engineering delivery centers in India, providing round-the-clock implementation, cutover support, and 24/7 Application Management (AMS).
+              </p>
             </div>
 
-            <div className="lg:col-span-9 space-y-8">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-[-0.03em] text-neutral-950 leading-[1.06]">
-                Australia &amp; India Delivery Infrastructure &amp; Offices
-              </h1>
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6 border-t border-neutral-200 items-end">
-                <p className="md:col-span-8 text-lg sm:text-xl text-neutral-600 font-light leading-relaxed">
-                  Headquartered in Australia with specialized engineering and delivery centers in India, serving banking institutions and enterprise clients across Australia and India.
+            <div className="lg:col-span-4 flex flex-col justify-end">
+              <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-4">
+                <h4 className="text-base font-medium text-stone-900">
+                  Ready to Meet Our Team?
+                </h4>
+                <p className="text-xs text-stone-600 leading-relaxed font-light">
+                  Our principal banking consultants are available for confidential consultations in Sydney, Melbourne, or via video conference.
                 </p>
-                <div className="md:col-span-4 flex justify-end">
-                  <Link
-                    href="/contact"
-                    className="group inline-flex items-center justify-between w-full px-5 py-3.5 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-mono uppercase tracking-widest transition-all"
-                  >
-                    <span>Connect With Desk</span>
-                    <ArrowRight className="w-4 h-4 text-sky-400 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-between w-full px-5 py-3.5 bg-stone-900 hover:bg-stone-800 text-white text-xs font-medium rounded-xl transition-all shadow-sm"
+                >
+                  <span>Connect With Our Team</span>
+                  <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
+                </Link>
               </div>
             </div>
 
@@ -86,77 +83,75 @@ export default function LocationPage() {
         </div>
       </section>
 
-      {/* 3. MAP & FACILITY LEDGER */}
-      <section className="w-full py-16 lg:py-24 border-b border-neutral-200 bg-neutral-50/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 3. MAP & OFFICE REGISTERS */}
+      <section className="w-full py-16 lg:py-24 border-b border-stone-200 bg-stone-50/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            {/* Left Ledger Information */}
+            {/* Left Column: Office Information */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="p-8 border border-neutral-200 bg-white space-y-6">
+              
+              <div className="p-8 rounded-3xl border border-stone-200 bg-white shadow-sm space-y-6">
                 <div>
-                  <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 block mb-2">
-                    FACILITY REGISTER
+                  <span className="text-xs uppercase tracking-wider font-semibold text-[#0B99D9] block mb-1">
+                    Australian Headquarters
                   </span>
-                  <h3 className="text-2xl font-light text-neutral-950 tracking-tight">
-                    QODES Systems Pty Ltd
+                  <h3 className="text-2xl font-normal text-stone-900 tracking-tight">
+                    Qodes Systems Pty Ltd
                   </h3>
-                  <p className="text-xs font-mono text-neutral-500 mt-1 uppercase tracking-wider">
-                    Australian Enterprise Technology Advisory
+                  <p className="text-xs text-stone-500 mt-1">
+                    Enterprise Core Banking &amp; SAP Consulting
                   </p>
                 </div>
 
-                <div className="space-y-4 font-mono text-xs pt-6 border-t border-neutral-200">
-                  <div className="py-2 border-b border-neutral-100 flex items-start justify-between gap-4">
-                    <span className="text-neutral-400 uppercase tracking-widest">ADDRESS:</span>
-                    <span className="text-neutral-900 font-semibold text-right">{address}</span>
+                <div className="space-y-4 text-sm pt-6 border-t border-stone-100">
+                  <div className="flex items-start gap-3 text-stone-700">
+                    <MapPin className="w-4 h-4 text-[#0B99D9] flex-shrink-0 mt-0.5" />
+                    <span>{address}</span>
                   </div>
 
-                  <div className="py-2 border-b border-neutral-100 flex items-start justify-between gap-4">
-                    <span className="text-neutral-400 uppercase tracking-widest">TELEPHONE:</span>
-                    <a href={`tel:${phone.replace(/\s+/g, '')}`} className="text-neutral-900 font-semibold hover:text-sky-700 transition-colors">
+                  <div className="flex items-start gap-3 text-stone-700">
+                    <Phone className="w-4 h-4 text-[#0B99D9] flex-shrink-0 mt-0.5" />
+                    <a href={`tel:${phone.replace(/\s+/g, '')}`} className="hover:text-[#0B99D9] transition-colors">
                       {phone}
                     </a>
                   </div>
 
-                  <div className="py-2 border-b border-neutral-100 flex items-start justify-between gap-4">
-                    <span className="text-neutral-400 uppercase tracking-widest">INQUIRIES:</span>
-                    <a href={`mailto:${email}`} className="text-sky-700 hover:text-sky-900 font-semibold">
+                  <div className="flex items-start gap-3 text-stone-700">
+                    <Mail className="w-4 h-4 text-[#0B99D9] flex-shrink-0 mt-0.5" />
+                    <a href={`mailto:${email}`} className="hover:text-[#0B99D9] transition-colors">
                       {email}
                     </a>
                   </div>
 
-                  <div className="py-2 border-b border-neutral-100 flex items-start justify-between gap-4">
-                    <span className="text-neutral-400 uppercase tracking-widest">HOURS:</span>
-                    <span className="text-neutral-800 text-right">{hours}</span>
+                  <div className="flex items-start gap-3 text-stone-700">
+                    <Clock className="w-4 h-4 text-[#0B99D9] flex-shrink-0 mt-0.5" />
+                    <span>{hours}</span>
                   </div>
                 </div>
 
-                <div className="pt-4 flex items-center gap-2 text-xs font-mono text-emerald-800">
-                  <CornerDownRight className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>APRA CPS 234 &bull; ZERO-TRUST FACILITY PROTOCOLS</span>
+                <div className="pt-4 border-t border-stone-100 flex items-center gap-2 text-xs text-emerald-800 font-medium">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>APRA CPS 234 &bull; Zero-Trust Protocol Compliant</span>
                 </div>
               </div>
 
-              {/* Delivery Hub Note */}
-              <div className="p-6 border border-neutral-200 bg-white font-mono text-xs text-neutral-600 space-y-2">
-                <span className="text-[10px] uppercase tracking-widest text-neutral-400 block mb-1">
-                  DISTRIBUTED DEPLOYMENT MODEL
+              {/* India Delivery Center Card */}
+              <div className="p-6 rounded-3xl border border-stone-200 bg-white shadow-sm space-y-2">
+                <span className="text-xs uppercase tracking-wider font-semibold text-[#0B99D9] block mb-1">
+                  India Delivery Centers
                 </span>
-                <p className="font-sans text-sm text-neutral-700 font-light leading-relaxed">
-                  With our Australian headquarters and dedicated delivery centers in India, QODES maintains specialized engineering squads to provide round-the-clock implementation, cutover support, and 24/7 Application Management Services (AMS).
+                <p className="text-sm text-stone-600 font-light leading-relaxed">
+                  Specialized engineering squads providing round-the-clock technical delivery, SAP ERP implementation, cutover support, and 24/7 Application Management (AMS).
                 </p>
               </div>
+
             </div>
 
-            {/* Right Map Plate */}
+            {/* Right Column: Map Plate */}
             <div className="lg:col-span-7">
-              <div className="border border-neutral-200 bg-neutral-900 p-2 overflow-hidden h-[540px]">
+              <div className="rounded-3xl border border-stone-200 overflow-hidden shadow-xl bg-stone-100 h-[520px]">
                 <Map />
-              </div>
-              <div className="pt-3 flex items-center justify-between font-mono text-[11px] text-neutral-400">
-                <span>FIG 1.0 &mdash; GEOSPATIAL RADAR TELEMETRY</span>
-                <span>AUSTRALIAN HUB</span>
               </div>
             </div>
 
@@ -164,30 +159,27 @@ export default function LocationPage() {
         </div>
       </section>
 
-      {/* 4. OBSIDIAN ADVISORY CTA */}
-      <section className="w-full bg-[#0A0F1D] text-white py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-8 space-y-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-sky-400 block">
-                02 // DIRECT ADVISORY BRIEFING
-              </span>
-              <h3 className="text-3xl sm:text-4xl font-light text-white tracking-tight">
-                Schedule an In-Person or Encrypted Briefing
-              </h3>
-              <p className="text-neutral-400 text-base sm:text-lg font-light leading-relaxed max-w-2xl">
-                Our principal architects are available for confidential discussions in Sydney, Melbourne, or via encrypted video conference.
-              </p>
-            </div>
-            <div className="lg:col-span-4 flex justify-end">
-              <Link
-                href="/contact"
-                className="group flex items-center justify-between w-full px-6 py-4 bg-white text-neutral-950 font-mono text-xs uppercase tracking-widest hover:bg-neutral-100 transition-all"
-              >
-                <span>Initiate Contact</span>
-                <ArrowRight className="w-4 h-4 text-sky-600 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
+      {/* 4. EXECUTIVE CTA BANNER - BRAND BLUE FEATURE SECTION */}
+      <section className="w-full bg-[#0B99D9] py-24 text-center text-white relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-8 space-y-6 relative z-10">
+          <p className="text-xs uppercase tracking-[0.25em] font-semibold text-sky-100">
+            Direct Consultation
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
+            Schedule an In-Person or Video Consultation
+          </h2>
+          <p className="text-sky-50 text-base sm:text-lg leading-relaxed font-light max-w-2xl mx-auto">
+            Our principal core banking and SAP architects across Australia and India are available for confidential discussions.
+          </p>
+          <div className="pt-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-white hover:bg-sky-50 text-stone-950 font-medium text-sm transition-all shadow-lg hover:shadow-xl"
+            >
+              <span>Initiate Contact</span>
+              <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
+            </Link>
           </div>
         </div>
       </section>
