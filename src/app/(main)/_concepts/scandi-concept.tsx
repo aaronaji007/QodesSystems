@@ -83,21 +83,7 @@ export const ScandiConcept = () => {
 
   return (
     <div className="w-full bg-white text-stone-900 font-sans selection:bg-[#0B99D9]/20">
-      
-      {/* 1. STUDIO HEADER */}
-      <div className="border-b border-stone-200/70 px-4 sm:px-8 py-3.5 text-xs text-stone-600 flex flex-wrap items-center justify-between gap-4 font-normal bg-stone-50/50">
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-[#0B99D9]"></span>
-          <span>Qodes Systems &bull; Enterprise Banking &amp; SAP Technology</span>
-          <span className="text-stone-300">/</span>
-          <span>Australia &amp; India Operations</span>
-        </div>
-        <div className="text-stone-500 font-medium">
-          Melbourne &bull; Sydney &bull; Bangalore &bull; India
-        </div>
-      </div>
-
-      {/* 2. AIRY EXECUTIVE HERO */}
+      {/* 1. AIRY EXECUTIVE HERO */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 pt-16 pb-20 lg:pt-24 lg:pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
