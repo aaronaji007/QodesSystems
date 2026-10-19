@@ -1,112 +1,87 @@
-import Image from "next/image";
+"use client";
+
 import React from "react";
+import ServiceDetailView from "@/components/global/service-detail-view";
+import { Code2, ShieldAlert, CheckCircle2 } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
-const SourceCodeReviewPage = () => {
-  return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start gap-0">
-      <div className="w-full bg-secondary flex items-center justify-start py-4 px-12">
-        <p className="text-start capitalize text-2xl text-white">
-          Source Code review
-        </p>
-      </div>
-      <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
-          }
-          alt="img"
-          className="w-full lg:w-[45%] h-[300px] object-full"
-          quality={100}
-          unoptimized
-          draggable={false}
-          width={0}
-          height={0}
-        />
-        <div className="flex-1 h-full flex flex-col items-start justify-center pt-8 gap-4">
-          <p className="text-wrap text-black text-[17px] leading-6">
-            <span className="text-secondary"> QODES Systems </span> provides
-            customized secure code review services to help you identify and fix
-            security vulnerabilities in your application at the development
-            stage. A number of security loopholes in both web and mobile apps
-            originate right when the code is being written and developers either
-            ignore or are unaware of secure coding practices. A secure code
-            review is perhaps a better investment of your time and resources
-            than penetration testing is and can help you fix basic flaws when it
-            is still quick and easy to do so, and before any major damage has
-            been done. While a number of app development companies use automated
-            solutions to scan their code, these tools are often not adequate to
-            detect and address all security issues in application code.
-          </p>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            Our code review team has years of experience both creating
-            applications and conducting secure code reviews. We use a
-            combination of automated and manual reviews to find and suggest
-            fixes for coding errors that may eventually lead to serious security
-            issues.
-          </p>
-        </div>
-      </div>
-      <div className="w-[90%] flex flex-col items-start justify-center gap-4 pt-2 pb-4">
-        <div className="w-full flex flex-col items-start justify-center gap-2">
-          <h2 className="uppercase text-secondary font-bold underline">
-            OUR PROCESS
-          </h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            <span className="text-secondary"> QODES Systems </span> review
-            methods are designed to inspect the loops in your application code.
-            Thus, no compromises are made while deployment of the application.
-          </p>
-        </div>
-        <p className="text-wrap text-black text-[17px] leading-6">
-          Our reviewers are expert in securing crucial data storage and suggest
-          solutions for your coders that has more detailed checks to find all
-          instances of common vulnerabilities.
-        </p>
-        <div className="w-full flex flex-col items-start justify-center gap-2">
-          <h2 className="uppercase text-secondary">Application Logic</h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            We will start by reviewing the coding practices and guidelines you
-            follow, and suggest modifications if necessary. Our reviewers will
-            then meet your development team to understand the application under
-            development, focusing on its security design and architecture.
-          </p>
-        </div>
-        <div className="w-full flex flex-col items-start justify-center gap-2">
-          <h2 className="uppercase text-secondary">Code Review</h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            The next step is the actual deep dive into the application code to
-            carefully scan the security-specific parts of it. These include
-            functions that handle user authentication, session management, and
-            validation of data. We also look for poor coding techniques that may
-            make your application more vulnerable to attacks.
-          </p>
-        </div>
-        <div className="w-full flex flex-col items-start justify-center gap-2">
-          <h2 className="uppercase text-secondary">Open-Source Analysis</h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            If you are using third-party frameworks and libraries to develop
-            your app, we will look at these frameworks and try to identify any
-            security issues that they may introduce. With their years of
-            experience reviewing code for vulnerabilities, our reviewers can
-            quickly identify common flaws found in the most popular third-party
-            frameworks, and help you plan and implement workarounds.
-          </p>
-        </div>
-        <div className="w-full flex flex-col items-start justify-center gap-2">
-          <h2 className="uppercase text-secondary">Review Report</h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            The final step in the review process is the preparation of a
-            comprehensive source code review report detailing all the
-            vulnerabilities that were identified during the process, and the
-            remediation steps to fix these flaws. In addition to these, the
-            report will include an analysis of your coding practices and
-            suggestions to improve or modify these with a focus on cyber defense
-            and security.
-          </p>
-        </div>
-      </div>
-    </div>
+export default function SourceCodeReviewPage() {
+  const { getContent } = useContent();
+
+  const imageUrl = getContent(
+    "img_source_code_review",
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
   );
-};
 
-export default SourceCodeReviewPage;
+  return (
+    <ServiceDetailView
+      category="Cybersecurity & Assurance"
+      title="Secure Source Code Security Review (SAST)"
+      subtitle="In-depth manual and automated static application security analysis identifying architectural flaws, injection vulnerabilities, and business logic bugs."
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Security & Assurance", href: "/#services" },
+        { label: "Source Code Review" },
+      ]}
+      leadParagraphs={[
+        "QODES Systems provides customized secure source code reviews to identify and remediate security vulnerabilities at the earliest stages of the software development lifecycle (SDLC).",
+        "The majority of critical vulnerabilities in web portals, mobile banking clients, and financial microservices originate during initial code authoring. A rigorous secure code review catches subtle design oversights, authorization bypasses, and state-machine flaws that automated vulnerability scanners cannot perceive.",
+        "Our elite code review team combines sophisticated Static Application Security Testing (SAST) with deep line-by-line manual code analysis across Java, Kotlin, Swift, TypeScript, Go, C#, and Python banking codebases."
+      ]}
+      imageUrl={imageUrl}
+      imageAlt="Secure Source Code Review and Static Analysis"
+      badgeText="Secure SDLC · Manual & Automated SAST"
+      keyBenefits={[
+        "Catch critical flaws before code is compiled or deployed to production",
+        "Uncover complex business logic bypasses invisible to black-box scanners",
+        "Verify cryptographic implementations, secret handling, and entropy",
+        "Actionable code-level diffs and refactoring recommendations",
+        "Direct compliance evidence for APRA CPS 234 and PCI-DSS Requirement 6",
+        "Developer security training and secure coding standard enablement"
+      ]}
+      pillars={[
+        {
+          title: "Deep Manual Inspection",
+          description: "Senior security researchers review business-critical workflows, permission decorators, and financial calculation functions line by line.",
+          icon: <Code2 className="w-5 h-5" />,
+        },
+        {
+          title: "Business Logic Flaw Discovery",
+          description: "Detecting race conditions, negative amount transfers, account tampering, and parameter pollution that automated tools miss.",
+          icon: <ShieldAlert className="w-5 h-5" />,
+        },
+        {
+          title: "Cryptographic Verification",
+          description: "Auditing key generation, salt uniqueness, initialization vectors, secure random sources, and token expiration mechanics.",
+          icon: <CheckCircle2 className="w-5 h-5" />,
+        },
+      ]}
+      modules={[
+        {
+          title: "Code Review Methodology & Coverage",
+          subtitle: "Our Audit Lifecycle",
+          items: [
+            "Architecture & Threat Modeling: Understanding data flow, trust boundaries, and asset stores",
+            "Automated SAST Pipeline Execution: Broad-spectrum scanning using enterprise static analyzers",
+            "Manual In-Depth Code Inspection: Focused verification of authentication, authorization, and cryptographic calls",
+            "Third-Party Dependency & SCA Auditing: Checking open-source libraries for known vulnerabilities (CVEs)",
+            "Remediation Guidance & Re-Review: Working with engineering squads to verify and close identified bugs",
+          ],
+        },
+        {
+          title: "Key Vulnerability Classes Audited",
+          subtitle: "Comprehensive Defect Coverage",
+          items: [
+            "Injection Vulnerabilities (SQLi, NoSQLi, Command Injection, LDAP Injection)",
+            "Broken Object Level & Function Level Authorization (BOLA / BFLA)",
+            "Insecure Cryptographic Storage and Hardcoded Secrets / API Tokens",
+            "Concurrency Flaws, Time-of-Check to Time-of-Use (TOCTOU) Race Conditions",
+            "Cross-Site Scripting (XSS), CSRF, and Server-Side Request Forgery (SSRF)",
+          ],
+        },
+      ]}
+      ctaHeadline="Fortify Your Software at the Source Code Level"
+      ctaSubtext="Connect with our principal application security reviewers to scope a source code audit or integrate automated SAST into your release gates."
+    />
+  );
+}

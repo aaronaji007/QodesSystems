@@ -1,47 +1,105 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
+import ServiceDetailView from "@/components/global/service-detail-view";
+import { Cpu, ShieldCheck, Zap, Database } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
-const ProprietaryQodesCoreBankingSystem = () => {
+export default function ProprietaryQodesCoreBankingSystem() {
+  const { getContent } = useContent();
+
+  const imageUrl = getContent(
+    "img_qodes_cbs",
+    "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop"
+  );
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start gap-0">
-      <div className="w-full bg-secondary flex items-center justify-start py-4 px-12">
-        <p className="text-start capitalize text-2xl text-white">
-          Qodes Core Banking System
-        </p>
-      </div>
-      <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          alt="img"
-          className="w-full lg:w-[35%] h-[275px] object-full"
-          quality={100}
-          unoptimized
-          draggable={false}
-          width={0}
-          height={0}
-        />
-        <div className="flex-1 h-full flex flex-col items-start justify-center pt-4 gap-3">
-          <h2 className="font-semibold">
-          Qodes Core Banking System
-          </h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-          Our AI-powered Core Banking System (CBS) has been envisioned and meticulously engineered by an expert team with over two decades of proven success in delivering innovative solutions to large organizations. Built with cutting-edge technology, our CBS is a robust and comprehensive platform designed to streamline and centralize the operations of financial institutions.
-          </p>
-          <p className="text-wrap text-black text-[17px] leading-6">
-          By integrating a wide range of banking functions into a unified system, QODES CBS enhances operational efficiency, strengthens customer service, and ensures regulatory compliance. This seamless integration empowers financial institutions to adapt quickly to market changes and optimize their internal processes for better performance.
-          </p>
-          <p className="text-wrap text-black text-[17px] leading-6">
-          QODES CBS Solution provides financial institutions with a unified, efficient, and secure platform to manage their operations, deliver exceptional customer experiences, and achieve their strategic objectives. Our platform is designed to evolve with your business, ensuring that you remain at the forefront of innovation and competitive advantage.
-          </p>
-        </div>
-      </div>
-    </div>
+    <ServiceDetailView
+      category="Core Banking Systems"
+      title="Qodes AI-Engineered Core Banking System"
+      subtitle="Autonomous, microservices-driven core banking platform engineered by enterprise veterans with two decades of Tier-1 banking transformation track record."
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Solutions", href: "/#services" },
+        { label: "Qodes Core Banking System" },
+      ]}
+      leadParagraphs={[
+        "Our AI-powered Core Banking System (CBS) has been envisioned and meticulously engineered by an expert leadership team with over two decades of proven success delivering complex transformations to large financial institutions.",
+        "Built on an agile, cloud-native microservices architecture, QODES CBS streamlines and centralizes the operations of retail and commercial banks, building societies, and non-banking financial institutions (NBFCs). By integrating modern ledger calculation with real-time analytics, our platform eliminates legacy batch-window bottlenecks.",
+        "From high-throughput deposit accounts and automated loan underwriting to multi-currency clearing and APRA regulatory compliance, QODES CBS provides financial enterprises with a future-proof, secure foundation designed for 99.999% operational continuity."
+      ]}
+      imageUrl={imageUrl}
+      imageAlt="Qodes AI Core Banking Platform Architecture"
+      badgeText="AI-Orchestrated CBS · 20+ Years Heritage"
+      keyBenefits={[
+        "Sub-second real-time transaction processing & clearing",
+        "Cloud-native microservices with zero-downtime rolling upgrades",
+        "Native ISO 20022 and NPP Australia payments integration",
+        "Autonomous reconciliation with AI-assisted anomaly detection",
+        "APRA CPS 234 and ISO 27001 institutional governance compliance",
+        "Comprehensive Open Banking CDR APIs and secure SDKs"
+      ]}
+      pillars={[
+        {
+          title: "Autonomous Transaction Engine",
+          description: "High-concurrency ledger core capable of processing tens of thousands of financial operations per second with ACID compliance and zero data drift.",
+          icon: <Zap className="w-5 h-5" />,
+        },
+        {
+          title: "Microservices Architecture",
+          description: "Decoupled domain services for deposits, lending, FX, and regulatory auditing that scale independently without impacting core availability.",
+          icon: <Cpu className="w-5 h-5" />,
+        },
+        {
+          title: "Institutional Cyber Assurance",
+          description: "End-to-end data encryption in transit and at rest, cryptographic transaction signing, and built-in alignment with Australian APRA CPS 234 mandates.",
+          icon: <ShieldCheck className="w-5 h-5" />,
+        },
+      ]}
+      modules={[
+        {
+          title: "Autonomous General Ledger & Real-Time Balancing",
+          subtitle: "Core Accounting Engine",
+          items: [
+            "Continuous multi-currency balance calculation without overnight batch locks",
+            "Automated chart of accounts with dynamic sub-ledger hierarchy",
+            "Real-time inter-branch and inter-bank clearing reconciliation",
+            "Comprehensive audit trail with cryptographic tamper-evident logging",
+          ],
+        },
+        {
+          title: "Retail & Commercial Deposit Management",
+          subtitle: "Customer Account Services",
+          items: [
+            "Flexible interest calculation engines (tiered, compound, fixed, Islamic banking)",
+            "Automated fee structures, overdraft facilities, and dormant account handling",
+            "Instant account provisioning via Open Banking APIs",
+            "Real-time fraud scoring on outgoing payments and transfers",
+          ],
+        },
+        {
+          title: "Lending & Credit Lifecycle Origination",
+          subtitle: "Credit Engine",
+          items: [
+            "Configurable loan product catalog for mortgages, personal, and SME credit",
+            "Automated credit risk assessment and scorecard calculation",
+            "Dynamic repayment schedule adjustments and early settlement recalculation",
+            "Non-performing loan (NPL) tracking and automated delinquency staging",
+          ],
+        },
+        {
+          title: "Regulatory Reporting & Open Banking Hub",
+          subtitle: "Institutional Compliance",
+          items: [
+            "Automated APRA data feed generation (EFS, ARF, CPS 234)",
+            "Consumer Data Right (CDR) compliant REST endpoints with OAuth2 / FAPI",
+            "SWIFT Alliance and NPP Australia direct connector modules",
+            "Real-time AML/CTF transaction monitoring hooks",
+          ],
+        },
+      ]}
+      ctaHeadline="Modernize Your Core Banking With Absolute Confidence"
+      ctaSubtext="Speak directly with our principal banking architects in Melbourne. We offer confidential architectural assessments, migration gap analyses, and live platform demonstrations."
+    />
   );
-};
-
-export default ProprietaryQodesCoreBankingSystem;
+}

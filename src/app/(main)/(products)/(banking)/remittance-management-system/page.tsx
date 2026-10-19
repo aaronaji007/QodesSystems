@@ -1,110 +1,84 @@
-import Image from "next/image";
+"use client";
+
 import React from "react";
+import ServiceDetailView from "@/components/global/service-detail-view";
+import { Send, Globe, ShieldCheck, Zap } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
-const RemittanceManagementSystemPage = () => {
-  return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start gap-0">
-      <div className="w-full bg-secondary flex items-center justify-start py-4 px-12">
-        <p className="text-start capitalize text-2xl text-white">
-          remittance management system
-        </p>
-      </div>
-      <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop"
-          }
-          alt="img"
-          className="w-full lg:w-[35%] h-[275px] object-full"
-          quality={100}
-          unoptimized
-          draggable={false}
-          width={0}
-          height={0}
-        />
-        <div className="flex-1 h-full flex flex-col items-start justify-center pt-4 gap-3">
-          <p className="text-wrap text-black text-[17px] leading-6">
-            <span className="text-secondary">QODES Systems </span>
-            Remittance Management System is a modernized solution that performs
-            end-to-end orchestration to any outgoing to incoming payment and
-            directs it through its designated process flow, serving as a modern
-            and comprehensive remittance processing engine. The solution
-            facilitates all types of transfers including cross-border
-            transactions between correspondent banks or financial institutions.
-          </p>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            With an open design architecture and open Application Programming
-            Interfaces (APIs) for integration with multiple third-party systems,{" "}
-            <span className="text-secondary">QODES Systems </span> opens the
-            door for banks and financial institutions to seamlessly connect to
-            and start transacting with other participants over blockchain
-            networks.
-          </p>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            It moves banks and financial institutions to a new era of real-time
-            fund transfers in a cost-effective and time-efficient manner through
-            utilizing smart payments routing.
-          </p>
+export default function RemittanceManagementSystemPage() {
+  const { getContent } = useContent();
 
-          <h2 className="uppercase text-secondary font-bold">
-            QODES SYSTEMS REMITTANCE MANAGEMENT SYSTEM – ADVANTAGES
-          </h2>
-        </div>
-      </div>
-      <div className="w-[90%] flex flex-col items-start justify-center gap-4 pt-2 pb-4">
-        <p className="text-base text-wrap text-black leading-6">
-          Our system provides financial institutions with advantageous
-          capabilities to:
-        </p>
-        <ol className="text-base leading-7 list-disc pl-4">
-          <li>Interact and transact in new, international markets</li>
-          <li>
-            Enhance operations efficiency as PS-RMS is a single platform that
-            integrates with all core banking and third-party systems
-          </li>
-          <li>
-            Offer customers efficient and advanced remittance services at very
-            competitive cost
-          </li>
-          <li>
-            Provide expedited remittance response for customers thereby
-            enhancing customer satisfaction
-          </li>
-          <li>
-            Define customized remittance routing rules and charge schemes with
-            correspondent banks
-          </li>
-        </ol>
-        <h2 className="uppercase text-secondary font-bold">
-          QODES SYSTEMS REMITTANCE MANAGEMENT SYSTEM – FEATURES
-        </h2>
-        <p className="text-base text-wrap leading-6">
-          Our Remittance Management System comprises inherent value-added
-          features including:
-        </p>
-        <ol className="text-base leading-7 list-disc pl-4">
-          <li>Smart payments routing</li>
-          <li>Correspondent Service-Level Agreement (SLA) management</li>
-          <li>Customer segments definitions and management</li>
-          <li>Fees and charges management</li>
-          <li>
-            Foreign exchange rates management and synchronization with back-end
-            systems
-          </li>
-          <li>
-            Compliance with Anti-Money Laundering (AML), Counter-Terrorism
-            Financing (CTF) and sanctioned-list screening regulatory
-            requirements
-          </li>
-          <li>
-            Transfer Simulation with full-fledged details of the payments path,
-            fees, FX rates and more, before proceeding with initiating a
-            remittance
-          </li>
-        </ol>
-      </div>
-    </div>
+  const imageUrl = getContent(
+    "img_remittance",
+    "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop"
   );
-};
 
-export default RemittanceManagementSystemPage;
+  return (
+    <ServiceDetailView
+      category="Banking Products"
+      title="International Remittance & Cross-Border Payments Hub"
+      subtitle="Modernized payment orchestration engine facilitating real-time cross-border funds transfers, multi-currency FX settlement, and SWIFT ISO 20022 compliance."
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Products", href: "/banking-products" },
+        { label: "Remittance Management System" },
+      ]}
+      leadParagraphs={[
+        "The QODES Systems Remittance Management System is an enterprise payment orchestration engine that manages the end-to-end lifecycle of incoming and outgoing domestic and international payments.",
+        "Equipped with intelligent payment routing and native support for SWIFT gpi, ISO 20022 MX messaging, and real-time payment rails, our solution connects correspondent banking partners and money transfer operators (MTOs) effortlessly.",
+        "Featuring integrated FX margin controls, automated sanctions screening (OFAC, DFAT), and real-time AML monitoring, financial institutions can expand cross-border volume safely while cutting transaction settlement costs."
+      ]}
+      imageUrl={imageUrl}
+      imageAlt="Enterprise Cross-Border Remittance and FX Management System"
+      badgeText="Payment Orchestration · SWIFT ISO 20022 Aligned"
+      keyBenefits={[
+        "Sub-second intelligent payment routing across lowest-cost corridors",
+        "Full support for SWIFT gpi end-to-end tracking and status tracking",
+        "Real-time FX rate feeds with dynamic spread and margin configuration",
+        "Automated sanctions and PEP screening on sender and beneficiary details",
+        "Open APIs for seamless integration with mobile wallets and third-party MTOs",
+        "Automated nostro/vostro account reconciliation and balance monitoring"
+      ]}
+      pillars={[
+        {
+          title: "Intelligent Payment Routing",
+          description: "Dynamically select the optimal clearing route based on transaction urgency, destination country, counterparty fees, and liquidity limits.",
+          icon: <Zap className="w-5 h-5" />,
+        },
+        {
+          title: "Global FX Engine",
+          description: "Real-time currency conversion with multi-tiered spreads, guaranteed rates with lock-in windows, and automated treasury hedging hooks.",
+          icon: <Globe className="w-5 h-5" />,
+        },
+        {
+          title: "Sanctions & Compliance Filter",
+          description: "Real-time fuzzy-logic screening against global watchlists (UN, OFAC, AUSTRAC, EU) preventing illegal money movement before release.",
+          icon: <ShieldCheck className="w-5 h-5" />,
+        },
+      ]}
+      modules={[
+        {
+          title: "Payment Processing & Settlement Engines",
+          subtitle: "Orchestration Capabilities",
+          items: [
+            "Outward Remittance: Automated debit from customer account, FX conversion, and MT103 / pacs.008 generation",
+            "Inward Remittance: Automated parsing of incoming SWIFT messages and instant credit to beneficiary account",
+            "Cash Pickup & Agency Network integrations for cash-to-account and account-to-cash corridors",
+            "Multi-channel initiation from Mobile App, Internet Banking, and Branch Teller counters",
+          ],
+        },
+        {
+          title: "Regulatory Screening & Financial Crime Prevention",
+          subtitle: "AUSTRAC & International Compliance",
+          items: [
+            "Mandatory International Funds Transfer Instruction (IFTI) report generation for AUSTRAC",
+            "Automated suspicious transaction reporting (SMR) based on behavioral anomalies and velocity triggers",
+            "Cryptographic tamper-evident audit logs of every routing decision and operator override",
+          ],
+        },
+      ]}
+      ctaHeadline="Modernize Your Cross-Border Remittance Operations"
+      ctaSubtext="Connect with our payments architecture team to explore how QODES Remittance Management System accelerates cross-border clearing."
+    />
+  );
+}

@@ -1,175 +1,105 @@
 "use client";
 
-import { Minus, Plus } from "lucide-react";
-import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
+import ServiceDetailView from "@/components/global/service-detail-view";
+import { Zap, ShieldCheck, Layers, RefreshCw } from "lucide-react";
+import { useContent } from "@/context/content-context";
 
-type contentType = {
-  appMaintenanceServices: boolean;
-  supportLevelRole: boolean;
-};
+export default function TemenosT24CoreBanking() {
+  const { getContent } = useContent();
 
-const TemenosT24CoreBanking = () => {
-  const [isContentHidden, setIsContentHidden] = useState<contentType>({
-    appMaintenanceServices: false,
-    supportLevelRole: false,
-  });
-
-  const handleToggleContent = (key: keyof contentType, value: boolean) => {
-    setIsContentHidden((prevValue) => ({
-      ...prevValue,
-      [key]: value,
-    }));
-  };
+  const imageUrl = getContent(
+    "img_temenos_t24",
+    "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop"
+  );
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start gap-0">
-      <div className="w-full bg-secondary flex items-center justify-start py-4 px-12">
-        <p className="text-start capitalize text-2xl text-white">
-          Temenos T24 Core Banking
-        </p>
-      </div>
-      <div className="w-[90%] h-full flex flex-col lg:flex-row items-stretch justify-center gap-6">
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          alt="img"
-          className="w-full lg:w-[35%] h-[275px] object-full"
-          quality={100}
-          unoptimized
-          draggable={false}
-          width={0}
-          height={0}
-        />
-        <div className="flex-1 h-full flex flex-col items-start justify-center pt-4 gap-3">
-          <h2 className="font-semibold">Temenos T24</h2>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            Transitioning from a legacy application to a Temenos product? Such
-            transformation implementations often present numerous challenges and
-            uncertainties. Achieving success requires a careful balance of
-            extensive experience and advanced technical skills.
-          </p>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            At QODES Systems, we specialize in delivering end-to-end Temenos
-            implementation services by leveraging mature practices derived from
-            our collective domain knowledge and technical expertise. Our
-            in-depth understanding of Temenos products empowers clients to
-            seamlessly adopt the system&apos;s inherent processes while ensuring
-            their unique business requirements are met without compromise.
-          </p>
-          <p className="text-wrap text-black text-[17px] leading-6">
-            With QODES Systems as your partner, you can navigate the
-            complexities of transformation with confidence, achieving
-            streamlined operations and maximizing the value of your investment
-            in Temenos solutions.
-          </p>
-          <div className="w-full flex items-center justify-end py-4">
-            <div className="relative w-[85%] flex flex-col items-start justify-center gap-6">
-              <div className="w-full flex flex-col items-start justify-center gap-2">
-                <div
-                  className="flex flex-row items-center justify-center gap-2 cursor-pointer"
-                  onClick={() =>
-                    handleToggleContent(
-                      "appMaintenanceServices",
-                      !isContentHidden.appMaintenanceServices
-                    )
-                  }
-                >
-                  <div className="bg-black text-white">
-                    {!isContentHidden["appMaintenanceServices"] ? (
-                      <Plus className="p-1" />
-                    ) : (
-                      <Minus className="p-1" />
-                    )}
-                  </div>
-                  <p className="text-black capitalize">
-                    Technology Migration Services and Upgrade
-                  </p>
-                </div>
-                <div className="bg-title w-full h-[0.5px] my-2"></div>
-                {isContentHidden["appMaintenanceServices"] && (
-                  <div className="py-4 flex flex-col items-start justify-center gap-6">
-                    <p className="text-wrap text-black text-[17px] leading-6">
-                      In the fast-evolving banking landscape, applications
-                      require regular upgrades to empower financial institutions
-                      with new functionalities, meet regulatory requirements,
-                      respond to market demands, stay aligned with technological
-                      advancements, and enhance security while reducing
-                      operational costs.
-                    </p>
-                    <p className="text-wrap text-black text-[17px] leading-6">
-                      QODES Systems provides seamless Upgrade and Technology
-                      Migration services, ensuring that your applications remain
-                      future-ready. Regular upgrades of Temenos applications
-                      enable banks to address both present and future needs
-                      effectively, offering enhanced customer experiences,
-                      improved operational efficiency, and the agility to adapt
-                      to an ever-changing industry landscape.
-                    </p>
-                    <p className="text-wrap text-black text-[17px] leading-6">
-                      With our expertise, banks can implement these upgrades
-                      smoothly, minimizing downtime, mitigating risks, and
-                      ensuring compliance with the latest standards and trends.
-                      Let QODES Systems help you future-proof your banking
-                      systems with precision and confidence.
-                    </p>
-                  </div>
-                )}
-              </div>
-              <div className="w-full flex flex-col items-start justify-center gap-2">
-                <div
-                  className="flex flex-row items-center justify-center gap-2 cursor-pointer"
-                  onClick={() =>
-                    handleToggleContent(
-                      "supportLevelRole",
-                      !isContentHidden.supportLevelRole
-                    )
-                  }
-                >
-                  <div className="bg-black text-white">
-                    {!isContentHidden["supportLevelRole"] ? (
-                      <Plus className="p-1" />
-                    ) : (
-                      <Minus className="p-1" />
-                    )}
-                  </div>
-                  <p className="text-black capitalize">
-                    Model Bank Implementation
-                  </p>
-                </div>
-                <div className="bg-title w-full h-[0.5px] my-2"></div>
-                {isContentHidden["supportLevelRole"] && (
-                  <div className="py-4 flex flex-col items-start justify-center gap-6">
-                    <p className="text-wrap text-black text-[17px] leading-6">
-                      Looking to enter the market swiftly and efficiently? The
-                      Temenos Model Bank offers a ready-to-deploy core banking
-                      suite, equipped with pre-configured robust processes and
-                      best practices to accelerate your implementation journey.
-                    </p>
-                    <p className="text-wrap text-black text-[17px] leading-6">
-                      At QODES Systems, we specialize in helping clients
-                      leverage the power of Temenos Model Bank to achieve rapid
-                      deployment and operational readiness. This proven solution
-                      allows you to &quot;hit the ground running&quot; with a
-                      market-leading core banking application, ensuring a smooth
-                      alignment with your business objectives and helping you
-                      achieve your ROI targets in record time.
-                    </p>
-                    <p className="text-wrap text-black text-[17px] leading-6">
-                      Partner with QODES Systems to unlock the full potential of
-                      Temenos Model Bank and establish a solid foundation for
-                      success in today&apos;s competitive banking landscape.
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ServiceDetailView
+      category="Core Banking Systems"
+      title="Temenos T24 Upgrades & Migration Practice"
+      subtitle="Enterprise Temenos T24 / Transact implementation, seamless pack upgrades, Model Bank deployments, and 24/7 mission-critical application management."
+      breadcrumbs={[
+        { label: "Home", href: "/" },
+        { label: "Solutions", href: "/#services" },
+        { label: "Temenos T24 Core Banking" },
+      ]}
+      leadParagraphs={[
+        "Transitioning from a legacy core platform or upgrading your existing Temenos T24 environment? Such mission-critical transformations present profound operational and regulatory challenges that demand absolute delivery precision.",
+        "At QODES Systems, we specialize in delivering end-to-end Temenos implementation and upgrade services by leveraging mature engineering practices derived from our collective two decades of core banking domain mastery. Our architects empower banks to adopt Temenos standard processes while tailoring modules to unique institutional needs.",
+        "With QODES Systems as your delivery partner, you navigate release upgrades, API integrations, and cloud migrations with confidence, achieving streamlined operations, zero unplanned downtime, and maximizing ROI from your Temenos investment."
+      ]}
+      imageUrl={imageUrl}
+      imageAlt="Temenos T24 Core Banking Upgrades & Migration"
+      badgeText="Temenos Engineering · Zero Downtime"
+      keyBenefits={[
+        "Zero-downtime cutover and technology migration methodologies",
+        "Pre-configured Temenos Model Bank rapid rollouts",
+        "Comprehensive release and pack upgrade validation pipelines",
+        "End-to-end multi-tier Application Maintenance Services (AMS)",
+        "APRA CPS 234 cybersecurity alignment and compliance audits",
+        "Seamless Open Banking and payment rails (SWIFT / NPP) connectivity"
+      ]}
+      pillars={[
+        {
+          title: "Upgrade & Migration Engineering",
+          description: "Proven automation frameworks for seamless release jumps, schema synchronizations, and data integrity verification without ledger locks.",
+          icon: <RefreshCw className="w-5 h-5" />,
+        },
+        {
+          title: "Temenos Model Bank Speed",
+          description: "Rapid deployment methodologies utilizing pre-configured workflows and Australian banking compliance templates to achieve ROI in record time.",
+          icon: <Zap className="w-5 h-5" />,
+        },
+        {
+          title: "Enterprise Reliability & AMS",
+          description: "Round-the-clock L1-L3 application support, performance tuning, and database optimization tailored for high-volume banking institutions.",
+          icon: <ShieldCheck className="w-5 h-5" />,
+        },
+      ]}
+      modules={[
+        {
+          title: "Technology Migration & Version Upgrade Services",
+          subtitle: "Legacy-to-Temenos & Release Jumps",
+          items: [
+            "Comprehensive version upgrade path analysis (T24 to Transact / Cloud Native)",
+            "Automated regression testing frameworks for core banking calculation verification",
+            "Zero-downtime cutover planning with dry-run simulations and rollback contingencies",
+            "Regulatory compliance alignment with Australian APRA standards and NPP payment schemes",
+          ],
+        },
+        {
+          title: "Temenos Model Bank Implementation",
+          subtitle: "Accelerated Market Entry",
+          items: [
+            "Ready-to-deploy core banking suites with pre-configured banking processes",
+            "Rapid deployment reducing time-to-market for challenger banks and credit unions",
+            "Gap analysis and localization for Australian regulatory reporting",
+            "End-user enablement, role configuration, and PMO governance",
+          ],
+        },
+        {
+          title: "Application Maintenance & Support (AMS)",
+          subtitle: "Mission-Critical 24/7 SLA Assurance",
+          items: [
+            "Tier-1, Tier-2, and Tier-3 specialized core banking support desks",
+            "Continuous health monitoring, memory leak detection, and query index tuning",
+            "COB (Close of Business) batch cycle optimization and run-time reduction",
+            "Security vulnerability remediation and periodic penetration test assurance",
+          ],
+        },
+        {
+          title: "Interface & Integration Engineering",
+          subtitle: "Digital Channels & Payment Rails",
+          items: [
+            "Integration with Internet Banking, Mobile Banking, and digital onboarding channels",
+            "SWIFT Alliance, NPP Australia, and BPAY connector development",
+            "Consumer Data Right (CDR) API integration for Open Banking compliance",
+            "Event-driven architecture design using enterprise Kafka and REST web services",
+          ],
+        },
+      ]}
+      ctaHeadline="Upgrade Your Temenos Architecture with Zero Risk"
+      ctaSubtext="Connect with our certified Temenos Practice Leads to audit your existing environment, evaluate upgrade paths, or plan a Model Bank implementation."
+    />
   );
-};
-
-export default TemenosT24CoreBanking;
+}

@@ -1,92 +1,123 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { useContent } from "@/context/content-context";
 
 const AboutUsComponent = () => {
+  const { getContent } = useContent();
+
+  const heading = getContent("about_heading", "Core Banking Engineering & Technology Consulting");
+  const lead = getContent("about_lead", "Our company is a specialized consulting firm in the CORE BANKING DOMAIN, offering proven expertise across SAP Core Banking, Temenos T24 Core Banking, our proprietary Qodes Core Banking platform, and Oracle FLEXCUBE Core Banking, alongside full-lifecycle SAP ERP implementation and support.");
+  const story1 = getContent("about_story_1", "With over 20 years of experience, we provide cutting edge solutions to the banking industry across Australia and India. We understand the unique challenges faced by financial institutions in modernizing legacy architectures while keeping operations resilient.");
+  const story2 = getContent("about_story_2", "Our senior architects and delivery engineers combine deep domain banking knowledge with modern software engineering methodologies, ensuring every deployment meets rigorous institutional standards.");
+  const imageUrl = getContent("about_image_url", "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop");
+
   return (
-    // <div className="relative min-h-screen w-full flex items-center justify-center py-12 bg-transparent">
-    //   <div className="w-[80%] h-fit flex flex-col items-start justify-center gap-[4rem] z-10">
-    //     <div className="w-full flex flex-col items-start justify-center gap-4">
-    //       <div className="tracking-widest uppercase text-title text-base text-nowrap">
-    //         about us
-    //       </div>
-    //       <div className="text-5xl leading-[3.5rem] text-wrap w-full text-secondary-dark">
-    //         We&apos;re on a mission to help <br /> small-businesses succeed.
-    //       </div>
-    //     </div>
-    //     <div className="flex flex-row items-end justify-center gap-[4rem]">
-    //       <Image
-    //         src={
-    //           "https://cdn.prod.website-files.com/5fe08304881adb7d1ee1063e/5fe097dc37a20f8b668310a7_pexels-anna-shvets-3727464%207-min.jpg"
-    //         }
-    //         alt="img1"
-    //         width={0}
-    //         height={0}
-    //         className="h-[250px] w-[250px] object-cover rounded-xl"
-    //         unoptimized
-    //         quality={100}
-    //         draggable={false}
-    //       />
-    //       <Image
-    //         src={
-    //           "https://assets.website-files.com/5fe08304881adb7d1ee1063e/5fe573c9a66535e696277921_pexels-anna-shvets-3727464%202-min-p-500.png"
-    //         }
-    //         alt="img2"
-    //         width={0}
-    //         height={0}
-    //         className="h-[350px] w-[300px] object-cover mb-[3rem] rounded-xl"
-    //         unoptimized
-    //         quality={100}
-    //         draggable={false}
-    //       />
-    //       <Image
-    //         src={
-    //           "https://cdn.prod.website-files.com/5fe08304881adb7d1ee1063e/60256305a35fad1f5657fff5_image-3-compressed.jpg"
-    //         }
-    //         alt="img3"
-    //         width={0}
-    //         height={0}
-    //         className="h-[350px] w-[500px] object-cover rounded-xl"
-    //         unoptimized
-    //         quality={100}
-    //         draggable={false}
-    //       />
-    //     </div>
-    //   </div>
-    //   <div className="absolute left-0 top-0 bottom-[20%] right-[25%] bg-primary-light z-0"></div>
-    // </div>
-    <div className="min-h-fit w-full flex flex-col items-center justify-center py-2">
-      <div className="w-full bg-secondary py-4 flex items-center justify-start px-16">
-        <p className="text-start capitalize text-3xl text-white">about us</p>
-      </div>
-      <div className="w-[95%] flex flex-col lg:flex-row items-start justify-center gap-6">
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
-          }
-          alt="img"
-          width={0}
-          height={0}
-          unoptimized
-          quality={100}
-          className="w-full lg:w-[45%] h-[250px] object-fill rounded-2xl"
-        />
-        <div className="flex-1 h-full flex flex-col items-start justify-center gap-4 text-base py-2 leading-7">
-          <p className="text-wrap text-black">
-            Our company is a specialized consulting firm in the{" "}
-            <span className="font-bold"> CORE BANKING DOMAIN </span>, offering expertise in
-            <span className="font-bold"> SAP Core Banking </span>
-            and the
-            <span className="font-bold"> Temenos T24 Core Banking System. </span>
-            Additionally, we have developed proprietary,{" "}
-            <span className="font-bold"> AI-driven Core Banking Systems </span>
-            tailored to meet the unique needs of our clients. By leveraging
-            cutting-edge technology and deep industry knowledge, we empower
-            financial institutions to optimize their operations, enhance
-            customer experiences, and achieve seamless digital transformation.
-          </p>
+    <section className="w-full bg-white py-16 lg:py-24 border-b border-stone-200 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Breadcrumb */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-stone-200 text-xs text-stone-500">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#0B99D9]"></span>
+            <Link href="/" className="hover:text-stone-950 font-medium">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+            <span className="text-stone-900 font-semibold">About Us</span>
+          </div>
+          <span className="px-3 py-1 rounded-full text-xs font-medium bg-sky-50 text-[#0B99D9] border border-sky-200/60">
+            Established 2004 &bull; 20+ Years Heritage &bull; Australia &amp; India
+          </span>
+        </div>
+
+        {/* Content Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          
+          {/* Left Column: Organization Summary Card */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="rounded-3xl bg-stone-50 border border-stone-200/80 p-6 sm:p-8 space-y-4">
+              <span className="text-xs uppercase tracking-wider font-semibold text-[#0B99D9] block">
+                Company Profile
+              </span>
+              <h3 className="text-xl font-medium text-stone-900 tracking-tight">
+                Qodes Systems Pty Ltd
+              </h3>
+              <div className="pt-4 border-t border-stone-200 text-xs text-stone-600 space-y-2.5">
+                <div className="flex justify-between py-1 border-b border-stone-200/60">
+                  <span className="text-stone-400">Headquarters</span>
+                  <span className="font-medium text-stone-900">Melbourne &bull; Sydney</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-stone-200/60">
+                  <span className="text-stone-400">Delivery Centers</span>
+                  <span className="font-medium text-stone-900">India Operations</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-stone-200/60">
+                  <span className="text-stone-400">Operating Regions</span>
+                  <span className="font-medium text-stone-900">Australia &amp; India</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-stone-200/60">
+                  <span className="text-stone-400">Core Domain</span>
+                  <span className="font-medium text-stone-900">Core Banking &amp; SAP ERP</span>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span className="text-stone-400">Compliance</span>
+                  <span className="font-medium text-emerald-700">APRA CPS 234 Aligned</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Narrative & Visual */}
+          <div className="lg:col-span-8 space-y-8">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-stone-900 leading-[1.12]">
+              {heading}
+            </h1>
+
+            <div className="space-y-5 text-stone-600 text-base sm:text-lg font-light leading-relaxed">
+              <p className="font-normal text-stone-900">{lead}</p>
+              <p>{story1}</p>
+              <p>{story2}</p>
+
+              <div className="pt-6 border-t border-stone-200 flex flex-wrap gap-4">
+                <Link
+                  href="/qodes-core-banking-system"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-stone-900 text-white rounded-xl text-sm font-medium hover:bg-stone-800 transition-all shadow-sm"
+                >
+                  <span>Our CBS Platform</span>
+                  <ArrowRight className="w-4 h-4 text-[#0B99D9]" />
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-stone-200 text-stone-800 rounded-xl text-sm font-medium hover:bg-stone-50 transition-all shadow-sm"
+                >
+                  <span>Contact Our Specialists</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden shadow-xl border border-stone-200 bg-stone-100 mt-8">
+              <Image
+                src={imageUrl}
+                alt="Qodes Systems Engineering Hub"
+                fill
+                priority
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-stone-900/10" />
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-stone-200/60">
+                <p className="text-xs font-medium text-stone-800">
+                  Principal Advisory Headquarters &bull; Tier-1 Banking Delivery Architects
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
