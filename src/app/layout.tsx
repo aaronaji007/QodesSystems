@@ -17,16 +17,21 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.qodessystems.com"),
   title: "Qodes Systems | Enterprise Core Banking & IT Security Technology",
   description:
     "Qodes Systems delivers Tier-1 Core Banking Systems (SAP Banking, Temenos T24, Qodes CBS, Oracle FLEXCUBE), SAP ERP implementation & support, and cybersecurity assurance across Australia and India.",
   icons: {
     icon: [
-      { url: "/favicon.ico?v=3", sizes: "any" },
-      { url: "/images/qodes-monogram.svg?v=3", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/qodes-monogram-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/qodes-monogram-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/images/qodes-monogram.svg", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico?v=3",
-    apple: "/images/apple-touch-icon.png?v=3",
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
@@ -40,6 +45,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Qodes Systems",
+              url: "https://www.qodessystems.com",
+              logo: "https://www.qodessystems.com/images/qodes-monogram-512.png",
+              image: "https://www.qodessystems.com/images/qodes-monogram-512.png",
+              description:
+                "Tier-1 Core Banking Systems, SAP ERP implementation & support, and IT security assurance across Australia and India.",
+              sameAs: [
+                "https://www.linkedin.com/company/qodes-systems",
+                "https://x.com/qodessystems",
+              ],
+            }),
+          }}
+        />
         <ContentProvider>
           <SmoothScrollProvider>
             {children}
